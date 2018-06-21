@@ -114,8 +114,16 @@
   image-filters: agg-stack-blur(24,24);
 }
 
+#hillshade_1000 {
+   [zoom>=1][zoom<5]{
+    raster-comp-op: multiply;
+    raster-scaling: bilinear;
+    raster-opacity:0.32;
+  }
+}
+
 #hillshade_700 {
-   [zoom>=1][zoom<=8]{
+   [zoom>=5][zoom<=8]{
     raster-comp-op: multiply;
     raster-scaling: bilinear;
     raster-opacity:0.32;
@@ -217,8 +225,15 @@ Map { background-color: @water; }
 /* ADMINISTRATIVE BOUNDARIES
 /* ================================================================== */
 
+/* Remove any maritime borders. Unfortunatly this is the only way to do this*/
+#admin_maritime[admin_level='2'][zoom>1] {
+  // Water color, when on top of an hillshade image
+  line-color: rgb(163,194,223);
+  line-width:4;
+  line-opacity: 1;
+ }
 
-#admin[admin_level='2'][maritime != 'yes'][zoom>1] {
+#admin[admin_level='2'][zoom>1] {
   line-color:@admin_2;
   line-width:2;
   [zoom>=2][zoom<=9]{
@@ -228,13 +243,7 @@ Map { background-color: @water; }
   [zoom=3] { line-opacity: 0.3; }
   [zoom=4] { line-opacity: 0.4; }
 }
-/* Remove any maritime borders. Unfortunatly this is the only way to do this*/
-#admin_maritime[admin_level='2'][zoom>1] {
-  // Water color, when on top of an hillshade image
-  line-color: rgb(163,194,223);
-  line-width:4;
-  line-opacity: 1;
- }
+
 /* ================================================================== */
 /* NATURAL POINTS
 /* ================================================================== */

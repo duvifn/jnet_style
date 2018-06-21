@@ -28,6 +28,7 @@ parser.add_argument('-l', '--external_layers_folder', metavar='EXTERNAL_LAYER_FO
                     hillshade_30.tif
                     hillshade_90.tif
                     hillshade_700.tif
+                    hillshade_1000.tif
                     ''')
 args = parser.parse_args()
 
@@ -40,6 +41,7 @@ input_file = input_file.replace('<Parameter name="host"><![CDATA[localhost]]></P
 input_file = input_file.replace('<Parameter name="file"><![CDATA[/home/duvi/Documents/MapBox/project/general/layers/hillshade_30.tif]]></Parameter>', ' <Parameter name="file"><![CDATA[' + args.external_layers_folder + '/hillshade_30.tif]]></Parameter>')
 input_file = input_file.replace('<Parameter name="file"><![CDATA[/home/duvi/Documents/MapBox/project/general/layers/hillshade_90.tif]]></Parameter>', '<Parameter name="file"><![CDATA[' + args.external_layers_folder + '/hillshade_90.tif]]></Parameter>')
 input_file = input_file.replace('<Parameter name="file"><![CDATA[/home/duvi/Documents/MapBox/project/general/layers/hillshade_700.tif]]></Parameter>', '<Parameter name="file"><![CDATA[' + args.external_layers_folder + '/hillshade_700.tif]]></Parameter>')
+input_file = input_file.replace('<Parameter name="file"><![CDATA[/home/duvi/Documents/MapBox/project/general/layers/hillshade_1000.tif]]></Parameter>', '<Parameter name="file"><![CDATA[' + args.external_layers_folder + '/hillshade_1000.tif]]></Parameter>')
 input_file = input_file.replace('<Parameter name="file"><![CDATA[/home/duvi/Documents/MapBox/project/general/layers/ne_places/ne_10m_populated_places.shp]]></Parameter>', '<Parameter name="file"><![CDATA['  + args.external_layers_folder + '/ne_places/ne_10m_populated_places.shp]]></Parameter>')
 input_file = input_file.replace('<Parameter name="file"><![CDATA[/home/duvi/Documents/MapBox/project/general/layers/land-low/simplified_land_polygons.shp]]></Parameter>', '<Parameter name="file"><![CDATA['  + args.external_layers_folder + '/land-low/simplified_land_polygons.shp]]></Parameter>')
 input_file = input_file.replace('<Parameter name="file"><![CDATA[/home/duvi/Documents/MapBox/project/general/layers/land-high/land_polygons.shp]]></Parameter>', '<Parameter name="file"><![CDATA[' + args.external_layers_folder + '/land-high/land_polygons.shp]]></Parameter>')

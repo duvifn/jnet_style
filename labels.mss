@@ -135,6 +135,15 @@
   text-fill:@city_text;
   text-halo-fill:@city_halo;
   text-halo-radius:0.5;
+  
+  /*[zoom>=10] {
+    marker-type: ellipse;
+    marker-fill: black;
+    marker-width: 5;
+    marker-height: 5;
+    text-dy: -10;
+   }*/
+  
   [zoom<=8] {
     text-size: 9;
     text-halo-radius:0.3;
@@ -142,6 +151,7 @@
   [zoom=9] {
     text-size:13;
     text-wrap-width: 60;
+    //text-dy: -10;
   }
   [zoom=10] {
     text-size:13;

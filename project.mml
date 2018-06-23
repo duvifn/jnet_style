@@ -206,8 +206,8 @@
       "extent": [
         32.310180044565314,
         27.724139895280047,
-        35.91590539544208,
-        33.36455082128483
+        42.42564771312602,
+        37.34588318758853
       ],
       "Datasource": {
         "type": "postgis",
@@ -215,7 +215,7 @@
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
-        "extent": "3596752.79,3214238.45,3998140.3,3943792.56",
+        "extent": "3596752.79,3214238.45,4722801.5,4487428.73",
         "user": "postgres",
         "password": "password",
         "dbname": "gis",
@@ -339,7 +339,6 @@
       "name": "water_gen0",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "srs-name": "900913",
-      "status": "on",
       "layerId": "water_gen0",
       "extent": [
         -179.9999999749438,
@@ -371,7 +370,6 @@
       "name": "water_gen1",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "srs-name": "900913",
-      "status": "on",
       "layerId": "water_gen1",
       "extent": [
         -179.9999999749438,
@@ -403,7 +401,6 @@
       "name": "water",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "srs-name": "900913",
-      "status": "on",
       "layerId": "water",
       "extent": [
         -179.9999999749438,
@@ -802,12 +799,13 @@
         "id": "admin",
         "key_field": "",
         "password": "password",
-        "project": "osm-bright-imposm",
+        "project": "general",
         "table": "( SELECT way, admin_level,\ntags -> 'maritime' as maritime\n  FROM planet_osm_line\n  WHERE boundary = 'administrative'\n    AND admin_level IN ('2','3','4')\n) AS data",
         "type": "postgis",
         "user": "postgres",
         "extent_cache": "auto",
-        "host": "localhost"
+        "host": "localhost",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
       "class": "",
       "geometry": "linestring",
@@ -823,34 +821,6 @@
         85.051
       ],
       "advanced": {}
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        25.148888842825734,
-        22.000037356998877,
-        42.73654852441585,
-        37.95151981075642
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "( SELECT way, admin_level\n  FROM planet_osm_line\n  WHERE boundary = 'administrative'\n    AND admin_level IN ('2','3','4')\n    AND tags -> 'maritime' ='yes'\n) AS data",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "auto",
-        "extent": "2799561.5,2511529.72,4757410.82,4572579.45",
-        "dbname": "gis",
-        "user": "postgres",
-        "password": "password",
-        "host": "localhost"
-      },
-      "id": "admin_maritime",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "admin_maritime",
-      "layerId": "admin_maritime"
     },
     {
       "Datasource": {
@@ -1148,7 +1118,7 @@
     }
   ],
   "scale": 1,
-  "metatile": 2,
+  "metatile": 1,
   "attribution": "Data © OpenStreetMap (and) contributors, ODbL",
   "description": "",
   "name": "JNet"

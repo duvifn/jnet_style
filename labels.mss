@@ -129,62 +129,73 @@
 /* ---- Cities ------------------------------------------------------ */
 
 #place::city[type='city'][zoom>=8][zoom<=15] {
-  text-name:'[name]';
-  text-face-name:@sans;
-  text-placement:point;
-  text-fill:@city_text;
-  text-halo-fill:@city_halo;
-  text-halo-radius:0.5;
   
-  /*[zoom>=10] {
-    marker-type: ellipse;
-    marker-fill: black;
-    marker-width: 5;
-    marker-height: 5;
+  ::inner {
+    [zoom>=10] {
+      marker-type: ellipse;
+      marker-fill: black;
+      marker-width: 5;
+      marker-height: 5;
+      marker-placement: point;
+      marker-line-width: 0;
+      marker-line-opacity: 0.65;
+      marker-allow-overlap: true;
+    }
+  }
+  ::labels {
+    text-name:'[name]';
+    text-face-name:@sans;
+    text-placement:point;
+    text-fill:@city_text;
+    text-halo-fill:@city_halo;
+    text-halo-radius:0.5;
+    text-placement-type: simple;
+    text-placements: "N,W,E,NW,NE,SE,8";
+    text-dx: -7;
     text-dy: -10;
-   }*/
-  
-  [zoom<=8] {
-    text-size: 9;
-    text-halo-radius:0.3;
-  }
-  [zoom=9] {
-    text-size:13;
-    text-wrap-width: 60;
-    //text-dy: -10;
-  }
-  [zoom=10] {
-    text-size:13;
-    text-wrap-width: 70;
-  }
-  [zoom=11] {
-    text-size:12;
-    text-character-spacing: 1;
-    text-wrap-width: 80;
-  }
-  [zoom=12] {
-    text-size:13;
-    text-character-spacing: 1;
-    text-wrap-width: 100;
-  }
-  [zoom=13] {
-    text-size:14;
-    text-character-spacing: 2;
-    text-wrap-width: 200;
-    text-transform: uppercase;
-  }
-  [zoom=14] {
-    text-size:15;
-    text-character-spacing: 4;
-    text-wrap-width: 300;
-    text-transform: uppercase;
-  }
-  [zoom=15] {
-    text-size:16;
-    text-character-spacing: 6;
-    text-wrap-width: 400;
-    text-transform: uppercase;
-  }
+    
+    [zoom<=8] {
+      text-size: 9;
+      text-halo-radius:0.3;
+    }
+    [zoom=9] {
+      text-size:13;
+      text-wrap-width: 60;
+      //text-dy: -10;
+    }
+    [zoom=10] {
+      text-size:13;
+      text-wrap-width: 70;
+    }
+    [zoom=11] {
+      text-size:12;
+      text-character-spacing: 1;
+      text-wrap-width: 80;
+    }
+    [zoom=12] {
+      text-size:13;
+      text-character-spacing: 1;
+      text-wrap-width: 100;
+    }
+    [zoom=13] {
+      text-size:14;
+      text-character-spacing: 2;
+      text-wrap-width: 200;
+      text-transform: uppercase;
+    }
+    [zoom=14] {
+      text-size:15;
+      text-character-spacing: 4;
+      text-wrap-width: 300;
+      text-transform: uppercase;
+    }
+    [zoom=15] {
+      text-size:16;
+      text-character-spacing: 6;
+      text-wrap-width: 400;
+      text-transform: uppercase;
+    }
+   }
 }
 
 /* ---- Towns ------------------------------------------------------- */

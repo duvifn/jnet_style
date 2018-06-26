@@ -63,7 +63,7 @@ with open(args.input_file, 'w') as of:
 
 if args.input_project_file:
     input_file=open(args.input_project_file).read()
-    input_file.replace('"dbname": "gis"','"dbname": "' + args.db_name +'"')
+    input_file.replace('"dbname": "fake_db_name"','"dbname": "' + args.db_name +'"')
     input_file = input_file.replace('"user": "fake_user_name"', '"user": "' +  args.user_name + '"')
     input_file = input_file.replace('"password": "fake_password"', '"password": "' + args.password + '"')
     input_file = input_file.replace('"host": "fake_host"', '"host": "' + args.host + '"')
@@ -75,7 +75,8 @@ if args.input_project_file:
     input_file = input_file.replace('/media/duvi/Extreme/TopoOSM/OpenTopoMap/osm-bright/osm-bright/shp/ne_10m_populated_places/ne_10m_populated_places.shp', args.external_layers_folder + '/ne_places/ne_10m_populated_places.shp')
     input_file = input_file.replace('/media/duvi/Extreme/TopoOSM/data/shp/land_low/simplified_land_polygons.shp', args.simplified_land_polygons)
     input_file= input_file.replace('/media/duvi/Extreme/TopoOSM/OpenTopoMap/osm-bright/osm-bright/shp/land-polygons-split-3857/land_polygons.shp', args.land_polygons)
-
+    input_file = input_file.replace('tags -> \'name:en\'', 'tags -> \'name:' + args.language  + '\'')
+    
 with open(args.input_project_file, 'w') as of:
     of.write(input_file)
 

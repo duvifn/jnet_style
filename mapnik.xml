@@ -11,7 +11,7 @@
   <Parameter name="scale">1</Parameter>
   <Parameter name="metatile">1</Parameter>
   <Parameter name="id"><![CDATA[general]]></Parameter>
-  <Parameter name="_updated">1529948532000</Parameter>
+  <Parameter name="_updated">1530005399000</Parameter>
   <Parameter name="attribution"><![CDATA[Data © OpenStreetMap (and) contributors, ODbL]]></Parameter>
   <Parameter name="name"><![CDATA[JNet]]></Parameter>
   <Parameter name="tilejson"><![CDATA[2.0.0]]></Parameter>
@@ -43580,7 +43580,7 @@ tags -> 'maritime' as maritime
        <Parameter name="project"><![CDATA[foss4g-2011]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT COALESCE(landuse, leisure, "natural", highway, amenity, tourism) AS type,
-   CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN name ELSE tags -> 'name:en' END as name, way_area AS area,
+   CASE WHEN (tags -> 'name:he'  IS NULL OR tags -> 'name:he'  = '') THEN name ELSE tags -> 'name:he' END as name, way_area AS area,
     ST_PointOnSurface(way) AS way
   FROM planet_osm_polygon
   WHERE name IS NOT NULL
@@ -46520,7 +46520,7 @@ tags -> 'maritime' as maritime
        <Parameter name="password"><![CDATA[fake_password]]></Parameter>
        <Parameter name="project"><![CDATA[foss4g-2011]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
-       <Parameter name="table"><![CDATA[( SELECT way, highway AS type,CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN name ELSE tags -> 'name:en' END as name, ref, oneway, CHAR_LENGTH(ref) AS reflen
+       <Parameter name="table"><![CDATA[( SELECT way, highway AS type,CASE WHEN (tags -> 'name:he'  IS NULL OR tags -> 'name:he'  = '') THEN name ELSE tags -> 'name:he' END as name, ref, oneway, CHAR_LENGTH(ref) AS reflen
     FROM planet_osm_line
     WHERE highway IN ('motorway', 'trunk')
       AND (name IS NOT NULL OR ref IS NOT NULL)
@@ -46752,7 +46752,7 @@ tags -> 'maritime' as maritime
        <Parameter name="password"><![CDATA[fake_password]]></Parameter>
        <Parameter name="project"><![CDATA[foss4g-2011]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
-       <Parameter name="table"><![CDATA[( SELECT way, highway AS type,CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN name ELSE tags -> 'name:en' END as name, oneway
+       <Parameter name="table"><![CDATA[( SELECT way, highway AS type,CASE WHEN (tags -> 'name:he'  IS NULL OR tags -> 'name:he'  = '') THEN name ELSE tags -> 'name:he' END as name, oneway
   FROM planet_osm_line
   WHERE (name IS NOT NULL OR oneway IN ('yes', 'true', '1', '-1'))
     AND highway IN ('primary', 'secondary', 'tertiary')
@@ -46836,7 +46836,7 @@ tags -> 'maritime' as maritime
        <Parameter name="project"><![CDATA[foss4g-2011]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, highway AS type,
-CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN name ELSE tags -> 'name:en' END as name, oneway
+CASE WHEN (tags -> 'name:he'  IS NULL OR tags -> 'name:he'  = '') THEN name ELSE tags -> 'name:he' END as name, oneway
   FROM planet_osm_line
   WHERE (name IS NOT NULL OR oneway IN ('yes', 'true', '1', '-1'))
     AND highway IN ('residential', 'unclassified', 'road', 'living_street', 'unknown')
@@ -46903,7 +46903,7 @@ CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN name ELSE
        <Parameter name="project"><![CDATA[foss4g-2011]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, waterway AS type,
-CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN name ELSE tags -> 'name:en' END as name
+CASE WHEN (tags -> 'name:he'  IS NULL OR tags -> 'name:he'  = '') THEN name ELSE tags -> 'name:he' END as name
   FROM planet_osm_line
   WHERE waterway IN ('canal', 'river', 'stream') 
     AND name IS NOT NULL
@@ -46935,7 +46935,8 @@ CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN name ELSE
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="password"><![CDATA[fake_password]]></Parameter>
-       <Parameter name="table"><![CDATA[( SELECT way, railway AS type, name 
+       <Parameter name="table"><![CDATA[( SELECT way, railway AS type,
+CASE WHEN (tags -> 'name:he'  IS NULL OR tags -> 'name:he'  = '') THEN name ELSE tags -> 'name:he' END as name 
   FROM planet_osm_point 
   WHERE railway = 'station'
 ) AS DATA 
@@ -47319,7 +47320,7 @@ CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN name ELSE
        <Parameter name="project"><![CDATA[foss4g-2011]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, place AS type,
-CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN name ELSE tags -> 'name:en'  END as name,
+CASE WHEN (tags -> 'name:he'  IS NULL OR tags -> 'name:he'  = '') THEN name ELSE tags -> 'name:he'  END as name,
 
 CASE
               WHEN (tags->'population' ~ '^[0-9]{1,8}$') THEN (tags->'population')::INTEGER ELSE 0
@@ -47357,7 +47358,7 @@ CASE
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, "natural" ,
 CASE WHEN (tags -> 'ele'  IS NULL OR tags -> 'ele'  = '') THEN '' ELSE tags -> 'ele' END as ele,
-CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN name ELSE tags -> 'name:en' END as name
+CASE WHEN (tags -> 'name:he'  IS NULL OR tags -> 'name:he'  = '') THEN name ELSE tags -> 'name:he' END as name
 FROM planet_osm_point
   where "natural" != '' and "natural" is not null
 ) AS data]]></Parameter>

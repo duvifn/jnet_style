@@ -10,12 +10,12 @@
 /* LANDUSE & LANDCOVER
 /* ================================================================== */
 
-
+Map { background-color: @water; }
 #land-low[zoom>=0][zoom<10],
-#land-high[zoom>=10] {
-  polygon-fill: @land;
-  polygon-gamma: 0.75;
-}
+#land-high[zoom>=10][zoom<=18]{
+   polygon-fill: @land;
+   polygon-gamma: 0.75;   
+  }
 
 #landuse_gen0[zoom>3][zoom<=9],
 #landuse_gen1[zoom>9][zoom<=12],
@@ -113,9 +113,20 @@
 #hillshade_30::z17[zoom=17] {
   image-filters: agg-stack-blur(24,24);
 }
+#hillshade_30::z18[zoom=18] {
+  image-filters: agg-stack-blur(24,24);
+}
+
+#hillshade_5000 {
+   [zoom>=1][zoom<=4]{
+    raster-comp-op: multiply;
+    raster-scaling: bilinear;
+    raster-opacity:0.32;
+  }
+}
 
 #hillshade_1000 {
-   [zoom>=1][zoom<5]{
+   [zoom>=4][zoom<=6]{
     raster-comp-op: multiply;
     raster-scaling: bilinear;
     raster-opacity:0.32;
@@ -123,7 +134,7 @@
 }
 
 #hillshade_700 {
-   [zoom>=5][zoom<=8]{
+   [zoom>=7][zoom<=8]{
     raster-comp-op: multiply;
     raster-scaling: bilinear;
     raster-opacity:0.32;
@@ -144,7 +155,7 @@
 }
 
 #hillshade_30 {
-  [zoom>=15][zoom<=17]{
+  [zoom>=15][zoom<=18]{
     raster-comp-op: grain-merge;
     raster-scaling: bilinear;
     raster-opacity:0.6;
@@ -153,8 +164,6 @@
 /* ================================================================== */
 /* WATER AREAS
 /* ================================================================== */
-
-Map { background-color: @water; }
 
 #water_gen0[zoom>3][zoom<=9],
 #water_gen1[zoom>9][zoom<=12],

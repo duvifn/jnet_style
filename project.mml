@@ -27,7 +27,7 @@
       "Datasource": {
         "dbname": "osm",
         "extent": "-20037508.34 -20037508.34 20037508.34 20037508.34",
-        "file": "/media/duvi/Extreme/TopoOSM/OpenTopoMap/osm-bright/osm-bright/shp/simplified-land-polygons-complete-3857/simplified_land_polygons.shp",
+        "file": "/media/duvi/Extreme/TopoOSM/data/shp/land_low/simplified_land_polygons.shp",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
         "type": "shape"
       },
@@ -37,7 +37,15 @@
       "name": "land-low",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "srs-name": "900913",
-      "layerId": "land-low"
+      "layerId": "land-low",
+      "extent": [
+        -180,
+        -85.051,
+        180,
+        83.6664731
+      ],
+      "layer": null,
+      "advanced": {}
     },
     {
       "Datasource": {
@@ -421,7 +429,7 @@
       "id": "hillshade_30",
       "class": "",
       "Datasource": {
-        "file": "/media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/hillshade-30.tif"
+        "file": "/media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/hillshade_30.tif"
       },
       "layer": null,
       "srs-name": "900913",
@@ -441,7 +449,7 @@
       "id": "hillshade_90",
       "class": "",
       "Datasource": {
-        "file": "/media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/hillshade-90-jpeg.tif"
+        "file": "/media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/hillshade_90.tif"
       },
       "layer": null,
       "srs-name": "900913",
@@ -461,7 +469,7 @@
       "id": "hillshade_700",
       "class": "",
       "Datasource": {
-        "file": "/media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/hillshade-700.tif"
+        "file": "/media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/hillshade_700.tif"
       },
       "layer": null,
       "srs-name": "900913",
@@ -481,7 +489,7 @@
       "id": "hillshade_1000",
       "class": "",
       "Datasource": {
-        "file": "/media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/hillshade-1000.tif"
+        "file": "/media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/hillshade_1000.tif"
       },
       "layer": null,
       "srs-name": "900913",
@@ -489,6 +497,26 @@
       "advanced": {},
       "name": "hillshade_1000",
       "layerId": "hillshade_1000"
+    },
+    {
+      "geometry": "raster",
+      "extent": [
+        32.999861111111116,
+        28.98565744396577,
+        37.98551093797446,
+        34.00013888888891
+      ],
+      "id": "hillshade_5000",
+      "class": "",
+      "Datasource": {
+        "file": "/media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/hillshade_5000.tif"
+      },
+      "layer": null,
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "hillshade_5000",
+      "layerId": "hillshade_5000"
     },
     {
       "Datasource": {
@@ -850,7 +878,7 @@
         "password": "password",
         "project": "foss4g-2011",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "table": "( SELECT COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type,\n    name, way_area AS area,\n    ST_PointOnSurface(way) AS way\n  FROM planet_osm_polygon\n  WHERE name IS NOT NULL\n    AND way && !bbox!\n    AND ST_IsValid(way)\n\n  UNION ALL\n\n  SELECT 'building' AS type, name, way_area AS area,\n    ST_PointOnSurface(way) AS way\n  FROM planet_osm_polygon\n  WHERE name IS NOT NULL\n    AND building NOT IN ('', 'no', '0', 'false')\n    AND way && !bbox!\n    AND ST_IsValid(way)\n  ORDER BY area DESC\n) AS data",
+        "table": "( SELECT COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type,\n   CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN name ELSE tags -> 'name:en' END as name, way_area AS area,\n    ST_PointOnSurface(way) AS way\n  FROM planet_osm_polygon\n  WHERE name IS NOT NULL\n    AND way && !bbox!\n    AND ST_IsValid(way)\n\n  UNION ALL\n\n  SELECT 'building' AS type, name, way_area AS area,\n    ST_PointOnSurface(way) AS way\n  FROM planet_osm_polygon\n  WHERE name IS NOT NULL\n    AND building NOT IN ('', 'no', '0', 'false')\n    AND way && !bbox!\n    AND ST_IsValid(way)\n  ORDER BY area DESC\n) AS data",
         "type": "postgis",
         "user": "postgres",
         "extent_cache": "auto",
@@ -882,7 +910,7 @@
         "password": "password",
         "project": "foss4g-2011",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "table": "( SELECT way, highway AS type, name, ref, oneway, CHAR_LENGTH(ref) AS reflen\n    FROM planet_osm_line\n    WHERE highway IN ('motorway', 'trunk')\n      AND (name IS NOT NULL OR ref IS NOT NULL)\n) AS data",
+        "table": "( SELECT way, highway AS type,CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN name ELSE tags -> 'name:en' END as name, ref, oneway, CHAR_LENGTH(ref) AS reflen\n    FROM planet_osm_line\n    WHERE highway IN ('motorway', 'trunk')\n      AND (name IS NOT NULL OR ref IS NOT NULL)\n) AS data",
         "type": "postgis",
         "user": "postgres",
         "extent_cache": "auto",
@@ -914,7 +942,7 @@
         "password": "password",
         "project": "foss4g-2011",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "table": "( SELECT way, highway AS type, name, oneway\n  FROM planet_osm_line\n  WHERE (name IS NOT NULL OR oneway IN ('yes', 'true', '1', '-1'))\n    AND highway IN ('primary', 'secondary', 'tertiary')\n) AS data",
+        "table": "( SELECT way, highway AS type,CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN name ELSE tags -> 'name:en' END as name, oneway\n  FROM planet_osm_line\n  WHERE (name IS NOT NULL OR oneway IN ('yes', 'true', '1', '-1'))\n    AND highway IN ('primary', 'secondary', 'tertiary')\n) AS data",
         "type": "postgis",
         "user": "postgres",
         "extent_cache": "auto",
@@ -946,7 +974,7 @@
         "password": "password",
         "project": "foss4g-2011",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "table": "( SELECT way, highway AS type, name, oneway\n  FROM planet_osm_line\n  WHERE (name IS NOT NULL OR oneway IN ('yes', 'true', '1', '-1'))\n    AND highway IN ('residential', 'unclassified', 'road', 'living_street', 'unknown')\n) AS data",
+        "table": "( SELECT way, highway AS type,\nCASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN name ELSE tags -> 'name:en' END as name, oneway\n  FROM planet_osm_line\n  WHERE (name IS NOT NULL OR oneway IN ('yes', 'true', '1', '-1'))\n    AND highway IN ('residential', 'unclassified', 'road', 'living_street', 'unknown')\n) AS data",
         "type": "postgis",
         "user": "postgres",
         "extent_cache": "auto",
@@ -978,7 +1006,7 @@
         "password": "password",
         "project": "foss4g-2011",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "table": "( SELECT way, waterway AS type, name\n  FROM planet_osm_line\n  WHERE waterway IN ('canal', 'river', 'stream') \n    AND name IS NOT NULL\n) AS data",
+        "table": "( SELECT way, waterway AS type,\nCASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN name ELSE tags -> 'name:en' END as name\n  FROM planet_osm_line\n  WHERE waterway IN ('canal', 'river', 'stream') \n    AND name IS NOT NULL\n) AS data",
         "type": "postgis",
         "user": "postgres",
         "extent_cache": "auto",
@@ -1066,7 +1094,7 @@
         "password": "password",
         "project": "foss4g-2011",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "table": "( SELECT way, place AS type,\nCASE WHEN (tags -> 'name:he'  IS NULL OR tags -> 'name:he'  = '') THEN name ELSE tags -> 'name:he'  END as name,\n\nCASE\n              WHEN (tags->'population' ~ '^[0-9]{1,8}$') THEN (tags->'population')::INTEGER ELSE 0\n            END as population\n  FROM planet_osm_point\n  WHERE place in ('country', 'state', 'city', 'town', 'village', 'hamlet', 'suburb', 'neighbourhood', 'locality')\n  ORDER BY population DESC NULLS LAST\n) AS data",
+        "table": "( SELECT way, place AS type,\nCASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN name ELSE tags -> 'name:en'  END as name,\n\nCASE\n              WHEN (tags->'population' ~ '^[0-9]{1,8}$') THEN (tags->'population')::INTEGER ELSE 0\n            END as population\n  FROM planet_osm_point\n  WHERE place in ('country', 'state', 'city', 'town', 'village', 'hamlet', 'suburb', 'neighbourhood', 'locality')\n  ORDER BY population DESC NULLS LAST\n) AS data",
         "type": "postgis",
         "user": "postgres",
         "extent_cache": "auto",
@@ -1098,7 +1126,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "( SELECT way, \"natural\" ,\nCASE WHEN (tags -> 'ele'  IS NULL OR tags -> 'ele'  = '') THEN '' ELSE tags -> 'ele' END as ele,\nCASE WHEN (tags -> 'name:he'  IS NULL OR tags -> 'name:he'  = '') THEN name ELSE tags -> 'name:he' END as name\nFROM planet_osm_point\n  where \"natural\" != '' and \"natural\" is not null\n) AS data",
+        "table": "( SELECT way, \"natural\" ,\nCASE WHEN (tags -> 'ele'  IS NULL OR tags -> 'ele'  = '') THEN '' ELSE tags -> 'ele' END as ele,\nCASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN name ELSE tags -> 'name:en' END as name\nFROM planet_osm_point\n  where \"natural\" != '' and \"natural\" is not null\n) AS data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",

@@ -130,7 +130,7 @@
 
 #place::city[type='city'][zoom>=8][zoom<=15] {
   
-  ::inner {
+  /*::inner {
     [zoom>=10] {
       marker-type: ellipse;
       marker-fill: black;
@@ -141,7 +141,7 @@
       marker-line-opacity: 0.65;
       marker-allow-overlap: true;
     }
-  }
+  }*/
   ::labels {
     text-name:'[name]';
     text-face-name:@sans;
@@ -149,10 +149,10 @@
     text-fill:@city_text;
     text-halo-fill:@city_halo;
     text-halo-radius:0.5;
-    text-placement-type: simple;
+    /*text-placement-type: simple;
     text-placements: "N,W,E,NW,NE,SE,8";
     text-dx: -7;
-    text-dy: -10;
+    text-dy: -10;*/
     
     [zoom<=8] {
       text-size: 9;

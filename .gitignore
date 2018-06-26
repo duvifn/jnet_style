@@ -1,1 +1,6 @@
 general.xml
+clean_for_push.py
+layers/*
+replace_mapnik_style.py
+general.xml~
+project (copy).mml

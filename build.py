@@ -77,7 +77,7 @@ if args.input_project_file:
     input_file= input_file.replace('/media/duvi/Extreme/TopoOSM/OpenTopoMap/osm-bright/osm-bright/shp/land-polygons-split-3857/land_polygons.shp', args.land_polygons)
     input_file = input_file.replace('tags -> \'name:en\'', 'tags -> \'name:' + args.language  + '\'')
     
-with open(args.input_project_file, 'w') as of:
-    of.write(input_file)
+    with open(args.input_project_file, 'w') as of:
+        of.write(input_file)
 
 

@@ -11,7 +11,7 @@
   <Parameter name="scale">1</Parameter>
   <Parameter name="metatile">1</Parameter>
   <Parameter name="id"><![CDATA[general]]></Parameter>
-  <Parameter name="_updated">1530107245000</Parameter>
+  <Parameter name="_updated">1530114128000</Parameter>
   <Parameter name="attribution"><![CDATA[Data © OpenStreetMap (and) contributors, ODbL]]></Parameter>
   <Parameter name="name"><![CDATA[JNet]]></Parameter>
   <Parameter name="tilejson"><![CDATA[2.0.0]]></Parameter>
@@ -825,49 +825,49 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
@@ -1130,166 +1130,166 @@
   </Rule>
   <Rule>
     <MaxScaleDenominator>750</MaxScaleDenominator>
-    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <MinScaleDenominator>750</MinScaleDenominator>
-    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
-    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750</MaxScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <MinScaleDenominator>750</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750</MaxScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <MinScaleDenominator>750</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750</MaxScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <MinScaleDenominator>750</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
@@ -46821,6 +46821,58 @@ ELSE tags -> 'name:en'  END as name,
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([oneway] = '-1') and ([type] = 'tertiary')</Filter>
+    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
+    <MarkersSymbolizer transform="scale(0.75)" file="img/icon/oneway-reverse.svg" placement="line" max-error="0.5" spacing="200" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([oneway] = '-1') and ([type] = 'tertiary')</Filter>
+    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
+    <MarkersSymbolizer transform="scale(0.5)" file="img/icon/oneway-reverse.svg" placement="line" max-error="0.5" spacing="200" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <Filter>([oneway] = '-1') and ([type] = 'tertiary')</Filter>
+    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
+    <MarkersSymbolizer file="img/icon/oneway-reverse.svg" placement="line" max-error="0.5" spacing="200" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([oneway] = '-1') and ([type] = 'tertiary')</Filter>
+    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([oneway] = '-1') and ([type] = 'secondary')</Filter>
+    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
+    <MarkersSymbolizer transform="scale(0.75)" file="img/icon/oneway-reverse.svg" placement="line" max-error="0.5" spacing="200" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([oneway] = '-1') and ([type] = 'secondary')</Filter>
+    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
+    <MarkersSymbolizer transform="scale(0.5)" file="img/icon/oneway-reverse.svg" placement="line" max-error="0.5" spacing="200" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <Filter>([oneway] = '-1') and ([type] = 'secondary')</Filter>
+    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
+    <MarkersSymbolizer file="img/icon/oneway-reverse.svg" placement="line" max-error="0.5" spacing="200" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([oneway] = '-1') and ([type] = 'secondary')</Filter>
+    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([oneway] = '-1') and ([type] = 'primary')</Filter>
     <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
     <MarkersSymbolizer transform="scale(0.75)" file="img/icon/oneway-reverse.svg" placement="line" max-error="0.5" spacing="200" />
@@ -46847,71 +46899,71 @@ ELSE tags -> 'name:en'  END as name,
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([oneway] = '-1') and ([type] = 'tertiary')</Filter>
-    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([oneway] = '-1')</Filter>
     <MarkersSymbolizer transform="scale(0.75)" file="img/icon/oneway-reverse.svg" placement="line" max-error="0.5" spacing="200" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([oneway] = '-1') and ([type] = 'tertiary')</Filter>
-    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([oneway] = '-1')</Filter>
     <MarkersSymbolizer transform="scale(0.5)" file="img/icon/oneway-reverse.svg" placement="line" max-error="0.5" spacing="200" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <Filter>([oneway] = '-1') and ([type] = 'tertiary')</Filter>
-    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([oneway] = '-1')</Filter>
     <MarkersSymbolizer file="img/icon/oneway-reverse.svg" placement="line" max-error="0.5" spacing="200" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([oneway] = 'yes') and ([type] = 'tertiary')</Filter>
+    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
+    <MarkersSymbolizer transform="scale(0.75)" placement="line" max-error="0.5" spacing="200" file="img/icon/oneway.svg" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([oneway] = 'yes') and ([type] = 'tertiary')</Filter>
+    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
+    <MarkersSymbolizer transform="scale(0.5)" placement="line" max-error="0.5" spacing="200" file="img/icon/oneway.svg" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <Filter>([oneway] = 'yes') and ([type] = 'tertiary')</Filter>
+    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
+    <MarkersSymbolizer placement="line" max-error="0.5" spacing="200" file="img/icon/oneway.svg" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([oneway] = '-1') and ([type] = 'tertiary')</Filter>
+    <Filter>([oneway] = 'yes') and ([type] = 'tertiary')</Filter>
     <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([oneway] = '-1') and ([type] = 'secondary')</Filter>
+    <Filter>([oneway] = 'yes') and ([type] = 'secondary')</Filter>
     <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer transform="scale(0.75)" file="img/icon/oneway-reverse.svg" placement="line" max-error="0.5" spacing="200" />
+    <MarkersSymbolizer transform="scale(0.75)" placement="line" max-error="0.5" spacing="200" file="img/icon/oneway.svg" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([oneway] = '-1') and ([type] = 'secondary')</Filter>
+    <Filter>([oneway] = 'yes') and ([type] = 'secondary')</Filter>
     <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer transform="scale(0.5)" file="img/icon/oneway-reverse.svg" placement="line" max-error="0.5" spacing="200" />
+    <MarkersSymbolizer transform="scale(0.5)" placement="line" max-error="0.5" spacing="200" file="img/icon/oneway.svg" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <Filter>([oneway] = '-1') and ([type] = 'secondary')</Filter>
+    <Filter>([oneway] = 'yes') and ([type] = 'secondary')</Filter>
     <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer file="img/icon/oneway-reverse.svg" placement="line" max-error="0.5" spacing="200" />
+    <MarkersSymbolizer placement="line" max-error="0.5" spacing="200" file="img/icon/oneway.svg" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([oneway] = '-1') and ([type] = 'secondary')</Filter>
+    <Filter>([oneway] = 'yes') and ([type] = 'secondary')</Filter>
     <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([oneway] = '-1')</Filter>
-    <MarkersSymbolizer transform="scale(0.75)" file="img/icon/oneway-reverse.svg" placement="line" max-error="0.5" spacing="200" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([oneway] = '-1')</Filter>
-    <MarkersSymbolizer transform="scale(0.5)" file="img/icon/oneway-reverse.svg" placement="line" max-error="0.5" spacing="200" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <Filter>([oneway] = '-1')</Filter>
-    <MarkersSymbolizer file="img/icon/oneway-reverse.svg" placement="line" max-error="0.5" spacing="200" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
@@ -46942,58 +46994,6 @@ ELSE tags -> 'name:en'  END as name,
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([oneway] = 'yes') and ([type] = 'tertiary')</Filter>
-    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer transform="scale(0.75)" placement="line" max-error="0.5" spacing="200" file="img/icon/oneway.svg" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([oneway] = 'yes') and ([type] = 'tertiary')</Filter>
-    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer transform="scale(0.5)" placement="line" max-error="0.5" spacing="200" file="img/icon/oneway.svg" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <Filter>([oneway] = 'yes') and ([type] = 'tertiary')</Filter>
-    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer placement="line" max-error="0.5" spacing="200" file="img/icon/oneway.svg" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([oneway] = 'yes') and ([type] = 'tertiary')</Filter>
-    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([oneway] = 'yes') and ([type] = 'secondary')</Filter>
-    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer transform="scale(0.75)" placement="line" max-error="0.5" spacing="200" file="img/icon/oneway.svg" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([oneway] = 'yes') and ([type] = 'secondary')</Filter>
-    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer transform="scale(0.5)" placement="line" max-error="0.5" spacing="200" file="img/icon/oneway.svg" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <Filter>([oneway] = 'yes') and ([type] = 'secondary')</Filter>
-    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
-    <MarkersSymbolizer placement="line" max-error="0.5" spacing="200" file="img/icon/oneway.svg" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([oneway] = 'yes') and ([type] = 'secondary')</Filter>
-    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([oneway] = 'yes')</Filter>
     <MarkersSymbolizer transform="scale(0.75)" placement="line" max-error="0.5" spacing="200" file="img/icon/oneway.svg" />
   </Rule>
@@ -47007,11 +47007,6 @@ ELSE tags -> 'name:en'  END as name,
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <Filter>([oneway] = 'yes')</Filter>
     <MarkersSymbolizer placement="line" max-error="0.5" spacing="200" file="img/icon/oneway.svg" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <Filter>([type] = 'primary')</Filter>
-    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
@@ -47021,6 +47016,11 @@ ELSE tags -> 'name:en'  END as name,
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([type] = 'secondary')</Filter>
+    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'primary')</Filter>
     <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#777777" halo-fill="#ffffff" halo-radius="1" minimum-distance="60" size="11"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
@@ -47140,23 +47140,6 @@ ELSE tags -> 'name:en'  END as name, oneway
 
 <Style name="waterway_label" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
-    <TextSymbolizer size="14" spacing="300" fontset-name="fontset-2" fill="#86a1b9" halo-fill="rgba(202, 226, 249, 0.75)" halo-radius="1" placement="line" minimum-distance="400"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
-    <TextSymbolizer size="11" fontset-name="fontset-2" fill="#86a1b9" halo-fill="rgba(202, 226, 249, 0.75)" halo-radius="1" placement="line" minimum-distance="400"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
-    <TextSymbolizer fontset-name="fontset-2" fill="#86a1b9" halo-fill="rgba(202, 226, 249, 0.75)" halo-radius="1" placement="line" minimum-distance="400" size="10"><![CDATA[[name]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
     <Filter>([type] = 'canal')</Filter>
@@ -47171,6 +47154,23 @@ ELSE tags -> 'name:en'  END as name, oneway
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <Filter>([type] = 'canal')</Filter>
+    <TextSymbolizer fontset-name="fontset-2" fill="#86a1b9" halo-fill="rgba(202, 226, 249, 0.75)" halo-radius="1" placement="line" minimum-distance="400" size="10"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <TextSymbolizer size="14" spacing="300" fontset-name="fontset-2" fill="#86a1b9" halo-fill="rgba(202, 226, 249, 0.75)" halo-radius="1" placement="line" minimum-distance="400"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <TextSymbolizer size="11" fontset-name="fontset-2" fill="#86a1b9" halo-fill="rgba(202, 226, 249, 0.75)" halo-radius="1" placement="line" minimum-distance="400"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
     <TextSymbolizer fontset-name="fontset-2" fill="#86a1b9" halo-fill="rgba(202, 226, 249, 0.75)" halo-radius="1" placement="line" minimum-distance="400" size="10"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -47340,37 +47340,37 @@ ELSE tags -> 'name:en'  END as name
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <Filter>([type] = 'hamlet')</Filter>
+    <Filter>([type] = 'village')</Filter>
     <TextSymbolizer size="14" character-spacing="4" line-spacing="6" wrap-width="160" halo-fill="#646464" text-transform="uppercase" fontset-name="fontset-0" placement="point" fill="#646464" halo-radius="0.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'hamlet')</Filter>
+    <Filter>([type] = 'village')</Filter>
     <TextSymbolizer size="13" character-spacing="3" wrap-width="160" line-spacing="4" halo-fill="#646464" text-transform="uppercase" fontset-name="fontset-0" placement="point" fill="#646464" halo-radius="0.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'hamlet')</Filter>
+    <Filter>([type] = 'village')</Filter>
     <TextSymbolizer size="12" character-spacing="2" wrap-width="120" line-spacing="2" halo-fill="#646464" text-transform="uppercase" fontset-name="fontset-0" placement="point" fill="#646464" halo-radius="0.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'hamlet')</Filter>
+    <Filter>([type] = 'village')</Filter>
     <TextSymbolizer halo-fill="#646464" text-transform="uppercase" character-spacing="1" wrap-width="60" line-spacing="1" size="12" fontset-name="fontset-0" placement="point" fill="#646464" halo-radius="0.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'hamlet')</Filter>
+    <Filter>([type] = 'village')</Filter>
     <TextSymbolizer size="12" halo-fill="#646464" character-spacing="1" wrap-width="40" line-spacing="1" fontset-name="fontset-0" placement="point" fill="#646464" halo-radius="0.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'hamlet')</Filter>
+    <Filter>([type] = 'village')</Filter>
     <TextSymbolizer fontset-name="fontset-0" placement="point" fill="#646464" size="10" halo-fill="rgba(255, 255, 255, 0.66)" halo-radius="0.5" wrap-width="30"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
@@ -47410,37 +47410,37 @@ ELSE tags -> 'name:en'  END as name
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <Filter>([type] = 'village')</Filter>
+    <Filter>([type] = 'hamlet')</Filter>
     <TextSymbolizer size="14" character-spacing="4" line-spacing="6" wrap-width="160" halo-fill="#646464" text-transform="uppercase" fontset-name="fontset-0" placement="point" fill="#646464" halo-radius="0.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'village')</Filter>
+    <Filter>([type] = 'hamlet')</Filter>
     <TextSymbolizer size="13" character-spacing="3" wrap-width="160" line-spacing="4" halo-fill="#646464" text-transform="uppercase" fontset-name="fontset-0" placement="point" fill="#646464" halo-radius="0.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'village')</Filter>
+    <Filter>([type] = 'hamlet')</Filter>
     <TextSymbolizer size="12" character-spacing="2" wrap-width="120" line-spacing="2" halo-fill="#646464" text-transform="uppercase" fontset-name="fontset-0" placement="point" fill="#646464" halo-radius="0.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'village')</Filter>
+    <Filter>([type] = 'hamlet')</Filter>
     <TextSymbolizer halo-fill="#646464" text-transform="uppercase" character-spacing="1" wrap-width="60" line-spacing="1" size="12" fontset-name="fontset-0" placement="point" fill="#646464" halo-radius="0.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'village')</Filter>
+    <Filter>([type] = 'hamlet')</Filter>
     <TextSymbolizer size="12" halo-fill="#646464" character-spacing="1" wrap-width="40" line-spacing="1" fontset-name="fontset-0" placement="point" fill="#646464" halo-radius="0.5"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'village')</Filter>
+    <Filter>([type] = 'hamlet')</Filter>
     <TextSymbolizer fontset-name="fontset-0" placement="point" fill="#646464" size="10" halo-fill="rgba(255, 255, 255, 0.66)" halo-radius="0.5" wrap-width="30"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
@@ -47668,6 +47668,66 @@ FROM planet_osm_point
        <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
        <Parameter name="password"><![CDATA[fake_password]]></Parameter>
        <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="springs-labels" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <TextSymbolizer size="11" fontset-name="fontset-0" fill="#b3d6f6" halo-fill="#b3d6f6" halo-radius="0.4" placement="interior" dy="7"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <TextSymbolizer fontset-name="fontset-0" size="10" fill="#b3d6f6" halo-fill="#b3d6f6" halo-radius="0.4" placement="interior" dy="7"><![CDATA[[name]]]></TextSymbolizer>
+  </Rule>
+</Style>
+<Style name="springs" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <Filter>([natural] = 'spring')</Filter>
+    <MarkersSymbolizer width="6.5" height="6.5" file="res/spring.svg" placement="interior" clip="false" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <Filter>([natural] = 'spring')</Filter>
+    <MarkersSymbolizer width="5" height="5" file="res/spring.svg" placement="interior" clip="false" />
+  </Rule>
+</Style>
+<Layer name="springs"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>springs</StyleName>
+    <StyleName>springs-labels</StyleName>
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT
+        way, "natural", 
+     CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN 
+    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND name NOT SIMILAR TO '%[U&\059x1-U&\05Fx5]%' AND name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
+ELSE tags -> 'name:en'  END as name
+    FROM planet_osm_polygon
+    WHERE "natural" IN ('spring')
+    UNION ALL
+    SELECT
+        way, "natural",
+     CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN 
+    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND name NOT SIMILAR TO '%[U&\059x1-U&\05Fx5]%' AND name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
+ELSE tags -> 'name:en'  END as name
+    FROM planet_osm_point
+    WHERE "natural" IN ('spring')
+) AS springs]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[2799561.5,2511529.72,4740565.54,4484237.56]]></Parameter>
+       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="id"><![CDATA[springs]]></Parameter>
+       <Parameter name="project"><![CDATA[general]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
     </Datasource>
   </Layer>
 

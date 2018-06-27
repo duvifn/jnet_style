@@ -292,7 +292,21 @@ Map { background-color: @water; }
     }
   }
 }
-
+/* ================================================================== */
+/* INFRASTRUCTURE
+/* ================================================================== */
+#airports {
+	[zoom>=10][zoom < 14][aeroway = 'aerodrome']['access' != 'private']['icao' != null]['iata' != null],
+	[aeroway = 'aerodrome'][zoom >= 11][zoom < 14]{
+        marker-height: 10;
+        marker-width: 10;
+        marker-file: url('res/airport-24.svg');
+        marker-fill: #aaa;
+        marker-line-opacity:0.6;
+        //marker-allow-overlap:true;
+        marker-placement: interior;
+    }
+  }
 /* ================================================================== */
 /* BARRIER POINTS
 /* ================================================================== */

@@ -176,6 +176,9 @@ Map { background-color: @water; }
 /* ================================================================== */
 
 #waterway_low[zoom>=8][zoom<=12] {
+  [int_intermittent='yes'] {
+    line-dasharray:10,4;
+  }
   line-color: @water;
   [zoom=8] { line-width: 0.1; }
   [zoom=9] { line-width: 0.2; }
@@ -185,6 +188,9 @@ Map { background-color: @water; }
 }
 
 #waterway_med[zoom>=13][zoom<=14] {
+  [int_intermittent='yes'] {
+    line-dasharray:10,4;
+  }
   line-color: @water;
   [type='river'],
   [type='canal'] {
@@ -201,6 +207,9 @@ Map { background-color: @water; }
   
 #waterway_high[zoom>=14] {
   line-color: @water;
+  [int_intermittent='yes'] {
+    line-dasharray:10,4;
+  }
   [type='river'],
   [type='canal'] {
     line-cap: round;

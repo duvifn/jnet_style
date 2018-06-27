@@ -458,7 +458,7 @@
 
 /* ****************************************************************** */
 /* ================================================================== */
-/* Cliffs
+/* NATURAL POINTS
 /* ================================================================== */
 #cliffs{
     [zoom=13] {
@@ -477,6 +477,19 @@
        line-pattern-file: url('img/my_cliff2.png');
     }
   }
+
+#springs::labels[zoom>=15] {
+    text-name:'[name]';
+    text-face-name:@sans;
+    text-size:10;
+    [zoom>=16] { text-size:11; }
+    text-fill:#b3d6f6;
+    text-halo-fill: #b3d6f6;//@road_halo;
+    text-halo-radius:0.4;
+    text-placement: interior;
+    text-dy: 7;
+}
+ 
 
 /* ================================================================== */
 /* NATURAL POINTS

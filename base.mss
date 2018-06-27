@@ -276,6 +276,23 @@ Map { background-color: @water; }
        }
       marker-placement: interior;
 }
+
+#springs {
+  [natural = 'spring'][zoom >= 14] {
+    marker-file: url('res/spring.svg');
+    marker-placement: interior;
+    marker-clip: false;
+    [zoom = 14] {
+      marker-width: 5;
+      marker-height: 5;
+    }
+    [zoom >= 15] {
+      marker-width: 6.5;
+      marker-height: 6.5;
+    }
+  }
+}
+
 /* ================================================================== */
 /* BARRIER POINTS
 /* ================================================================== */

@@ -277,7 +277,11 @@ come in as well.
     [stylegroup='motorway'] { line-width: @rdz15_maj; }
     [stylegroup='mainroad'] { line-width: @rdz15_med; }
     [stylegroup='minorroad']{ line-width: @rdz15_min; }
-    [stylegroup='service']  { line-width: @rdz15_min; line-dasharray: 10, 3, 2, 3;}
+    [stylegroup='service']  { 
+      line-width: @rdz15_min; 
+      line-dasharray: 10, 3, 2, 3;
+      line-color: rgb(255,255,255);
+    }
     [stylegroup='noauto']   { line-width: @rdz15_min / 4; line-dasharray: 1,1; }
     [stylegroup='railway']  { line-width: 1.5; }
   }
@@ -285,7 +289,11 @@ come in as well.
     [stylegroup='motorway'] { line-width: @rdz16_maj; }
     [stylegroup='mainroad'] { line-width: @rdz16_med; }
     [stylegroup='minorroad']{ line-width: @rdz16_min; }
-    [stylegroup='service']  { line-width: @rdz16_min / 3; line-dasharray: 10, 3, 2, 3;}
+    [stylegroup='service']  { 
+      line-width: @rdz16_min / 3; 
+      line-dasharray: 10, 3, 2, 3;
+      line-color: rgb(255,255,255);
+    }
     [stylegroup='noauto']   { line-width: @rdz16_min / 4; line-dasharray: 2,1; }
     [stylegroup='railway']  { line-width: 2; }
   }
@@ -293,7 +301,11 @@ come in as well.
     [stylegroup='motorway'] { line-width: @rdz17_maj; }
     [stylegroup='mainroad'] { line-width: @rdz17_med; }
     [stylegroup='minorroad']{ line-width: @rdz17_min; }
-    [stylegroup='service']  { line-width: @rdz17_min / 3; line-dasharray: 10, 3, 2, 3;}
+    [stylegroup='service']  { 
+      line-width: @rdz17_min / 3; 
+      line-dasharray: 10, 3, 2, 3;
+      line-color: rgb(255,255,255);
+    }
     [stylegroup='noauto']   { line-width: @rdz17_min / 4; line-dasharray: 2,2; }
     [stylegroup='railway']  { line-width: 3; }
   }
@@ -301,7 +313,11 @@ come in as well.
     [stylegroup='motorway'] { line-width: @rdz18_maj; }
     [stylegroup='mainroad'] { line-width: @rdz18_med; }
     [stylegroup='minorroad']{ line-width: @rdz18_min; }
-    [stylegroup='service']  { line-width: @rdz18_min / 2; line-dasharray: 10, 3, 2, 3;}
+    [stylegroup='service']  { 
+      line-width: @rdz18_min / 2; 
+      line-dasharray: 10, 3, 2, 3;
+      line-color: rgb(255,255,255);
+    }
     [stylegroup='noauto']   { line-width: @rdz18_min / 4; line-dasharray: 3,3; }
     [stylegroup='railway']  { line-width: 4; }
   }

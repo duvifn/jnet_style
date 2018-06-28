@@ -483,17 +483,13 @@
     text-face-name:@sans;
     text-size:10;
     [zoom>=16] { text-size:11; }
-    text-fill:#b3d6f6;
-    text-halo-fill: #b3d6f6;//@road_halo;
+    text-fill: @water;// rgb(129,167,213); //#b3d6f6;
+    text-halo-fill: rgb(129,167,213); //#b3d6f6;//@road_halo;
     text-halo-radius:0.4;
     text-placement: interior;
     text-dy: 7;
 }
  
-
-/* ================================================================== */
-/* NATURAL POINTS
-/* ================================================================== */
 #natural_points["natural"='peak'][zoom>=13] {
       text-face-name:@sans;
       text-fill: #555555;

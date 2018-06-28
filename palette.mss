@@ -1,5 +1,5 @@
 /* ****************************************************************** */
-/* OSM BRIGHT for Imposm                                              */
+/* OSM BRIGHT BASED TOPOGRAPHIC STYLE                                 */
 /* ****************************************************************** */
 
 /* For basic style customization you can simply edit the colors and

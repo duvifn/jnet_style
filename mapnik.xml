@@ -11,7 +11,7 @@
   <Parameter name="scale">1</Parameter>
   <Parameter name="metatile">1</Parameter>
   <Parameter name="id"><![CDATA[general]]></Parameter>
-  <Parameter name="_updated">1530196604000</Parameter>
+  <Parameter name="_updated">1530526656000</Parameter>
   <Parameter name="attribution"><![CDATA[Data © OpenStreetMap (and) contributors, ODbL]]></Parameter>
   <Parameter name="name"><![CDATA[JNet]]></Parameter>
   <Parameter name="tilejson"><![CDATA[2.0.0]]></Parameter>
@@ -565,7 +565,6 @@
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="extent"><![CDATA[3673572.73,3375645.66,4230132.72,4028775.67]]></Parameter>
        <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
        <Parameter name="password"><![CDATA[fake_password]]></Parameter>
        <Parameter name="dbname"><![CDATA[contours]]></Parameter>
@@ -602,7 +601,6 @@
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="extent"><![CDATA[3676898.84851,3379004.83551,4226794.88449,4025449.56249]]></Parameter>
        <Parameter name="dbname"><![CDATA[contours_20]]></Parameter>
        <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
        <Parameter name="password"><![CDATA[fake_password]]></Parameter>
@@ -43831,7 +43829,6 @@ SELECT
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="extent"><![CDATA[2799561.5,2511529.72,4740565.54,4484237.56]]></Parameter>
        <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
        <Parameter name="host"><![CDATA[fake_host]]></Parameter>
        <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>

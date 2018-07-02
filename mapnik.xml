@@ -11,7 +11,7 @@
   <Parameter name="scale">1</Parameter>
   <Parameter name="metatile">1</Parameter>
   <Parameter name="id"><![CDATA[general]]></Parameter>
-  <Parameter name="_updated">1530526656000</Parameter>
+  <Parameter name="_updated">1530533542000</Parameter>
   <Parameter name="attribution"><![CDATA[Data © OpenStreetMap (and) contributors, ODbL]]></Parameter>
   <Parameter name="name"><![CDATA[JNet]]></Parameter>
   <Parameter name="tilejson"><![CDATA[2.0.0]]></Parameter>
@@ -459,6 +459,11 @@
     <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#a2a2a2" halo-fill="rgba(255, 255, 255, 0.66)" halo-radius="1"><![CDATA[[ele].replace('([0-9]+)\.(.+)','$1')]]></TextSymbolizer>
   </Rule>
   <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <Filter>([one_hundred] = true) and ([fifty] != true) and ([ele] != 0)</Filter>
+    <LineSymbolizer stroke-width="0.7" stroke="#a5a5a5" smooth="0.5" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([fifty] = true) and ([ele] != 0) and ([one_hundred] != true)</Filter>
@@ -478,6 +483,11 @@
     <Filter>([fifty] = true) and ([ele] != 0) and ([one_hundred] != true)</Filter>
     <TextSymbolizer fill="#aaaaaa" fontset-name="fontset-0" placement="line" halo-fill="rgba(255, 255, 255, 0.66)" halo-radius="1" minimum-path-length="200" spacing="400" label-position-tolerance="100" max-char-angle-delta="10" size="8"><![CDATA[[ele]]]></TextSymbolizer>
     <LineSymbolizer stroke-width="0.2" stroke="#555555" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <Filter>([fifty] = true) and ([ele] != 0) and ([one_hundred] != true)</Filter>
+    <LineSymbolizer stroke-width="0.5" stroke="#a5a5a5" smooth="0.5" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
@@ -501,6 +511,11 @@
     <LineSymbolizer stroke-width="0.3" stroke="#555555" />
   </Rule>
   <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <Filter>([fifty] = true) and ([ele] != 0) and ([one_hundred] = true)</Filter>
+    <LineSymbolizer stroke-width="0.7" stroke="#a5a5a5" smooth="0.5" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([fifty] = true) and ([ele] != 0)</Filter>
@@ -520,20 +535,13 @@
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <MinScaleDenominator>2500</MinScaleDenominator>
+    <MinScaleDenominator>750</MinScaleDenominator>
     <Filter>([one_hundred] != true) and ([fifty] != true) and ([ele] != 0)</Filter>
     <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#a2a2a2" halo-fill="rgba(255, 255, 255, 0.66)" halo-radius="1" minimum-path-length="200" spacing="400" label-position-tolerance="100" max-char-angle-delta="10" size="8"><![CDATA[[ele]]]></TextSymbolizer>
     <LineSymbolizer stroke-width="0.2" stroke="#555555" smooth="0.5" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <MinScaleDenominator>750</MinScaleDenominator>
-    <Filter>([one_hundred] != true) and ([fifty] != true) and ([ele] != 0)</Filter>
-    <TextSymbolizer fontset-name="fontset-0" placement="line" fill="#a2a2a2" halo-fill="rgba(255, 255, 255, 0.66)" halo-radius="1" minimum-path-length="200" spacing="400" label-position-tolerance="100" max-char-angle-delta="10" size="8"><![CDATA[[ele]]]></TextSymbolizer>
-  </Rule>
-  <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
     <Filter>([one_hundred] != true) and ([fifty] != true) and ([ele] != 0)</Filter>
     <LineSymbolizer stroke-width="0.2" stroke="#555555" smooth="0.5" />
   </Rule>
@@ -545,7 +553,6 @@
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <MinScaleDenominator>2500</MinScaleDenominator>
     <Filter>([one_hundred] = true) and ([ele] != 0)</Filter>
     <LineSymbolizer stroke-width="0.7" stroke="#a5a5a5" smooth="0.5" />
   </Rule>

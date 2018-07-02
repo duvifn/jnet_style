@@ -11,7 +11,7 @@
   <Parameter name="scale">1</Parameter>
   <Parameter name="metatile">1</Parameter>
   <Parameter name="id"><![CDATA[general]]></Parameter>
-  <Parameter name="_updated">1530533542000</Parameter>
+  <Parameter name="_updated">1530552388000</Parameter>
   <Parameter name="attribution"><![CDATA[Data © OpenStreetMap (and) contributors, ODbL]]></Parameter>
   <Parameter name="name"><![CDATA[JNet]]></Parameter>
   <Parameter name="tilejson"><![CDATA[2.0.0]]></Parameter>
@@ -114,7 +114,6 @@
 <Style name="land-high" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>1500</MinScaleDenominator>
     <PolygonSymbolizer fill="#fcfbe7" gamma="0.75" />
   </Rule>
 </Style>

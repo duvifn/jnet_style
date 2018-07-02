@@ -34,7 +34,7 @@
       line-color:   #555555;
       opacity:0.8;
     }
-	[zoom>=15][zoom<=17]{
+	[zoom>=15]{
      	line-width:0.7;
       	line-color:  #a5a5a5;
      	line-smooth:0.5;
@@ -49,7 +49,7 @@
       line-color:   #555555;
       opacity:0.8;
     }
-    [zoom>=15][zoom<=17]{
+    [zoom>=15]{
           line-width:0.5;
           line-color: #a5a5a5;
           line-smooth:0.5;
@@ -63,7 +63,7 @@
           line-color: #555555;
           opacity:0.8;
         }
-		[zoom>=15][zoom<=17]{
+		[zoom>=15]{
           line-width:0.2;
           line-color:  #555555;
           line-smooth:0.5;

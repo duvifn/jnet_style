@@ -12,7 +12,7 @@
 
 Map { background-color: @water; }
 #land-low[zoom>=0][zoom<10],
-#land-high[zoom>=10][zoom<=18]{
+#land-high[zoom>=10]{
    polygon-fill: @land;
    polygon-gamma: 0.75;   
   }

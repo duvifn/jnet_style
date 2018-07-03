@@ -11,7 +11,7 @@
   <Parameter name="scale">1</Parameter>
   <Parameter name="metatile">1</Parameter>
   <Parameter name="id"><![CDATA[general]]></Parameter>
-  <Parameter name="_updated">1530552388000</Parameter>
+  <Parameter name="_updated">1530602061000</Parameter>
   <Parameter name="attribution"><![CDATA[Data © OpenStreetMap (and) contributors, ODbL]]></Parameter>
   <Parameter name="name"><![CDATA[JNet]]></Parameter>
   <Parameter name="tilejson"><![CDATA[2.0.0]]></Parameter>
@@ -104,7 +104,7 @@
     <StyleName>land-low</StyleName>
     <Datasource>
        <Parameter name="dbname"><![CDATA[osm]]></Parameter>
-       <Parameter name="extent"><![CDATA[-20037508.34 -20037508.34 20037508.34 20037508.34]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="file"><![CDATA[/home/duvi/Documents/MapBox/project/general/layers/land-low/simplified_land_polygons.shp]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
@@ -121,6 +121,7 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>land-high</StyleName>
     <Datasource>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="file"><![CDATA[/home/duvi/Documents/MapBox/project/general/layers/land-high/land_polygons.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
@@ -567,6 +568,7 @@
     <StyleName>contours</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="table"><![CDATA[(SELECT way,ele, (ele % 50 = 0)  as fifty, (ele % 200 = 0) as two_hundreds, (ele % 100 = 0) as one_hundred  FROM planet_osm_line) AS contours]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
@@ -603,6 +605,7 @@
     <StyleName>contours_20</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="table"><![CDATA[(SELECT way,ele, (ele % 50 = 0)  as fifty, (ele % 200 = 0) as two_hundreds, (ele % 100 = 0) as one_hundred  FROM planet_osm_line) AS contours_20]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
@@ -701,6 +704,7 @@
     <StyleName>landuse_residental</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="table"><![CDATA[(SELECT * FROM
 ( SELECT way, way_area AS area, COALESCE(landuse, leisure, "natural", highway, amenity, tourism) AS type
   FROM planet_osm_polygon
@@ -709,7 +713,6 @@
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="extent"><![CDATA[3596752.79,3214238.45,4722801.5,4487428.73]]></Parameter>
        <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
        <Parameter name="password"><![CDATA[fake_password]]></Parameter>
        <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
@@ -43811,6 +43814,7 @@
     <StyleName>airports-points</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="table"><![CDATA[(SELECT
     way, "natural", aeroway, access,
     tags->'icao' as icao,
@@ -47324,6 +47328,7 @@ ELSE tags -> 'name:en'  END as name
     <StyleName>cliffs</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="table"><![CDATA[(SELECT
             way, "natural", man_made
           FROM planet_osm_line
@@ -47332,7 +47337,6 @@ ELSE tags -> 'name:en'  END as name
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="extent"><![CDATA[2799561.5,2511529.72,4107682.73,3952777.48]]></Parameter>
        <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
        <Parameter name="password"><![CDATA[fake_password]]></Parameter>
        <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
@@ -47713,6 +47717,7 @@ CASE
     <StyleName>natural_points</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, "natural" ,
 CASE WHEN (tags -> 'ele'  IS NULL OR tags -> 'ele'  = '') THEN '' ELSE tags -> 'ele' END as ele,
 CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN 
@@ -47724,7 +47729,6 @@ FROM planet_osm_point
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="extent"><![CDATA[2799561.5,2511529.72,4740565.54,4484237.56]]></Parameter>
        <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
        <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
        <Parameter name="password"><![CDATA[fake_password]]></Parameter>
@@ -47762,6 +47766,7 @@ FROM planet_osm_point
     <StyleName>springs-labels</StyleName>
     <Datasource>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="table"><![CDATA[(SELECT
         way, "natural", 
      CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN 
@@ -47781,7 +47786,6 @@ ELSE tags -> 'name:en'  END as name
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="extent"><![CDATA[2799561.5,2511529.72,4740565.54,4484237.56]]></Parameter>
        <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
        <Parameter name="host"><![CDATA[fake_host]]></Parameter>
        <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>

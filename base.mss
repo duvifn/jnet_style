@@ -126,7 +126,7 @@ Map { background-color: @water; }
 }
 
 #hillshade_1000 {
-   [zoom>=4][zoom<=6]{
+   [zoom>=5][zoom<=6]{
     raster-comp-op: multiply;
     raster-scaling: bilinear;
     raster-opacity:0.32;

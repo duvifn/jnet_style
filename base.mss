@@ -17,7 +17,7 @@ Map { background-color: @water; }
    polygon-gamma: 0.75;   
   }
 
-#landuse_gen0[zoom>3][zoom<=9],
+#landuse_gen0[zoom>4][zoom<=9],
 #landuse_gen1[zoom>9][zoom<=12],
 #landuse_residental[zoom>13] {
   [type='cemetery']      { polygon-fill: @cemetery; }
@@ -165,7 +165,7 @@ Map { background-color: @water; }
 /* WATER AREAS
 /* ================================================================== */
 
-#water_gen0[zoom>3][zoom<=9],
+#water_gen0[zoom>4][zoom<=9],
 #water_gen1[zoom>9][zoom<=12],
 #water[zoom>12] {
   polygon-fill: @water;

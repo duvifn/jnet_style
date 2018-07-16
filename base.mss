@@ -98,7 +98,7 @@ Map { background-color: @water; }
   image-filters: agg-stack-blur(1,1);
 }
 
-#hillshade_39::z14[zoom=14] {
+#hillshade_30::z14[zoom=14] {
   image-filters: agg-stack-blur(3,3);
 }
 

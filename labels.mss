@@ -63,6 +63,7 @@
   text-fill:@country_text;
   text-halo-fill: #aaa;
   text-halo-radius: 0.6;
+  text-wrap-width: 30;
   [zoom=3] {
     text-size:10 + @text_adjust;
     text-wrap-width: 40;

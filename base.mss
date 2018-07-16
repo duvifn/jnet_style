@@ -244,14 +244,17 @@ Map { background-color: @water; }
 /* ================================================================== */
 
 #admin[admin_level='2'][zoom>1] {
+    
+  ::not_maritime[maritime='no'] {
     line-color:@admin_2;
-    line-width:2;
+    
     [zoom>=2][zoom<=9]{
-        line-width:2;
+      line-width:2;
     }
     [zoom=2] { line-opacity: 0.25; }
     [zoom=3] { line-opacity: 0.3; }
     [zoom=4] { line-opacity: 0.4; }
+  }
   /* Remove any maritime borders. Unfortunatly this is the only way to do this */
   ::maritime[maritime='yes'][zoom>1]{
     line-color: rgb(163,194,223);

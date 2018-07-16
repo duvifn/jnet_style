@@ -105,7 +105,7 @@
     <Datasource>
        <Parameter name="dbname"><![CDATA[osm]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
-       <Parameter name="file"><![CDATA[/home/duvi/Documents/MapBox/project/general/layers/land-low/simplified_land_polygons.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[/media/duvi/Extreme/temp/openstreetmap-carto/data/simplified-land-polygons-complete-3857/simplified_land_polygons.shp]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
@@ -122,7 +122,7 @@
     <StyleName>land-high</StyleName>
     <Datasource>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
-       <Parameter name="file"><![CDATA[/home/duvi/Documents/MapBox/project/general/layers/land-high/land_polygons.shp]]></Parameter>
+       <Parameter name="file"><![CDATA[/media/duvi/Extreme/temp/openstreetmap-carto/data/land-polygons-split-3857/land_polygons.shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>
@@ -1449,7 +1449,7 @@
     <StyleName>hillshade_30-z18</StyleName>
     <StyleName>hillshade_30</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/home/duvi/Documents/MapBox/project/general/layers/hillshade_30.tif]]></Parameter>
+        <Parameter name="file"><![CDATA[/media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/hillshade_30.tif]]></Parameter>
        <Parameter name="type"><![CDATA[gdal]]></Parameter>
     </Datasource>
   </Layer>
@@ -1473,7 +1473,7 @@
     <StyleName>hillshade_90-z13</StyleName>
     <StyleName>hillshade_90</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/home/duvi/Documents/MapBox/project/general/layers/hillshade_90.tif]]></Parameter>
+       <Parameter name="file"><![CDATA[/media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/hillshade_90.tif]]></Parameter>
        <Parameter name="type"><![CDATA[gdal]]></Parameter>
     </Datasource>
   </Layer>
@@ -1489,7 +1489,7 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>hillshade_700</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/home/duvi/Documents/MapBox/project/general/layers/hillshade_700.tif]]></Parameter>
+       <Parameter name="file"><![CDATA[/media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/hillshade_700.tif]]></Parameter>
        <Parameter name="type"><![CDATA[gdal]]></Parameter>
     </Datasource>
   </Layer>
@@ -1505,7 +1505,7 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>hillshade_1000</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/home/duvi/Documents/MapBox/project/general/layers/hillshade_1000.tif]]></Parameter>
+       <Parameter name="file"><![CDATA[/media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/hillshade_1000.tif]]></Parameter>
        <Parameter name="type"><![CDATA[gdal]]></Parameter>
     </Datasource>
   </Layer>
@@ -1521,7 +1521,7 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>hillshade_5000</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[/home/duvi/Documents/MapBox/project/general/layers/hillshade_5000.tif]]></Parameter>
+       <Parameter name="file"><![CDATA[/media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/hillshade_5000.tif]]></Parameter>
        <Parameter name="type"><![CDATA[gdal]]></Parameter>
     </Datasource>
   </Layer>

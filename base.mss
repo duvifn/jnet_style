@@ -121,7 +121,7 @@ Map { background-color: @water; }
    [zoom>=1][zoom<=4]{
     raster-comp-op: multiply;
     raster-scaling: bilinear;
-    raster-opacity:0.32;
+    raster-opacity:0.5;
   }
 }
 
@@ -129,7 +129,7 @@ Map { background-color: @water; }
    [zoom>=5][zoom<=6]{
     raster-comp-op: multiply;
     raster-scaling: bilinear;
-    raster-opacity:0.32;
+    raster-opacity:0.6;
   }
 }
 
@@ -137,7 +137,7 @@ Map { background-color: @water; }
    [zoom>=7][zoom<=8]{
     raster-comp-op: multiply;
     raster-scaling: bilinear;
-    raster-opacity:0.32;
+    raster-opacity:0.65;
   }
 }
 
@@ -145,12 +145,12 @@ Map { background-color: @water; }
   [zoom>=9][zoom<=12]{
     raster-comp-op: multiply;
     raster-scaling: bilinear;
-    raster-opacity:0.32;
+    raster-opacity:0.65;
    }
   [zoom>=13][zoom<=14]{
     raster-comp-op: grain-merge;
     raster-scaling: bilinear;
-    raster-opacity:0.6;
+    raster-opacity:0.65;
   }
 }
 
@@ -248,7 +248,7 @@ Map { background-color: @water; }
   ::not_maritime[maritime='no'] {
     line-color:@admin_2;
     
-    [zoom>=2][zoom<=9]{
+    [zoom>=2][zoom<=11]{
       line-width:2;
     }
     [zoom=2] { line-opacity: 0.25; }
@@ -257,9 +257,10 @@ Map { background-color: @water; }
   }
   /* Remove any maritime borders. Unfortunatly this is the only way to do this */
   ::maritime[maritime='yes'][zoom>1]{
-    line-color: rgb(163,194,223);
+    line-color: #91aec7;
     line-width:4;
     line-opacity: 1.0;
+    [zoom >= 13] { line-color: #a0c3e3 }
   }
 }
 

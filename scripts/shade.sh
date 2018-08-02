@@ -10,7 +10,7 @@ output_file=$2
 z=$3
 buffer=$4
 
-log_path=`dirname $output_file`/log.txt
+log_path=${output_file}.error.log
 . ./try_and_log.sh
 
 try_and_log gdaldem hillshade -z $z -compute_edges $input_file ${output_file}.tmp.tif

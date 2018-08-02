@@ -13,6 +13,8 @@ input=$1
 output_dir=$2
 number_of_jobs=$3
 log_path=$4
+mkdir -p `dirname $log_path`
+
 echo START `date` >> $log_path
 # https://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
@@ -24,12 +26,15 @@ buffer=100
 vrt_output=$output_dir/file_vrt
 shp_output=$output_dir/shp
 try_and_log python ./create_vrt_files.py --input_file $input --output_dir $vrt_output --buffer $buffer
+
 for vrt in $vrt_output/*.vrt
 do
     base_name=`basename $vrt`
-    execute_async ./grass_contours.sh $vrt $shp_output/${base_name%%.vrt}.shp $buffer ${log_path}.`basename $vrt`
+    execute_async ./grass_contours.sh $vrt $shp_output/${base_name%%.vrt}.shp $buffer ${log_path}.${base_name}.error.log
 done
 
 wait
 
+. $SCRIPTPATH/report_errors.sh
+report_errors `dirname ${log_path}`
 echo END `date` >> $log_path

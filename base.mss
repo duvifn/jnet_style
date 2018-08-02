@@ -39,14 +39,14 @@ Map { background-color: @water; }
 }
 
 #landuse[zoom=12] {
-  [type='forest']        { polygon-fill: #E6F2C1; } 
-  [type='grass']         { polygon-fill: #E6F2C1; }
+  [type='forest']        { polygon-fill: #c5edb5; } 
+  [type='grass'],[type='meadow'] { polygon-fill: #E6F2C1; }
   [type='wood']          { polygon-fill: #E6F2C1; } 
 }
 
 #landuse[zoom>12] {
-  [type='forest']        { polygon-fill: #E6F2C1; } 
-  [type='grass']         { polygon-fill: #E6F2C1; } 
+  [type='forest']        { polygon-fill: #c5edb5; } 
+  [type='grass'],[type='meadow'] { polygon-fill: #E6F2C1; } 
   [type='wood']          { polygon-fill: #E6F2C1; }
 }
 
@@ -129,7 +129,7 @@ Map { background-color: @water; }
    [zoom>=5][zoom<=6]{
     raster-comp-op: multiply;
     raster-scaling: bilinear;
-    raster-opacity:0.6;
+    raster-opacity:0.5;
   }
 }
 
@@ -137,7 +137,7 @@ Map { background-color: @water; }
    [zoom>=7][zoom<=8]{
     raster-comp-op: multiply;
     raster-scaling: bilinear;
-    raster-opacity:0.65;
+    raster-opacity:0.5;
   }
 }
 
@@ -145,12 +145,12 @@ Map { background-color: @water; }
   [zoom>=9][zoom<=12]{
     raster-comp-op: multiply;
     raster-scaling: bilinear;
-    raster-opacity:0.65;
+    raster-opacity:0.5;
    }
   [zoom>=13][zoom<=14]{
     raster-comp-op: grain-merge;
     raster-scaling: bilinear;
-    raster-opacity:0.65;
+    raster-opacity:0.6;
   }
 }
 
@@ -158,7 +158,7 @@ Map { background-color: @water; }
   [zoom>=15][zoom<=18]{
     raster-comp-op: grain-merge;
     raster-scaling: bilinear;
-    raster-opacity:0.6;
+    raster-opacity:0.58;
   }
 }
 /* ================================================================== */
@@ -249,7 +249,11 @@ Map { background-color: @water; }
     line-color:@admin_2;
     
     [zoom>=2][zoom<=11]{
-      line-width:2;
+      line-width:3;
+    }
+    
+    [zoom>11]{
+      line-width:3;
     }
     [zoom=2] { line-opacity: 0.25; }
     [zoom=3] { line-opacity: 0.3; }

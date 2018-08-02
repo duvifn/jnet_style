@@ -11,7 +11,7 @@
   <Parameter name="scale">1</Parameter>
   <Parameter name="metatile">1</Parameter>
   <Parameter name="id"><![CDATA[general]]></Parameter>
-  <Parameter name="_updated">1531990428000</Parameter>
+  <Parameter name="_updated">1533206964000</Parameter>
   <Parameter name="attribution"><![CDATA[Data © OpenStreetMap (and) contributors, ODbL]]></Parameter>
   <Parameter name="name"><![CDATA[JNet]]></Parameter>
   <Parameter name="tilejson"><![CDATA[2.0.0]]></Parameter>
@@ -229,12 +229,12 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>landuse_gen0</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[landuse_gen0]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[osm-bright-imposm]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, way_area AS area, COALESCE(landuse, leisure, "natural", highway, amenity, tourism) AS type
@@ -243,9 +243,9 @@
   ORDER BY way_area DESC
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -351,12 +351,12 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>landuse_gen1</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[landuse_gen1]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[osm-bright-imposm]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, way_area AS area, COALESCE(landuse, leisure, "natural", highway, amenity, tourism) AS type
@@ -365,9 +365,9 @@
   ORDER BY way_area DESC
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -385,6 +385,17 @@
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <Filter>([type] = 'meadow')</Filter>
+    <PolygonSymbolizer fill="#e6f2c1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <Filter>([type] = 'meadow')</Filter>
+    <PolygonSymbolizer fill="#e6f2c1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
     <Filter>([type] = 'grass')</Filter>
     <PolygonSymbolizer fill="#e6f2c1" />
   </Rule>
@@ -397,36 +408,36 @@
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <Filter>([type] = 'forest')</Filter>
-    <PolygonSymbolizer fill="#e6f2c1" />
+    <PolygonSymbolizer fill="#c5edb5" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
     <Filter>([type] = 'forest')</Filter>
-    <PolygonSymbolizer fill="#e6f2c1" />
+    <PolygonSymbolizer fill="#c5edb5" />
   </Rule>
 </Style>
 <Layer name="landuse"
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>landuse</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[landuse]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[osm-bright-imposm]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[(SELECT * FROM
 ( SELECT way, way_area AS area, COALESCE(landuse, leisure, "natural", highway, amenity, tourism) AS type
   FROM planet_osm_polygon
   ORDER BY way_area DESC
-) AS foo WHERE type in ('forest', 'wood', 'grass') ) AS data]]></Parameter>
+) AS foo WHERE type in ('forest', 'wood', 'grass','meadow') ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -573,10 +584,10 @@
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="dbname"><![CDATA[contours]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -611,9 +622,9 @@
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
        <Parameter name="dbname"><![CDATA[contours_20]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -713,10 +724,10 @@
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -782,12 +793,12 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>waterway_low</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[waterway]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[foss4g-2011]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, waterway AS type,
@@ -798,9 +809,9 @@
   WHERE waterway IN ('river', 'canal')
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -893,11 +904,11 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>waterway_med</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, waterway AS type,
  CASE WHEN tags->'intermittent' IN ('yes')
               OR tags->'seasonal' IN ('yes', 'spring', 'summer', 'autumn', 'winter', 'wet_season', 'dry_season')
@@ -906,9 +917,9 @@
   WHERE waterway IN ('river', 'canal', 'stream')
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -1137,166 +1148,166 @@
   </Rule>
   <Rule>
     <MaxScaleDenominator>750</MaxScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <MinScaleDenominator>750</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750</MaxScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <MinScaleDenominator>750</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
+    <Filter>([type] = 'canal')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750</MaxScaleDenominator>
-    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <MinScaleDenominator>750</MinScaleDenominator>
-    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
-    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750</MaxScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <MinScaleDenominator>750</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'canal')</Filter>
+    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-linecap="round" stroke-linejoin="round" stroke="#b3d6f6" />
   </Rule>
   <Rule>
@@ -1313,22 +1324,22 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>waterway_high</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, waterway AS type,
   CASE WHEN tags->'intermittent' IN ('yes')
               OR tags->'seasonal' IN ('yes', 'spring', 'summer', 'autumn', 'winter', 'wet_season', 'dry_season')
               THEN 'yes' ELSE 'no' END AS int_intermittent
   FROM planet_osm_line
-  WHERE waterway IN ('river', 'canal', 'stream', 'ditch', 'drain')
+  WHERE waterway IN ('river', 'canal', 'stream', 'ditch', 'drain', 'wadi')
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -1343,12 +1354,12 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>water_gen0</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[water_gen0]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[foss4g-2011]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, "natural" AS type, way_area AS area
@@ -1358,9 +1369,9 @@
     AND way_area > 10000
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -1375,12 +1386,12 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>water_gen1</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[water_gen1]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[foss4g-2011]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, "natural" AS type, way_area AS area
@@ -1390,9 +1401,9 @@
     AND way_area > 1000
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -1406,12 +1417,12 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>water</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[water]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[foss4g-2011]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, way_area AS area
@@ -1420,9 +1431,9 @@
     OR waterway IN ('basin', 'canal', 'mill_pond', 'pond', 'riverbank', 'stream')
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -1430,7 +1441,7 @@
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
-    <RasterSymbolizer comp-op="grain-merge" scaling="bilinear" opacity="0.6" />
+    <RasterSymbolizer comp-op="grain-merge" scaling="bilinear" opacity="0.58" />
   </Rule>
 </Style>
 <Style name="hillshade_30-z18" filter-mode="first" image-filters="agg-stack-blur(24,24)">
@@ -1461,12 +1472,12 @@
   <Rule>
     <MaxScaleDenominator>100000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <RasterSymbolizer comp-op="grain-merge" scaling="bilinear" opacity="0.65" />
+    <RasterSymbolizer comp-op="grain-merge" scaling="bilinear" opacity="0.6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500000</MaxScaleDenominator>
     <MinScaleDenominator>100000</MinScaleDenominator>
-    <RasterSymbolizer comp-op="multiply" scaling="bilinear" opacity="0.65" />
+    <RasterSymbolizer comp-op="multiply" scaling="bilinear" opacity="0.5" />
   </Rule>
 </Style>
 <Style name="hillshade_90-z13" filter-mode="first" image-filters="agg-stack-blur(1,1)">
@@ -1485,7 +1496,7 @@
   <Rule>
     <MaxScaleDenominator>6500000</MaxScaleDenominator>
     <MinScaleDenominator>1500000</MinScaleDenominator>
-    <RasterSymbolizer comp-op="multiply" scaling="bilinear" opacity="0.65" />
+    <RasterSymbolizer comp-op="multiply" scaling="bilinear" opacity="0.5" />
   </Rule>
 </Style>
 <Layer name="hillshade_700"
@@ -1501,7 +1512,7 @@
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
-    <RasterSymbolizer comp-op="multiply" scaling="bilinear" opacity="0.6" />
+    <RasterSymbolizer comp-op="multiply" scaling="bilinear" opacity="0.5" />
   </Rule>
 </Style>
 <Layer name="hillshade_1000"
@@ -1587,12 +1598,12 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>landuse_overlays</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[landuse_overlays]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[osm-bright-imposm]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, way_area AS area, COALESCE(leisure) AS type
@@ -1601,9 +1612,9 @@
   ORDER BY way_area DESC
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -1724,12 +1735,12 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>aeroway</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[aeroway]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[foss4g-2011]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, aeroway AS type
@@ -1737,9 +1748,9 @@
   WHERE aeroway IN ('apron', 'runway', 'taxiway')
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -15645,12 +15656,12 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>tunnel</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[tunnel]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[osm-bright-master]]></Parameter>
        <Parameter name="srs"><![CDATA[null]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, COALESCE(highway, railway) AS type, 0 AS bridge, access, render, layer, 1 as tunnel,
@@ -15675,9 +15686,9 @@
   ORDER BY layer ASC, render ASC
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -15711,12 +15722,12 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>turning_circle_case</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[turning_circle_case]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[osm-bright-master]]></Parameter>
        <Parameter name="srs"><![CDATA[null]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way 
@@ -15724,9 +15735,9 @@
   WHERE highway = 'turning_circle'
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -29573,12 +29584,12 @@
     <StyleName>roads_high-outline</StyleName>
     <StyleName>roads_high</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[roads_high]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[osm-bright-master]]></Parameter>
        <Parameter name="srs"><![CDATA[null]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, COALESCE(highway, railway) AS type, 0 AS tunnel, 0 AS bridge, access, 'fill' AS render,
@@ -29597,9 +29608,9 @@
   ORDER BY z_order
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -29651,19 +29662,19 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>roads_med</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, highway AS type
   FROM planet_osm_roads
   WHERE highway IN ('motorway', 'trunk', 'primary', 'secondary', 'motorway_link', 'trunk_link')
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -29686,19 +29697,19 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>roads_low</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, highway AS type, bridge, tunnel
     FROM planet_osm_roads
     WHERE highway IN ('motorway', 'trunk')
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -29732,19 +29743,19 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>turning_circle_fill</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way 
   FROM planet_osm_point
   WHERE highway = 'turning_circle'
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -43651,12 +43662,12 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>bridge</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[bridge]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[osm-bright-master]]></Parameter>
        <Parameter name="srs"><![CDATA[null]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, COALESCE(highway, railway) AS type, 1 AS bridge, access, render, layer, 0 as tunnel,
@@ -43681,9 +43692,9 @@
   ORDER BY layer ASC, render ASC
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -43760,20 +43771,20 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>buildings</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, "building" AS type
   FROM planet_osm_polygon
   WHERE building NOT IN ('', '0','false', 'no')
   ORDER BY ST_YMin(ST_Envelope(way)) DESC
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -43822,9 +43833,9 @@
     way, "natural", aeroway, access,
     tags->'icao' as icao,
     tags->'iata' as iata,
-    CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN 
-        CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND name NOT SIMILAR TO '%[U&\059x1-U&\05Fx5]%' AND name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
-    ELSE tags -> 'name:en'  END as name
+CASE WHEN (tags -> 'name:$language_code'  IS NULL OR tags -> 'name:$language_code'  = '') THEN 
+    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND  name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
+ELSE tags -> 'name:$language_code'  END as name
     FROM planet_osm_point
     WHERE aeroway IN ('helipad', 'aerodrome')
     UNION ALL
@@ -43833,19 +43844,19 @@ SELECT
     way, "natural", aeroway, access,
     tags->'icao' as icao,
     tags->'iata' as iata,
-    CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN 
+    CASE WHEN (tags -> 'name:$language_code'  IS NULL OR tags -> 'name:$language_code'  = '') THEN 
         CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND name NOT SIMILAR TO '%[U&\059x1-U&\05Fx5]%' AND name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
-    ELSE tags -> 'name:en'  END as name
+    ELSE tags -> 'name:$language_code'  END as name
     FROM planet_osm_polygon
     WHERE aeroway IN ('helipad', 'aerodrome')
 ) AS airports]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -43867,30 +43878,30 @@ SELECT
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([admin_level] = '2') and ([maritime] = 'no')</Filter>
-    <LineSymbolizer stroke-width="2" stroke-opacity="0.4" stroke="#ffffff" />
+    <LineSymbolizer stroke-width="3" stroke-opacity="0.4" stroke="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
     <Filter>([admin_level] = '2') and ([maritime] = 'no')</Filter>
-    <LineSymbolizer stroke-width="2" stroke-opacity="0.3" stroke="#ffffff" />
+    <LineSymbolizer stroke-width="3" stroke-opacity="0.3" stroke="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>100000000</MinScaleDenominator>
     <Filter>([admin_level] = '2') and ([maritime] = 'no')</Filter>
-    <LineSymbolizer stroke-width="2" stroke-opacity="0.25" stroke="#ffffff" />
+    <LineSymbolizer stroke-width="3" stroke-opacity="0.25" stroke="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([admin_level] = '2') and ([maritime] = 'no')</Filter>
-    <LineSymbolizer stroke-width="2" stroke="#ffffff" />
+    <LineSymbolizer stroke-width="3" stroke="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <Filter>([admin_level] = '2') and ([maritime] = 'no')</Filter>
-    <LineSymbolizer stroke="#ffffff" />
+    <LineSymbolizer stroke-width="3" stroke="#ffffff" />
   </Rule>
 </Style>
 <Layer name="admin"
@@ -43898,12 +43909,12 @@ SELECT
     <StyleName>admin-not_maritime</StyleName>
     <StyleName>admin-maritime</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[2799561.5,2511529.72,4757410.82,4572579.45]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[admin]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[general]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, admin_level,
 CASE WHEN (defined(tags, 'maritime') and tags->'maritime' IN  ('yes')) OR boundary = 'maritime' THEN 'yes' ELSE 'no' END as maritime
@@ -43912,9 +43923,9 @@ CASE WHEN (defined(tags, 'maritime') and tags->'maritime' IN  ('yes')) OR bounda
     AND admin_level IN ('2','3','4')
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
     </Datasource>
   </Layer>
@@ -43924,18 +43935,18 @@ CASE WHEN (defined(tags, 'maritime') and tags->'maritime' IN  ('yes')) OR bounda
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[landuse_label]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[foss4g-2011]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT COALESCE(landuse, leisure, "natural", highway, amenity, tourism) AS type,
-   CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN 
-    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND name NOT SIMILAR TO '%[U&\059x1-U&\05Fx5]%' AND name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
-ELSE tags -> 'name:en'  END as name, 
+ CASE WHEN (tags -> 'name:$language_code'  IS NULL OR tags -> 'name:$language_code'  = '') THEN 
+    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND  name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
+ELSE tags -> 'name:$language_code'  END as name, 
 way_area AS area,
     ST_PointOnSurface(way) AS way
   FROM planet_osm_polygon
@@ -43955,9 +43966,9 @@ way_area AS area,
   ORDER BY area DESC
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -46868,26 +46879,27 @@ way_area AS area,
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>motorway_label</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[motorway_label]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[foss4g-2011]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
-       <Parameter name="table"><![CDATA[( SELECT way, highway AS type, CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN 
-    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND name NOT SIMILAR TO '%[U&\059x1-U&\05Fx5]%' AND name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
-ELSE tags -> 'name:en'  END as name,
+       <Parameter name="table"><![CDATA[( SELECT way, highway AS type, 
+CASE WHEN (tags -> 'name:$language_code'  IS NULL OR tags -> 'name:$language_code'  = '') THEN 
+    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND  name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
+ELSE tags -> 'name:$language_code'  END as name,
  ref, oneway, CHAR_LENGTH(ref) AS reflen
     FROM planet_osm_line
     WHERE highway IN ('motorway', 'trunk')
       AND (name IS NOT NULL OR ref IS NOT NULL)
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -47103,26 +47115,27 @@ ELSE tags -> 'name:en'  END as name,
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>mainroad_label</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[mainroad_label]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[foss4g-2011]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
-       <Parameter name="table"><![CDATA[( SELECT way, highway AS type,CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN 
-    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND name NOT SIMILAR TO '%[U&\059x1-U&\05Fx5]%' AND name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
-ELSE tags -> 'name:en'  END as name,
+       <Parameter name="table"><![CDATA[( SELECT way, highway AS type,
+CASE WHEN (tags -> 'name:$language_code'  IS NULL OR tags -> 'name:$language_code'  = '') THEN 
+    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND  name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
+ELSE tags -> 'name:$language_code'  END as name,
 oneway
   FROM planet_osm_line
   WHERE (name IS NOT NULL OR oneway IN ('yes', 'true', '1', '-1'))
     AND highway IN ('primary', 'secondary', 'tertiary')
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -47189,26 +47202,27 @@ oneway
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>minorroad_label</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[minorroad_label]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[foss4g-2011]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, highway AS type,
-CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN 
-    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND name NOT SIMILAR TO '%[U&\059x1-U&\05Fx5]%' AND name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
-ELSE tags -> 'name:en'  END as name, oneway
+CASE WHEN (tags -> 'name:$language_code'  IS NULL OR tags -> 'name:$language_code'  = '') THEN 
+    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND  name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
+ELSE tags -> 'name:$language_code'  END as name, 
+oneway
   FROM planet_osm_line
   WHERE (name IS NOT NULL OR oneway IN ('yes', 'true', '1', '-1'))
     AND highway IN ('residential', 'unclassified', 'road', 'living_street', 'unknown')
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -47258,26 +47272,26 @@ ELSE tags -> 'name:en'  END as name, oneway
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>waterway_label</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[waterway_label]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[foss4g-2011]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, waterway AS type,
-CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN 
-    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND name NOT SIMILAR TO '%[U&\059x1-U&\05Fx5]%' AND name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
-ELSE tags -> 'name:en'  END as name
+CASE WHEN (tags -> 'name:$language_code'  IS NULL OR tags -> 'name:$language_code'  = '') THEN 
+    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND  name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
+ELSE tags -> 'name:$language_code'  END as name
   FROM planet_osm_line
   WHERE waterway IN ('canal', 'river', 'stream') 
     AND name IS NOT NULL
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -47296,23 +47310,23 @@ ELSE tags -> 'name:en'  END as name
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>train_stations</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, railway AS type,
-CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN 
-    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND name NOT SIMILAR TO '%[U&\059x1-U&\05Fx5]%' AND name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
-ELSE tags -> 'name:en'  END as name 
+CASE WHEN (tags -> 'name:$language_code'  IS NULL OR tags -> 'name:$language_code'  = '') THEN 
+    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND  name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
+ELSE tags -> 'name:$language_code'  END as name
   FROM planet_osm_point 
   WHERE railway = 'station'
 ) AS DATA 
 ]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -47346,10 +47360,10 @@ ELSE tags -> 'name:en'  END as name
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -47679,18 +47693,18 @@ ELSE tags -> 'name:en'  END as name
     <StyleName>place-town</StyleName>
     <StyleName>place-small</StyleName>
     <Datasource>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[place]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="project"><![CDATA[foss4g-2011]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, place AS type,
-CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN 
-    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND name NOT SIMILAR TO '%[U&\059x1-U&\05Fx5]%' AND name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
-ELSE tags -> 'name:en'  END as name,
+CASE WHEN (tags -> 'name:$language_code'  IS NULL OR tags -> 'name:$language_code'  = '') THEN 
+    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND  name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
+ELSE tags -> 'name:$language_code'  END as name,
 
 CASE
               WHEN (tags->'population' ~ '^[0-9]{1,8}$') THEN (tags->'population')::INTEGER ELSE 0
@@ -47700,9 +47714,9 @@ CASE
   ORDER BY population DESC NULLS LAST
 ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -47729,19 +47743,19 @@ CASE
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, "natural" ,
 CASE WHEN (tags -> 'ele'  IS NULL OR tags -> 'ele'  = '') THEN '' ELSE tags -> 'ele' END as ele,
-CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN 
+CASE WHEN (tags -> 'name:$language_code'  IS NULL OR tags -> 'name:$language_code'  = '') THEN 
     CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND name NOT SIMILAR TO '%[U&\059x1-U&\05Fx5]%' AND name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
-ELSE tags -> 'name:en'  END as name
+ELSE tags -> 'name:$language_code'  END as name
 FROM planet_osm_point
   where "natural" != '' and "natural" is not null
 ) AS data]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
     </Datasource>
   </Layer>
 
@@ -47778,27 +47792,27 @@ FROM planet_osm_point
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="table"><![CDATA[(SELECT
         way, "natural", 
-     CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN 
-    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND name NOT SIMILAR TO '%[U&\059x1-U&\05Fx5]%' AND name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
-ELSE tags -> 'name:en'  END as name
+     CASE WHEN (tags -> 'name:$language_code'  IS NULL OR tags -> 'name:$language_code'  = '') THEN 
+    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND  name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
+ELSE tags -> 'name:$language_code'  END as name
     FROM planet_osm_polygon
     WHERE "natural" IN ('spring')
     UNION ALL
     SELECT
         way, "natural",
-     CASE WHEN (tags -> 'name:en'  IS NULL OR tags -> 'name:en'  = '') THEN 
+     CASE WHEN (tags -> 'name:$language_code'  IS NULL OR tags -> 'name:$language_code'  = '') THEN 
     CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND name NOT SIMILAR TO '%[U&\059x1-U&\05Fx5]%' AND name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
-ELSE tags -> 'name:en'  END as name
+ELSE tags -> 'name:$language_code'  END as name
     FROM planet_osm_point
     WHERE "natural" IN ('spring')
 ) AS springs]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="dbname"><![CDATA[fake_db_name]]></Parameter>
-       <Parameter name="host"><![CDATA[fake_host]]></Parameter>
-       <Parameter name="user"><![CDATA[fake_user_name]]></Parameter>
-       <Parameter name="password"><![CDATA[fake_password]]></Parameter>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
        <Parameter name="id"><![CDATA[springs]]></Parameter>
        <Parameter name="project"><![CDATA[general]]></Parameter>
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>

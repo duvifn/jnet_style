@@ -51,7 +51,9 @@ In order to use the scripts, you should:
 - Install osm2pgsql
 - Install python 2.7
 - Download DEM data (you can use [phyghtmap](http://katze.tfiu.de/projects/phyghtmap/) for this). For example:
-  `phyghtmap --area=-162.754757:16.294779:-150.279273:23.748636 --download-only --srtm=1 --earthexplorer-user=EARTHEXPLORER_USERNAME --earthexplorer-password=EARTHEXPLORER_PASSWORD --hgtdir ./hawaii_data`
+  ```bash
+  phyghtmap --area=-162.754757:16.294779:-150.279273:23.748636 --download-only --srtm=1 --earthexplorer-user=EARTHEXPLORER_USERNAME --earthexplorer-password=EARTHEXPLORER_PASSWORD --hgtdir ./hawaii_data
+  ```
   (Sign up for [earthexplorer](https://earthexplorer.usgs.gov/) before).
 - Fill no data
   ```bash
@@ -103,7 +105,9 @@ cd scripts
 #### Build overviews
 In the near future mapnik should properly handle gdal overviews, so it's a good idea to build overviews for large hillshade rasters.
 This can take quite long time:
-`gdaladdo -ro --config TILED_OVERVIEW yes --config COMPRESS_OVERVIEW JPEG --config BIGTIFF_OVERVIEW YES --config INTERLEAVE_OVERVIEW PIXEL /full/path/to/hawaii_data/hillshades/hillshade_30.tif 2 4 8 16`
+```bash
+gdaladdo -ro --config TILED_OVERVIEW yes --config COMPRESS_OVERVIEW JPEG --config BIGTIFF_OVERVIEW YES --config INTERLEAVE_OVERVIEW PIXEL /full/path/to/hawaii_data/hillshades/hillshade_30.tif 2 4 8 16
+```
 
 ### Contours
 The following commands create contours shapefiles. They use parallel processing which:
@@ -134,10 +138,13 @@ osm2pgsql --slim -d contours_20 -U $USER -W --cache 5000 --style contours.style 
 ```
 ### Using Dockerfile
 All of the above scripts can be run from a docker image that you can build from scripts/Dockerfile.
-Grass gis commands (which are used in the scripts for contour processing) need to be ran by the user that is the owner of the output directory (running as root is not enough).
-You can find your user id (which should be the owner of the output directory) by:
-`id -u $USER`
+  Grass gis commands (which are used in the scripts for contour processing) need to be ran by the user that is the owner of the output directory (running as root is not enough).
+  You can find your user id (which should be the owner of the output directory) by:
+```bash
+id -u $USER
+```
 Then replace the user id `1000` in the Dockerfile with your user id.
+
 Build the docker image:
 ```bash
 cd scripts

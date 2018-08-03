@@ -40,6 +40,7 @@ There are a lot of options to serve mapnik rendered tiles. For example, see [thi
 Processing of world scale hillshades and contours datasets can take a lot of time (months) using [OpenTopoMap guide](https://github.com/der-stefan/OpenTopoMap/blob/master/mapnik/HOWTO_DEM.md).
 
 If your map covers a large area, you can use the scripts in the `scripts` folder, which run contours processing and hillshading in parallel. It's recommended to use SSD HD if available to speed up the processing.
+
 For example, processing hillshade for 1/4 of the world (30M per pixel) took only few hours with these scripts, instead of months with the original gdal commands.
 
 **Note:** 

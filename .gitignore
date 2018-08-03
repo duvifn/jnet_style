@@ -6,3 +6,9 @@ general.xml~
 project (copy).mml
 push.sh
 .thumb.png
+.vscode/launch.json
+scripts/.vscode/launch.json
+scripts/contours.pbf
+scripts/old/fieldmap scripts/old/general.xml~ scripts/old/multipart_to_singlepart.py scripts/old/n.txt scripts/old/osmconf.ini scripts/old/replace_variables.sh scripts/old/run_qgis_docker.sh
+scripts/old/
+general.rar

@@ -9,8 +9,9 @@ The style uses the same shapefiles (`simplified_land_polygons.shp` and `land_pol
 
 In addition, the style uses hillshades files and contours DB (contains contour data, in webmercator projection).
 
-To create them, use [OpenTopoMap guide](https://github.com/der-stefan/OpenTopoMap/blob/master/mapnik/HOWTO_DEM.md) or see below.
-  Be aware that the style uses also `contours_20` DB, which is a simplified version (with an error of 20M) of `contours` DB, for the lower levels. You can populate the simplified version by the grass gis `v.generalize` command, or by using the phyghtmap `simplifyContoursEpsilon` flag.
+To create them, use [OpenTopoMap guide](https://github.com/der-stefan/OpenTopoMap/blob/master/mapnik/HOWTO_DEM.md) or see [below](#large-scale-contours-and-hillshade-datasets).
+
+Be aware that the style uses also `contours_20` DB, which is a simplified version (with an error of 20M) of `contours` DB, for the lower levels. You can populate the simplified version by the grass gis `v.generalize` command, or by using the phyghtmap `simplifyContoursEpsilon` flag.
 
 
 Build `mapnik.xml` using `build.py` script.

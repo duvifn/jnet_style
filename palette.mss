@@ -62,7 +62,7 @@ Map { font-directory: url(./fonts); }
 /* ================================================================== */
 
 @land:              #FCFBE7;
-@water:             #839cb3;
+@water:             #C4DFF6;
 @grass:             #E6F2C1;
 @beach:             #FFEEC7;
 @park:              #DAF2C1;

@@ -261,10 +261,10 @@ Map { background-color: @water; }
   }
   /* Remove any maritime borders. Unfortunatly this is the only way to do this */
   ::maritime[maritime='yes'][zoom>1]{
-    line-color: #91aec7;
+    line-color: #a7bed2;
     line-width:4;
     line-opacity: 1.0;
-    [zoom >= 13] { line-color: #a0c3e3 }
+    [zoom >= 13] { line-color: #b1cce3 }
   }
 }
 

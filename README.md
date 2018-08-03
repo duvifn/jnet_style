@@ -139,8 +139,10 @@ osm2pgsql --slim -d contours_20 -U $USER -W --cache 5000 --style contours.style 
 ```
 ### Using Dockerfile
 All of the above scripts can be run from a docker image that you can build from scripts/Dockerfile.
-  Grass gis commands (which are used in the scripts for contour processing) need to be ran by the user that is the owner of the output directory (running as root is not enough).
-  You can find your user id (which should be the owner of the output directory) by:
+
+Grass gis commands (which are used in the scripts for contour processing) need to be ran by the user that is the owner of the output directory (running as root is not enough).
+
+You can find your user id (which should be the owner of the output directory) by:
 ```bash
 id -u $USER
 ```

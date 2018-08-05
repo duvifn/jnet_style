@@ -79,6 +79,7 @@ Map { font-directory: url(./fonts); }
 @commercial:        @land * 0.97;
 @industrial:        @land * 0.96;
 @parking:           #EEE;
+@military:          #f55;
 
 /* ================================================================== */
 /* ROAD COLORS

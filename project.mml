@@ -133,7 +133,7 @@
         "password": "$password",
         "project": "osm-bright-imposm",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "table": "(SELECT * FROM\n( SELECT way, way_area AS area, COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type\n  FROM planet_osm_polygon\n  ORDER BY way_area DESC\n) AS foo WHERE type in ('forest', 'wood', 'grass','meadow') ) AS data",
+        "table": "(SELECT * FROM\n( SELECT way, way_area AS area, COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type\n  FROM planet_osm_polygon\n  ORDER BY way_area DESC\n) AS foo WHERE type in ('forest', 'wood', 'grass','meadow', 'military') ) AS data",
         "type": "postgis",
         "user": "$user_name",
         "extent_cache": "auto",
@@ -221,7 +221,7 @@
       "Datasource": {
         "type": "postgis",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "table": "(SELECT * FROM\n( SELECT way, way_area AS area, COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type\n  FROM planet_osm_polygon\n  ORDER BY way_area DESC\n) AS foo WHERE type NOT IN ('forest', 'wood', 'grass') ) AS data",
+        "table": "(SELECT * FROM\n( SELECT way, way_area AS area, COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type\n  FROM planet_osm_polygon\n  ORDER BY way_area DESC\n) AS foo WHERE type NOT IN ('forest', 'wood', 'grass', 'military') ) AS data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -430,7 +430,7 @@
       "id": "hillshade_30",
       "class": "",
       "Datasource": {
-        "file": "$extenral_layer_folder/hawaii_data/SRTM1v3.02/hillshade_30.tif"
+        "file": "$extenral_layer_folder/hillshade_30.tif"
       },
       "layer": null,
       "srs-name": "900913",
@@ -450,7 +450,7 @@
       "id": "hillshade_90",
       "class": "",
       "Datasource": {
-        "file": "$extenral_layer_folder/hawaii_data/SRTM1v3.02/hillshade_90.tif"
+        "file": "$extenral_layer_folder/hillshade_90.tif"
       },
       "layer": null,
       "srs-name": "900913",
@@ -470,7 +470,7 @@
       "id": "hillshade_700",
       "class": "",
       "Datasource": {
-        "file": "$extenral_layer_folder/hawaii_data/SRTM1v3.02/hillshade_700.tif"
+        "file": "$extenral_layer_folder/hillshade_700.tif"
       },
       "layer": null,
       "srs-name": "900913",
@@ -490,7 +490,7 @@
       "id": "hillshade_1000",
       "class": "",
       "Datasource": {
-        "file": "$extenral_layer_folder/hawaii_data/SRTM1v3.02/hillshade_1000.tif"
+        "file": "$extenral_layer_folder/hillshade_1000.tif"
       },
       "layer": null,
       "srs-name": "900913",
@@ -510,7 +510,7 @@
       "id": "hillshade_5000",
       "class": "",
       "Datasource": {
-        "file": "$extenral_layer_folder/hawaii_data/SRTM1v3.02/hillshade_5000.tif"
+        "file": "$extenral_layer_folder/hillshade_5000.tif"
       },
       "layer": null,
       "srs-name": "900913",

@@ -11,7 +11,7 @@
   <Parameter name="scale">1</Parameter>
   <Parameter name="metatile">1</Parameter>
   <Parameter name="id"><![CDATA[general]]></Parameter>
-  <Parameter name="_updated">1533312704000</Parameter>
+  <Parameter name="_updated">1533465517000</Parameter>
   <Parameter name="attribution"><![CDATA[Data © OpenStreetMap (and) contributors, ODbL]]></Parameter>
   <Parameter name="name"><![CDATA[JNet]]></Parameter>
   <Parameter name="tilejson"><![CDATA[2.0.0]]></Parameter>
@@ -180,7 +180,7 @@
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>750000</MinScaleDenominator>
     <Filter>([type] = 'park')</Filter>
-    <PolygonSymbolizer fill="#daf2c1" />
+    <LineSymbolizer stroke="#daf2c1" stroke-width="6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
@@ -252,97 +252,97 @@
 <Style name="landuse_gen1" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'university')</Filter>
     <PolygonSymbolizer fill="#fff5cc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'stadium')</Filter>
     <PolygonSymbolizer fill="#b8e6b8" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'sports_center')</Filter>
     <PolygonSymbolizer fill="#b8e6b8" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'school')</Filter>
     <PolygonSymbolizer fill="#fff5cc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'residential')</Filter>
     <PolygonSymbolizer fill="rgba(247, 246, 226, 0.78)" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'pitch')</Filter>
     <PolygonSymbolizer fill="#b8e6b8" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'pedestrian')</Filter>
     <PolygonSymbolizer fill="#aaaaaa" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'parking')</Filter>
     <PolygonSymbolizer fill="#eeeeee" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'park')</Filter>
-    <PolygonSymbolizer fill="#daf2c1" />
+    <LineSymbolizer stroke="#daf2c1" stroke-width="6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'industrial')</Filter>
     <PolygonSymbolizer fill="#f2f1de" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'hospital')</Filter>
     <PolygonSymbolizer fill="#e5c6c3" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'golf_course')</Filter>
     <PolygonSymbolizer fill="#b8e6b8" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'common')</Filter>
     <PolygonSymbolizer fill="#daf2c1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'commercial')</Filter>
     <PolygonSymbolizer fill="#f2f1de" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'college')</Filter>
     <PolygonSymbolizer fill="#fff5cc" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'cemetery')</Filter>
     <PolygonSymbolizer fill="#d6ded2" />
   </Rule>
@@ -373,46 +373,46 @@
 
 <Style name="landuse" filter-mode="first">
   <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <Filter>([type] = 'wood')</Filter>
+    <PolygonSymbolizer fill="#e6f2c1" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'wood')</Filter>
     <PolygonSymbolizer fill="#e6f2c1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'wood')</Filter>
+    <Filter>([type] = 'meadow')</Filter>
     <PolygonSymbolizer fill="#e6f2c1" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'meadow')</Filter>
     <PolygonSymbolizer fill="#e6f2c1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'meadow')</Filter>
+    <Filter>([type] = 'grass')</Filter>
     <PolygonSymbolizer fill="#e6f2c1" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'grass')</Filter>
     <PolygonSymbolizer fill="#e6f2c1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
-    <Filter>([type] = 'grass')</Filter>
-    <PolygonSymbolizer fill="#e6f2c1" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>100000</MaxScaleDenominator>
     <Filter>([type] = 'forest')</Filter>
     <PolygonSymbolizer fill="#c5edb5" />
   </Rule>
   <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MaxScaleDenominator>400000</MaxScaleDenominator>
+    <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'forest')</Filter>
     <PolygonSymbolizer fill="#c5edb5" />
   </Rule>
@@ -433,7 +433,7 @@
 ( SELECT way, way_area AS area, COALESCE(landuse, leisure, "natural", highway, amenity, tourism) AS type
   FROM planet_osm_polygon
   ORDER BY way_area DESC
-) AS foo WHERE type in ('forest', 'wood', 'grass','meadow') ) AS data]]></Parameter>
+) AS foo WHERE type in ('forest', 'wood', 'grass','meadow', 'military') ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
@@ -672,7 +672,7 @@
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([type] = 'park')</Filter>
-    <PolygonSymbolizer fill="#daf2c1" />
+    <LineSymbolizer stroke="#daf2c1" stroke-width="6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
@@ -720,7 +720,7 @@
 ( SELECT way, way_area AS area, COALESCE(landuse, leisure, "natural", highway, amenity, tourism) AS type
   FROM planet_osm_polygon
   ORDER BY way_area DESC
-) AS foo WHERE type NOT IN ('forest', 'wood', 'grass') ) AS data]]></Parameter>
+) AS foo WHERE type NOT IN ('forest', 'wood', 'grass', 'military') ) AS data]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
@@ -1463,7 +1463,7 @@
     <StyleName>hillshade_30-z18</StyleName>
     <StyleName>hillshade_30</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[$extenral_layer_folderhillshade_30.tif]]></Parameter>
+       <Parameter name="file"><![CDATA[$extenral_layer_folder/hillshade_30.tif]]></Parameter>
        <Parameter name="type"><![CDATA[gdal]]></Parameter>
     </Datasource>
   </Layer>
@@ -1487,7 +1487,7 @@
     <StyleName>hillshade_90-z13</StyleName>
     <StyleName>hillshade_90</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[$extenral_layer_folderhillshade_90.tif]]></Parameter>
+       <Parameter name="file"><![CDATA[$extenral_layer_folder/hillshade_90.tif]]></Parameter>
        <Parameter name="type"><![CDATA[gdal]]></Parameter>
     </Datasource>
   </Layer>
@@ -1503,7 +1503,7 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>hillshade_700</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[$extenral_layer_folderhillshade_700.tif]]></Parameter>
+       <Parameter name="file"><![CDATA[$extenral_layer_folder/hillshade_700.tif]]></Parameter>
        <Parameter name="type"><![CDATA[gdal]]></Parameter>
     </Datasource>
   </Layer>
@@ -1519,7 +1519,7 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>hillshade_1000</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[$extenral_layer_folderhillshade_1000.tif]]></Parameter>
+       <Parameter name="file"><![CDATA[$extenral_layer_folder/hillshade_1000.tif]]></Parameter>
        <Parameter name="type"><![CDATA[gdal]]></Parameter>
     </Datasource>
   </Layer>
@@ -1535,7 +1535,7 @@
   srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
     <StyleName>hillshade_5000</StyleName>
     <Datasource>
-       <Parameter name="file"><![CDATA[$extenral_layer_folderhillshade_5000.tif]]></Parameter>
+       <Parameter name="file"><![CDATA[$extenral_layer_folder/hillshade_5000.tif]]></Parameter>
        <Parameter name="type"><![CDATA[gdal]]></Parameter>
     </Datasource>
   </Layer>

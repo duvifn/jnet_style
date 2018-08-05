@@ -46,7 +46,7 @@ input_file = input_file.replace('$password', args.password)
 input_file = input_file.replace('$host', args.host)
 input_file = input_file.replace('$extenral_layer_folder', args.external_layers_folder)
 input_file = input_file.replace('$simplified_shp', args.simplified_land_polygons)
-input_file = input_file.replace('$land_simplified_shp', args.land_polygons)
+input_file = input_file.replace('$land_shp', args.land_polygons)
 input_file = input_file.replace('$language_code', args.language)
 
        
@@ -62,7 +62,7 @@ if args.input_project_file:
     input_file = input_file.replace('$host', args.host)
     input_file = input_file.replace('$extenral_layer_folder', args.external_layers_folder)
     input_file = input_file.replace('$simplified_shp', args.simplified_land_polygons)
-    input_file = input_file.replace('$land_simplified_shp', args.land_polygons)
+    input_file = input_file.replace('$land_shp', args.land_polygons)
     input_file = input_file.replace('$language_code', args.language)
     
     with open(args.input_project_file, 'w') as of:

@@ -122,7 +122,7 @@
     <StyleName>land-high</StyleName>
     <Datasource>
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
-       <Parameter name="file"><![CDATA[$land_simplified_shp]]></Parameter>
+       <Parameter name="file"><![CDATA[$land_shp]]></Parameter>
        <Parameter name="type"><![CDATA[shape]]></Parameter>
     </Datasource>
   </Layer>

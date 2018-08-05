@@ -50,7 +50,7 @@
     {
       "Datasource": {
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "file": "$land_simplified_shp",
+        "file": "$land_shp",
         "type": "shape"
       },
       "class": "shp",

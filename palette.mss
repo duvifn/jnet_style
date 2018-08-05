@@ -172,10 +172,3 @@ Map { font-directory: url(./fonts); }
 /* ****************************************************************** */
 
 
-
-
-
-#wayeleele500asfiftye {
-  line-width:1;
-  line-color:#168;
-}

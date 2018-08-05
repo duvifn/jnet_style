@@ -28,10 +28,13 @@ Map { background-color: @water; }
   [type='hospital']      { polygon-fill: @hospital; }
   [type='industrial']    { polygon-fill: @industrial; }
   [type='park']          { 
-    //polygon-fill: @park;
-    line-color: @park;
-    line-width: 6.0;
-    //polygon-opacity: 0.75;
+    polygon-fill: @park;
+    [zoom>=10] { 
+      line-color: @park;
+      line-width: 6.0;
+      polygon-opacity: 0;
+    }
+    //
   }
   [type='parking']       { polygon-fill: @parking; }
   [type='pedestrian']    { polygon-fill: @pedestrian_fill; }
@@ -53,6 +56,18 @@ Map { background-color: @water; }
   [type='forest']        { polygon-fill: #c5edb5; } 
   [type='grass'],[type='meadow'] { polygon-fill: #E6F2C1; } 
   [type='wood']          { polygon-fill: #E6F2C1; }
+  [type='quarry'] {
+    polygon-fill: #c5c3c3;
+    polygon-pattern-file: url('img/quarry.svg');
+  }
+  [type='military'] {
+    polygon-pattern-file: url('img/danger_red_hatch.png');
+    polygon-pattern-alignment: global;
+    line-color: @military;
+    line-width: 2.0;
+    line-offset: -1.0;
+    line-opacity: 0.2;
+   }
 }
 
 #landuse_overlays[type='nature_reserve'][zoom>6] {
@@ -196,22 +211,24 @@ Map { background-color: @water; }
   [int_intermittent='yes'] {
     line-dasharray:10,4;
   }
+  line-width: 1.0;
   line-color: @water;
   [type='river'],
   [type='canal'] {
     line-cap: round;
     line-join: round;
-    [zoom=13]{ line-width: 1; }
-    [zoom=14]{ line-width: 1.5; }
+    [zoom=13]{ line-width: 2; }
+    [zoom=14]{ line-width: 2.5; }
   }
   [type='stream'] {
-    [zoom=13]{ line-width: 0.2; }
-    [zoom=14]{ line-width: 0.4; }
+    [zoom=13]{ line-width:2.0; }
+    [zoom=14]{ line-width: 2.0; }
   }
 }
   
 #waterway_high[zoom>=14] {
   line-color: @water;
+  line-width: 1.0;
   [int_intermittent='yes'] {
     line-dasharray:10,4;
   }
@@ -219,7 +236,7 @@ Map { background-color: @water; }
   [type='canal'] {
     line-cap: round;
     line-join: round;
-    [zoom=15]{ line-width: 2; }
+    [zoom=15]{ line-width: 3.0; }
     [zoom=16]{ line-width: 3; }
     [zoom=17]{ line-width: 4; }
     [zoom=18]{ line-width: 5; }
@@ -227,7 +244,7 @@ Map { background-color: @water; }
     [zoom>19]{ line-width: 7; }
   }
   [type='stream'] {
-    [zoom>=14][zoom<=15]{ line-width: 1.0; }
+    [zoom>=14][zoom<=15]{ line-width: 3.0; }
     [zoom=16]{ line-width: 2; }
     [zoom=17]{ line-width: 2; }
     [zoom=18]{ line-width: 2; }
@@ -235,7 +252,7 @@ Map { background-color: @water; }
   }
   [type='ditch'],
   [type='drain'] {
-    [zoom=15]{ line-width: 0.1; }
+    [zoom=15]{ line-width: 3.0; }
     [zoom=16]{ line-width: 0.3; }
     [zoom=17]{ line-width: 0.5; }
     [zoom=18]{ line-width: 0.7; }

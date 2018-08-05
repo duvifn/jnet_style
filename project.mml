@@ -27,7 +27,7 @@
       "Datasource": {
         "dbname": "osm",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "file": "$simplified_shp",
+        "file": "/media/duvi/Extreme/temp/openstreetmap-carto/data2/simplified-land-polygons-complete-3857/simplified_land_polygons.shp",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
         "type": "shape"
       },
@@ -50,7 +50,7 @@
     {
       "Datasource": {
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "file": "$land_shp",
+        "file": "/media/duvi/Extreme/temp/openstreetmap-carto/data2/land-polygons-split-3857/land_polygons.shp",
         "type": "shape"
       },
       "class": "shp",
@@ -102,7 +102,7 @@
         "password": "$password",
         "project": "osm-bright-imposm",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "table": "( SELECT way, way_area AS area, COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type\n  FROM planet_osm_polygon\n  WHERE way_area > 10000\n  ORDER BY way_area DESC\n) AS data",
+        "table": "( SELECT way, way_area AS area, COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type,\n CASE WHEN (tags -> 'name:$language_code'  IS NULL OR tags -> 'name:$language_code'  = '') THEN \n    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND  name NOT SIMILAR TO '%[U&\\0020-U&\\007E]%' ) THEN tags->'name:en' ELSE name END\nELSE tags -> 'name:$language_code'  END as name\n  FROM planet_osm_polygon\n  WHERE way_area > 10000\n  ORDER BY way_area DESC\n) AS data",
         "type": "postgis",
         "user": "$user_name",
         "extent_cache": "auto",
@@ -133,7 +133,7 @@
         "password": "$password",
         "project": "osm-bright-imposm",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "table": "(SELECT * FROM\n( SELECT way, way_area AS area, COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type\n  FROM planet_osm_polygon\n  ORDER BY way_area DESC\n) AS foo WHERE type in ('forest', 'wood', 'grass','meadow', 'military') ) AS data",
+        "table": "(SELECT * FROM\n( SELECT way, way_area AS area, COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type\n  FROM planet_osm_polygon\n  ORDER BY way_area DESC\n) AS foo WHERE type in ('forest', 'wood', 'grass','meadow', 'military', 'quarry') ) AS data",
         "type": "postgis",
         "user": "$user_name",
         "extent_cache": "auto",
@@ -221,7 +221,7 @@
       "Datasource": {
         "type": "postgis",
         "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
-        "table": "(SELECT * FROM\n( SELECT way, way_area AS area, COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type\n  FROM planet_osm_polygon\n  ORDER BY way_area DESC\n) AS foo WHERE type NOT IN ('forest', 'wood', 'grass', 'military') ) AS data",
+        "table": "(SELECT * FROM\n( SELECT way, way_area AS area, COALESCE(landuse, leisure, \"natural\", highway, amenity, tourism) AS type,\n CASE WHEN (tags -> 'name:$language_code'  IS NULL OR tags -> 'name:$language_code'  = '') THEN \n    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND  name NOT SIMILAR TO '%[U&\\0020-U&\\007E]%' ) THEN tags->'name:en' ELSE name END\nELSE tags -> 'name:$language_code'  END as name\n  FROM planet_osm_polygon\n  ORDER BY way_area DESC\n) AS foo WHERE type NOT IN ('forest', 'wood', 'grass', 'military') ) AS data",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -1185,6 +1185,34 @@
       "advanced": {},
       "name": "springs",
       "layerId": "springs"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -178.74354058042732,
+        18.508390022699835,
+        42.42564771312602,
+        37.34588318758853
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": " (SELECT\n            way,\n            way_area/NULLIF(!pixel_width!::real*!pixel_height!::real,0) AS way_pixels,\n            COALESCE(\n              'aeroway_' || CASE WHEN aeroway IN ('gate', 'apron', 'helipad', 'aerodrome') THEN aeroway ELSE NULL END,\n              'tourism_' || CASE WHEN tourism IN ('artwork', 'alpine_hut', 'hotel', 'motel', 'hostel', 'chalet', 'wilderness_hut', 'guest_house', 'apartment', 'camp_site', 'caravan_site',\n                                                  'theme_park', 'museum', 'zoo', 'information', 'picnic_site') THEN tourism ELSE NULL END,\n              'amenity_' || CASE WHEN amenity IN ('pub', 'restaurant', 'food_court', 'cafe', 'fast_food', 'biergarten', 'bar', 'library', 'public_bath',\n                                                  'theatre', 'courthouse', 'townhall', 'cinema', 'clinic', 'community_centre', 'parking',\n                                                  'bicycle_parking', 'motorcycle_parking', 'police', 'fire_station', 'fountain', 'place_of_worship',\n                                                  'grave_yard', 'shelter', 'bank', 'embassy', 'fuel', 'bus_station', 'prison', 'university',\n                                                  'school', 'college', 'kindergarten', 'hospital', 'ice_cream', 'pharmacy', 'doctors', 'dentist',\n                                                  'atm', 'bicycle_rental', 'bureau_de_change', 'car_rental', 'car_wash', 'post_box', 'post_office',\n                                                  'recycling', 'telephone', 'toilets', 'taxi', 'drinking_water', 'hunting_stand',\n                                                  'nightclub', 'veterinary', 'social_facility', 'charging_station', 'arts_centre',\n                                                  'ferry_terminal', 'marketplace', 'shower', 'bbq', 'nursing_home', 'childcare', 'driving_school',\n                                                  'casino', 'boat_rental') THEN amenity ELSE NULL END,\n              'advertising_' || CASE WHEN tags->'advertising' in ('column') THEN tags->'advertising' else NULL END,\n              'shop_' || CASE WHEN shop IN ('supermarket', 'bag', 'bakery', 'beauty', 'bed', 'books', 'butcher', 'clothes', 'computer', 'confectionery',\n                                            'fashion', 'convenience', 'department_store', 'doityourself', 'hardware', 'fishmonger', 'florist', 'garden_centre',\n                                            'hairdresser', 'hifi', 'ice_cream', 'car', 'car_repair', 'bicycle', 'mall', 'pet', 'photo', 'photo_studio',\n                                            'photography', 'seafood', 'shoes', 'alcohol', 'gift', 'furniture', 'kiosk', 'mobile_phone', 'motorcycle',\n                                            'musical_instrument', 'newsagent', 'optician', 'jewelry', 'jewellery', 'electronics', 'chemist', 'toys',\n                                            'travel_agency', 'car_parts', 'greengrocer', 'farm', 'stationery', 'laundry', 'dry_cleaning', 'beverages',\n                                            'perfumery', 'cosmetics', 'variety_store', 'wine', 'outdoor', 'copyshop', 'sports', 'deli', 'tobacco', 'art', 'tea',\n                                            'coffee', 'tyres', 'pastry', 'chocolate', 'music', 'medical_supply', 'dairy', 'video_games', 'houseware', 'ticket', \n                                            'charity', 'second_hand', 'interior_decoration', 'video', 'paint', 'massage') THEN shop\n                              WHEN shop IN ('no', 'vacant', 'closed', 'disused', 'empty') OR shop IS NULL THEN NULL ELSE 'other' END,\n              'office' || CASE WHEN tags->'office' IN ('no', 'vacant', 'closed', 'disused', 'empty') OR (tags->'office') IS NULL THEN NULL ELSE '' END,\n              'leisure_' || CASE WHEN leisure IN ('swimming_pool', 'water_park', 'miniature_golf', 'golf_course', 'fitness_centre', 'sports_centre', 'stadium', 'track',\n                                                  'pitch', 'playground', 'park', 'recreation_ground', 'common', 'garden', 'nature_reserve', 'marina',\n                                                  'picnic_table', 'dog_park', 'fitness_station', 'firepit', 'sauna', 'beach_resort', 'bowling_alley') THEN leisure ELSE NULL END,\n              'power_' || CASE WHEN power IN ('plant', 'station', 'generator', 'sub_station', 'substation') THEN power ELSE NULL END,\n              'landuse_' || CASE WHEN landuse IN ('reservoir', 'basin', 'recreation_ground', 'village_green', 'quarry', 'vineyard', 'orchard', 'cemetery',\n                                                  'residential', 'garages', 'meadow', 'grass', 'allotments', 'forest', 'farmyard', 'farmland',\n                                                  'greenhouse_horticulture', 'retail', 'industrial', 'railway', 'commercial', 'brownfield', 'landfill',\n                                                  'construction', 'military', 'plant_nursery', 'religious') THEN landuse ELSE NULL END,\n              'man_made_' || CASE WHEN (man_made IN ('lighthouse', 'windmill', 'mast', 'tower', 'water_tower', 'pier', 'breakwater', 'groyne', 'obelisk', 'works', 'communications_tower', 'chimney') \n                                        AND (tags->'location' NOT IN ('roof', 'rooftop') OR (tags->'location') IS NULL)) THEN man_made ELSE NULL END,\n              'natural_' || CASE WHEN \"natural\" IN ('wood', 'water', 'mud', 'wetland', 'marsh', 'bay', 'spring', 'scree', 'shingle', 'bare_rock', 'sand', 'heath',\n                                                    'grassland', 'scrub', 'beach', 'shoal', 'reef', 'glacier') THEN \"natural\" ELSE NULL END,\n              'place_' || CASE WHEN place IN ('island', 'islet') THEN place ELSE NULL END,\n              'military_' || CASE WHEN military IN ('danger_area', 'bunker') THEN military ELSE NULL END,\n              'historic_' || CASE WHEN historic IN ('memorial', 'monument', 'archaeological_site', 'fort', 'castle', 'manor', 'city_gate')\n                             THEN concat_ws('_', historic, CASE WHEN tags->'memorial' IN ('plaque') THEN tags->'memorial' ELSE NULL END)\n                             ELSE NULL END,\n              'highway_' || CASE WHEN highway IN ('services', 'rest_area', 'bus_stop', 'elevator') THEN highway ELSE NULL END,\n              'boundary_' || CASE WHEN boundary IN ('national_park') THEN boundary ELSE NULL END,\n              'waterway_' || CASE WHEN waterway IN ('dam', 'dock') THEN waterway ELSE NULL END,\n              'tourism_' || CASE WHEN tourism IN ('viewpoint', 'attraction') THEN tourism ELSE NULL END\n            ) AS feature,\n            access,\n            CONCAT(\n                name,\n                CASE\n                  WHEN (tourism = 'alpine_hut' OR amenity = 'shelter') AND tags->'ele' ~ '^-?\\d{1,4}(\\.\\d+)?$' THEN\n                    CONCAT(E'\\n', REPLACE(ROUND((tags->'ele')::NUMERIC)::TEXT, '-', U&'\\2212'), U&'\\00A0', 'm')\n                  ELSE\n                    NULL\n                END\n            ) AS name,\n            CASE\n              WHEN \"waterway\" IN ('waterfall') THEN\n                CASE\n                  WHEN tags->'height' ~ '^\\d{1,3}(\\.\\d+)?( m)?$' THEN (SUBSTRING(tags->'height', '^(\\d{1,3}(\\.\\d+)?)( m)?$'))::NUMERIC\n                  ELSE NULL\n                END\n              ELSE NULL\n            END AS height,\n            tags->'operator' as operator,\n            tags->'icao' as icao,\n            tags->'iata' as iata,\n            tags->'office' as office,\n            tags->'recycling_type' as recycling_type,\n            tags->'castle_type' as castle_type,\n            tags->'information' as information,\n            ref,\n            way_area,\n            CASE WHEN building = 'no' OR building IS NULL THEN 'no' ELSE 'yes' END AS is_building\n          FROM planet_osm_polygon\n          -- The upcoming where clause is needed for performance only, as the CASE statements would end up doing the equivalent filtering\n          WHERE (aeroway IN ('gate', 'apron', 'helipad', 'aerodrome')\n              OR tourism IN ('artwork', 'alpine_hut', 'hotel', 'motel', 'hostel', 'chalet', 'wilderness_hut', 'guest_house', 'apartment', 'camp_site', 'caravan_site', 'theme_park',\n                             'museum', 'viewpoint', 'attraction', 'zoo', 'information', 'picnic_site')\n              OR amenity IS NOT NULL -- skip checking a huge list and use a null check\n              OR tags->'advertising' IN ('column')\n              OR shop IS NOT NULL\n              OR (tags->'office') IS NOT NULL\n              OR leisure IS NOT NULL\n              OR landuse IS NOT NULL\n              OR (man_made IN ('lighthouse', 'windmill', 'mast', 'tower', 'water_tower', 'pier', 'breakwater', 'groyne', 'obelisk', 'works', 'communications_tower', 'chimney')\n                  AND (tags->'location' NOT IN ('roof', 'rooftop') OR (tags->'location') IS NULL))\n              OR \"natural\" IS NOT NULL\n              OR place IN ('island', 'islet')\n              OR military IN ('danger_area', 'bunker')\n              OR historic IN ('memorial', 'monument', 'archaeological_site', 'fort', 'castle', 'manor', 'city_gate')\n              OR tags->'memorial' IN ('plaque')\n              OR highway IN ('services', 'rest_area', 'bus_stop', 'elevator')\n              OR power IN ('plant', 'station', 'generator', 'sub_station', 'substation')\n              OR boundary IN ('national_park')\n              OR waterway IN ('dam', 'dock'))\n            AND (name IS NOT NULL\n                 OR (ref IS NOT NULL AND aeroway IN ('gate'))\n                )\n          ORDER BY way_area DESC\n        ) AS text_poly",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "-19897639.92,2097141.43,4722801.5,4487428.73",
+        "host": "$host",
+        "dbname": "gis",
+        "user": "$user_name",
+        "password": "$password"
+      },
+      "id": "text-poly",
+      "class": "text",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "text-poly",
+      "layerId": "text-poly"
     }
   ],
   "scale": 1,

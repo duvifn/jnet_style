@@ -459,26 +459,112 @@
 
 /* ****************************************************************** */
 /* ================================================================== */
-/* NATURAL POINTS
+/* LANDUSES AND NATURAL POINTS
 /* ================================================================== */
+
+
+  
+ 
 #cliffs{
-    [zoom=13] {
+    [zoom>=13] {
        marker-placement:line;
        marker-max-error: 0.5;
        marker-spacing: 0;
-       marker-file: url('img/cliff_z13.png');
+       marker-file: url('img/cliff.svg');
     }
-   [zoom=14] {
-       marker-placement:line;
-       marker-max-error: 0.5;
-       marker-spacing: 0.1;
-       marker-file: url('img/cliff_z14.png');
+   [zoom>=15] {
+       line-pattern-file: url('img/cliff2.svg');
     }
-   [zoom>15] {
-       line-pattern-file: url('img/my_cliff2.png');
+  }
+/*#landuse_gen1[zoom>=14][type='park'],
+#landuse_residental[zoom>=14][type='park'] {
+	text-name: "[name]";
+    text-face-name:@sans;
+    text-size: 12;
+    text-wrap-width: 30;
+    text-line-spacing: -1.5;
+    text-placement: interior;
+    text-fill: darken(@park, 20%);
+ }*/
+
+@landcover-font-size: 10;
+@landcover-wrap-width-size: 30; // 3 em
+@landcover-line-spacing-size: -1.5; // -0.15 em
+@landcover-font-size-big: 12;
+@landcover-wrap-width-size-big: 36; // 3 em
+@landcover-line-spacing-size-big: -1.8; // -0.15 em
+@landcover-font-size-bigger: 15;
+@landcover-wrap-width-size-bigger: 45; // 3 em
+@landcover-line-spacing-size-bigger: -2.25; // -0.15 em
+@landcover-face-name: @sans;
+@standard-halo-radius: 1;
+@standard-halo-fill: rgba(255,255,255,0.6);
+
+.text[zoom >= 11] {
+  [feature = 'landuse_military'],
+  [feature = 'natural_wood'],
+  [feature = 'landuse_forest'],
+  [feature = 'boundary_national_park'],
+  [feature = 'leisure_nature_reserve'] {
+    [zoom >= 8][way_pixels > 3000][is_building = 'no'],
+    [zoom >= 17] {
+      text-name: "[name]";
+      text-size: @landcover-font-size;
+      text-wrap-width: @landcover-wrap-width-size;
+      text-line-spacing: @landcover-line-spacing-size;
+      [way_pixels > 12000] {
+        text-size: @landcover-font-size-big;
+        text-wrap-width: @landcover-wrap-width-size-big;
+        text-line-spacing: @landcover-line-spacing-size-big;
+      }
+      [way_pixels > 48000] {
+        text-size: @landcover-font-size-bigger;
+        text-wrap-width: @landcover-wrap-width-size-bigger;
+        text-line-spacing: @landcover-line-spacing-size-bigger;
+      }
+      text-face-name: @landcover-face-name;
+      text-halo-radius: @standard-halo-radius;
+      text-halo-fill: @standard-halo-fill;
+      text-placement: interior;
+      [feature = 'landuse_military'] {
+        text-fill: darken(@military, 40%);
+      }
+      [feature = 'natural_wood'],
+      [feature = 'landuse_forest'] {
+        text-fill: #46673b;
+      }
+      [feature = 'boundary_national_park'],
+      [feature = 'leisure_nature_reserve'] {
+        text-fill: darken(@park, 70%);
+      }
     }
   }
 
+  [feature = 'military_danger_area'][is_building = 'no'] {
+    [zoom >= 9][way_pixels > 3000],
+    [zoom >= 17] {
+      text-name: "[name]";
+      text-size: @landcover-font-size;
+      text-wrap-width: @landcover-wrap-width-size;
+      text-line-spacing: @landcover-line-spacing-size;
+      [way_pixels > 12000] {
+        text-size: @landcover-font-size-big;
+        text-wrap-width: @landcover-wrap-width-size-big;
+        text-line-spacing: @landcover-line-spacing-size-big;
+      }
+      [way_pixels > 48000] {
+        text-size: @landcover-font-size-bigger;
+        text-wrap-width: @landcover-wrap-width-size-bigger;
+        text-line-spacing: @landcover-line-spacing-size-bigger;
+      }
+      text-fill: darken(@military, 20%);
+      text-face-name: @landcover-face-name;
+      text-halo-radius: @standard-halo-radius;
+      text-halo-fill: @standard-halo-fill;
+      text-placement: interior;
+    }
+  }
+ }
 #springs::labels[zoom>=15] {
     text-name:'[name]';
     text-face-name:@sans;

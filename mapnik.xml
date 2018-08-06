@@ -11,7 +11,7 @@
   <Parameter name="scale">1</Parameter>
   <Parameter name="metatile">1</Parameter>
   <Parameter name="id"><![CDATA[general]]></Parameter>
-  <Parameter name="_updated">1533505486000</Parameter>
+  <Parameter name="_updated">1533550034000</Parameter>
   <Parameter name="attribution"><![CDATA[Data © OpenStreetMap (and) contributors, ODbL]]></Parameter>
   <Parameter name="name"><![CDATA[JNet]]></Parameter>
   <Parameter name="tilejson"><![CDATA[2.0.0]]></Parameter>
@@ -378,6 +378,11 @@ ELSE tags -> 'name:$language_code'  END as name
 <Style name="landuse" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <Filter>([type] = 'reservoir')</Filter>
+    <PolygonSymbolizer fill="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
     <Filter>([type] = 'military')</Filter>
     <PolygonPatternSymbolizer file="img/danger_red_hatch.png" alignment="global" />
     <LineSymbolizer stroke="#ff5555" stroke-width="2" offset="-1" stroke-opacity="0.2" />
@@ -449,7 +454,7 @@ ELSE tags -> 'name:$language_code'  END as name
 ( SELECT way, way_area AS area, COALESCE(landuse, leisure, "natural", highway, amenity, tourism) AS type
   FROM planet_osm_polygon
   ORDER BY way_area DESC
-) AS foo WHERE type in ('forest', 'wood', 'grass','meadow', 'military', 'quarry') ) AS data]]></Parameter>
+) AS foo WHERE type in ('forest', 'wood', 'grass','meadow', 'military', 'quarry', 'reservoir') ) AS data]]></Parameter>
        <Parameter name="type"><![CDATA[postgis]]></Parameter>
        <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
@@ -1004,166 +1009,166 @@ ELSE tags -> 'name:$language_code'  END as name
   </Rule>
   <Rule>
     <MaxScaleDenominator>750</MaxScaleDenominator>
-    <Filter>([type] = 'drain') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="1.5" stroke-dasharray="10, 4" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <MinScaleDenominator>750</MinScaleDenominator>
-    <Filter>([type] = 'drain') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="1" stroke-dasharray="10, 4" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
-    <Filter>([type] = 'drain') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="0.7" stroke-dasharray="10, 4" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'drain') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="0.5" stroke-dasharray="10, 4" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'drain') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="0.3" stroke-dasharray="10, 4" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'drain') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3" stroke-dasharray="10, 4" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'drain') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-dasharray="10, 4" stroke="#c4dff6" stroke-width="1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750</MaxScaleDenominator>
-    <Filter>([type] = 'drain')</Filter>
+    <Filter>([type] = 'ditch')</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <MinScaleDenominator>750</MinScaleDenominator>
-    <Filter>([type] = 'drain')</Filter>
+    <Filter>([type] = 'ditch')</Filter>
     <LineSymbolizer stroke-width="1" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
-    <Filter>([type] = 'drain')</Filter>
+    <Filter>([type] = 'ditch')</Filter>
     <LineSymbolizer stroke-width="0.7" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'drain')</Filter>
+    <Filter>([type] = 'ditch')</Filter>
     <LineSymbolizer stroke-width="0.5" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'drain')</Filter>
+    <Filter>([type] = 'ditch')</Filter>
     <LineSymbolizer stroke-width="0.3" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'drain')</Filter>
+    <Filter>([type] = 'ditch')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'drain')</Filter>
+    <Filter>([type] = 'ditch')</Filter>
     <LineSymbolizer stroke="#c4dff6" stroke-width="1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750</MaxScaleDenominator>
-    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'drain') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="1.5" stroke-dasharray="10, 4" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <MinScaleDenominator>750</MinScaleDenominator>
-    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'drain') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="1" stroke-dasharray="10, 4" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
-    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'drain') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="0.7" stroke-dasharray="10, 4" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'drain') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="0.5" stroke-dasharray="10, 4" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'drain') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="0.3" stroke-dasharray="10, 4" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'drain') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="3" stroke-dasharray="10, 4" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
+    <Filter>([type] = 'drain') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-dasharray="10, 4" stroke="#c4dff6" stroke-width="1" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>750</MaxScaleDenominator>
-    <Filter>([type] = 'ditch')</Filter>
+    <Filter>([type] = 'drain')</Filter>
     <LineSymbolizer stroke-width="1.5" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>1500</MaxScaleDenominator>
     <MinScaleDenominator>750</MinScaleDenominator>
-    <Filter>([type] = 'ditch')</Filter>
+    <Filter>([type] = 'drain')</Filter>
     <LineSymbolizer stroke-width="1" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>2500</MaxScaleDenominator>
     <MinScaleDenominator>1500</MinScaleDenominator>
-    <Filter>([type] = 'ditch')</Filter>
+    <Filter>([type] = 'drain')</Filter>
     <LineSymbolizer stroke-width="0.7" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>5000</MaxScaleDenominator>
     <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'ditch')</Filter>
+    <Filter>([type] = 'drain')</Filter>
     <LineSymbolizer stroke-width="0.5" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>12500</MaxScaleDenominator>
     <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'ditch')</Filter>
+    <Filter>([type] = 'drain')</Filter>
     <LineSymbolizer stroke-width="0.3" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'ditch')</Filter>
+    <Filter>([type] = 'drain')</Filter>
     <LineSymbolizer stroke-width="3" stroke="#c4dff6" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <MinScaleDenominator>25000</MinScaleDenominator>
-    <Filter>([type] = 'ditch')</Filter>
+    <Filter>([type] = 'drain')</Filter>
     <LineSymbolizer stroke="#c4dff6" stroke-width="1" />
   </Rule>
   <Rule>

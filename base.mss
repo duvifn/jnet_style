@@ -68,6 +68,7 @@ Map { background-color: @water; }
     line-offset: -1.0;
     line-opacity: 0.2;
    }
+  [type='reservoir'] { polygon-fill: @water;}
 }
 
 #landuse_overlays[type='nature_reserve'][zoom>6] {

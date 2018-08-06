@@ -53,6 +53,7 @@ Map { background-color: @water; }
 }
 
 #landuse[zoom>11] {
+  
   [type='forest']        { polygon-fill: #c5edb5; } 
   [type='grass'],[type='meadow'] { polygon-fill: #E6F2C1; } 
   [type='wood']          { polygon-fill: #E6F2C1; }
@@ -60,7 +61,15 @@ Map { background-color: @water; }
     polygon-fill: #c5c3c3;
     polygon-pattern-file: url('img/quarry.svg');
   }
-  [type='military'] {
+  
+  [type='reservoir'] { polygon-fill: @water;}
+  ::forest[type='forest'][zoom>13],
+    [type='wood'][zoom>13] {
+    	polygon-pattern-file: url('img/leaftype_unknown.svg');
+        polygon-pattern-alignment: global;
+        //opacity: 0.4; // The entire layer has opacity to handle overlapping forests
+    }
+  ::mil [type='military'] {
     polygon-pattern-file: url('img/danger_red_hatch.png');
     polygon-pattern-alignment: global;
     line-color: @military;
@@ -68,7 +77,6 @@ Map { background-color: @water; }
     line-offset: -1.0;
     line-opacity: 0.2;
    }
-  [type='reservoir'] { polygon-fill: @water;}
 }
 
 #landuse_overlays[type='nature_reserve'][zoom>6] {

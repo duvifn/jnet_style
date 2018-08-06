@@ -1,5 +1,5 @@
 # Topographic CartoCSS style
-![screenshot](https://raw.github.com/duvifn/jnet_style/master/ps-3.png)
+![screenshot](./ps-3.png)
 
 A simple topographic, [OSM-Bright](https://github.com/mapbox/osm-bright) based CartoCSS style
 

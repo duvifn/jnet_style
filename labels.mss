@@ -583,14 +583,10 @@
 	  text-name: '[name]';
       text-placement: interior;
       text-dy: 7;
-}
-
-#natural_points["natural"='peak'][zoom>=14] {
-      text-face-name:@sans;
-      text-fill: #555555;
-	  text-name: ''[name] + "\n" + [ele]'';
-      text-placement: interior;
-      text-dy: 7;
+  	  text-halo-fill:@standard-halo-fill;
+      text-size: @landcover-font-size;
+      text-halo-radius: 1.0;
+      [zoom>=14] { text-name: ''[name] + "\n" + [ele]''; }
 }
 
 

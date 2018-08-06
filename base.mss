@@ -67,7 +67,7 @@ Map { background-color: @water; }
     [type='wood'][zoom>13] {
     	polygon-pattern-file: url('img/leaftype_unknown.svg');
         polygon-pattern-alignment: global;
-        //opacity: 0.4; // The entire layer has opacity to handle overlapping forests
+        opacity: 0.7; // The entire layer has opacity to handle overlapping forests
     }
   ::mil [type='military'] {
     polygon-pattern-file: url('img/danger_red_hatch.png');

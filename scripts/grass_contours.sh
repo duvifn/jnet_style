@@ -21,7 +21,7 @@ log_path=$4
 # exec   > >(tee -ia $log_path.full)
 # exec  2> >(tee -ia $log_path.full >& 2)
 # exec {FD}> $log_path.full
-set -x
+# set -x
 export BASH_XTRACEFD=$FD
 
 
@@ -31,7 +31,8 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 
 base_name_input=`basename $input`
-region_string=`./gdal_get_region_string.sh $input`
+region_string=`$SCRIPTPATH/gdal_get_region_string.sh $input`
+
 output_dir=`dirname $output`
 
 vec_basename=`basename $output | cut -d"." -f1`
@@ -43,12 +44,6 @@ mkdir -p ${tmp_folder}
 
 echo "export GRASS_MESSAGE_FORMAT=plain
 
-#exec {FD}>>$log_path.full
-
-# exec   > >(tee -ia $log_path.full)
-# exec  2> >(tee -ia $log_path.full >& 2)
-# exec {FD}> $log_path.full
-set -x
 log_path=${log_path}
 global_exit_on_error=yes
 $try_and_log_func_dec
@@ -59,8 +54,7 @@ try_and_log r.neighbors input=$base_name_input.grass.tmp1 method=average size=\"
 try_and_log g.region raster=$base_name_input.grass.tmp2
 try_and_log r.contour input=$base_name_input.grass.tmp2 minlevel=\"-500\" maxlevel=\"10000\" step=\"10\" cut=\"7\" output=${vec_basename}_tmp --overwrite
 try_and_log v.out.ogr -s -e input=${vec_basename}_tmp type=line output=$tmp_folder/${vec_basename}.shp format=ESRI_Shapefile output_layer=output --overwrite
-feature_num=\$( ogrinfo $tmp_folder/${vec_basename}.shp -sql \"SELECT COUNT(*) FROM ${vec_basename}\" | grep -i 'COUNT_\* (Integer) =' | sed -e 's/ //g' | cut -d \"=\" -f2 )
-echo '***************************' featuren_num $feature_num
+feature_num=\$( $SCRIPTPATH/ogr_feature_count.sh $tmp_folder/${vec_basename}.shp )
 if [ \"\$feature_num\" -ne \"0\" ]
 then
     try_and_log g.region -a $region_string #\`echo $region_string | sed -e 's/res=.*/res=100/g'\`
@@ -113,11 +107,11 @@ ymax=`python -c "print max($north ,$ymin)"`
 # Cut shape file
 if [ -f $tmp_folder/${vec_basename}.shp ]; then
     # http://osgeo-org.1560.x6.nabble.com/Multipart-to-singlepart-td3746767.html
-    try_and_log ogr2ogr -explodecollections -clipsrc $xmin $ymin $xmax $ymax -f "ESRI Shapefile" $shp_output/${vec_basename}_clipped_final.shp $tmp_folder/${vec_basename}.shp
+    try_and_log ogr2ogr -explodecollections -clipsrc $xmin $ymin $xmax $ymax -f "ESRI Shapefile" $output $tmp_folder/${vec_basename}.shp
 fi
 
 if [ -f $tmp_folder/${vec_basename}_simplified20.shp ]; then
-    try_and_log ogr2ogr -explodecollections -clipsrc $xmin $ymin $xmax $ymax -f "ESRI Shapefile" $shp_output/${vec_basename}_simplified20_clipped_final.shp $tmp_folder/${vec_basename}_simplified20.shp
+    try_and_log ogr2ogr -explodecollections -clipsrc $xmin $ymin $xmax $ymax -f "ESRI Shapefile" $shp_output/${vec_basename}_simplified20.shp $tmp_folder/${vec_basename}_simplified20.shp
 fi
 
 try_and_log rm -rf ${tmp_folder}

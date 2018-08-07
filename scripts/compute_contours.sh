@@ -30,7 +30,7 @@ try_and_log python ./create_vrt_files.py --input_file $input --output_dir $vrt_o
 for vrt in $vrt_output/*.vrt
 do
     base_name=`basename $vrt`
-    execute_async ./grass_contours.sh $vrt $shp_output/${base_name%%.vrt}.shp $buffer ${log_path}.${base_name}.error.log
+    execute_async ./grass_contours.sh $vrt $shp_output/${base_name%%.vrt}.shp $buffer ${log_path}.${base_name}.error.log ${base_name:1:4}
 done
 
 wait

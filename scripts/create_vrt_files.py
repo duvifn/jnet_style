@@ -66,14 +66,46 @@ def get_cols_rows(input_file):
 def process_tile(input_file, ulx, uly, cur_step_x, cur_step_y, buffer, rows, cols, output_prefix, node_start_id, way_start_id):
    
     # Make small vrt
-    u_lx = max(ulx - buffer, 0)
-    u_ly =  max(uly - buffer, 0)
+    if ulx - buffer <  0:
+        u_lx = 0
+        w_buffer = 0
+    else:
+        u_lx = ulx - buffer
+        w_buffer = 1
+    
+    if uly - buffer <  0:
+        u_ly = 0
+        n_buffer = 0
+    else:
+        u_ly = uly - buffer
+        n_buffer = 1
+
+    # u_lx = max(ulx - buffer, 0)
+    # u_ly =  max(uly - buffer, 0)
     x_multiplyer = 1 if u_lx == 0 else 2
     y_multiplyer = 1 if u_ly == 0 else 2
-    s_x = min(cur_step_x + buffer * x_multiplyer, cols - u_lx)
-    s_y = min(cur_step_y + buffer * y_multiplyer, rows - u_ly)
+    step = cur_step_x + buffer * x_multiplyer
+    if cols - u_lx < step:
+        s_x = cols - u_lx
+        e_buffer = 0
+    else:
+        s_x = step
+        e_buffer = 1
 
-    clipped_vrt_file_name = output_prefix + 'uly' + str(u_ly) + '_ulx' + str(u_lx) + '_stpx' + str(s_x) + '_stpy' + str(s_y) + '.vrt'
+    step = cur_step_y + buffer * y_multiplyer
+    if rows - u_ly < step:
+        s_y = rows - u_ly
+        s_buffer = 0
+    else:
+        s_y = step
+        s_buffer = 1
+    # s_x = min(step, cols - u_lx)
+    # s_y = min(step, rows - u_ly)
+    
+    # Create a name that indicates if a buffer was added or not, for each side
+    # Some file types (vector for example) must start with a letter, since otherwise it's not SQL compliant
+    str_buffer = 'a'+''.join(str(i) for i in [w_buffer, e_buffer, s_buffer, n_buffer]) + '_'
+    clipped_vrt_file_name = output_prefix + str_buffer + 'uly' + str(u_ly) + '_ulx' + str(u_lx) + '_stpx' + str(s_x) + '_stpy' + str(s_y) + '.vrt'
     subprocess.check_call(["gdal_translate", "-of", "VRT", "-srcwin", str(u_lx), str(u_ly), str(s_x), str(s_y), input_file, clipped_vrt_file_name])
 
 

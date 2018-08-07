@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# ./grass_contours.sh /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/output9/file_vrt/uly0_ulx0_stpx7300_stpy7300.vrt /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/output23/shp/uly0_ulx0_stpx7300_stpy7300.shp 100 /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/output23/log.txt
+# ./grass_contours.sh /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/output9/file_vrt/uly0_ulx0_stpx7300_stpy7300.vrt /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/output23/shp/uly0_ulx0_stpx7300_stpy7300.shp 100 /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/output23/log.txt 0000
 # https://grasswiki.osgeo.org/wiki/GRASS_and_Shell
 
 
-if [ "$#" -ne 4 ]; then
-    echo "Illegal number of parameters. There should be input, output, buffer and log path parameters"
+if [ "$#" -ne 5 ]; then
+    echo "Illegal number of parameters. There should be input, output, buffer, log path parameters and buffer indicator string"
     exit 1
 fi
 
@@ -14,6 +14,7 @@ input=$1
 output=$2
 buffer=$3
 log_path=$4
+buffer_mask_string=$5
 
 # https://askubuntu.com/questions/811439/bash-set-x-logs-to-file
 #exec {FD}>>$log_path.full
@@ -43,7 +44,6 @@ try_and_log_func_dec=`cat $SCRIPTPATH/try_and_log.sh`
 mkdir -p ${tmp_folder}
 
 echo "export GRASS_MESSAGE_FORMAT=plain
-
 log_path=${log_path}
 global_exit_on_error=yes
 $try_and_log_func_dec
@@ -53,11 +53,12 @@ try_and_log g.region -a $region_string
 try_and_log r.neighbors input=$base_name_input.grass.tmp1 method=average size=\"3\" output=$base_name_input.grass.tmp2 --overwrite
 try_and_log g.region raster=$base_name_input.grass.tmp2
 try_and_log r.contour input=$base_name_input.grass.tmp2 minlevel=\"-500\" maxlevel=\"10000\" step=\"10\" cut=\"7\" output=${vec_basename}_tmp --overwrite
+line_str=\$( v.info -get map=${vec_basename}_tmp | grep \"lines=\" )
+eval \$line_str
 try_and_log v.out.ogr -s -e input=${vec_basename}_tmp type=line output=$tmp_folder/${vec_basename}.shp format=ESRI_Shapefile output_layer=output --overwrite
-feature_num=\$( $SCRIPTPATH/ogr_feature_count.sh $tmp_folder/${vec_basename}.shp )
-if [ \"\$feature_num\" -ne \"0\" ]
+if [ \"\$lines\" -gt \"0\" ]
 then
-    try_and_log g.region -a $region_string #\`echo $region_string | sed -e 's/res=.*/res=100/g'\`
+    try_and_log g.region -a $region_string
     try_and_log v.generalize input=${vec_basename}_tmp method=douglas threshold=\"20\" look_ahead=\"7\" reduction=\"50\" slide=\"0.5\" angle_thresh=\"3\" degree_thresh=\"0\" closeness_thresh=\"0\" betweeness_thresh=\"0\" alpha=\"1\" beta=\"1\" iterations=\"1\" -l output=${vec_basename}_simplified20 --overwrite
     # v.generalize input=${vec_basename}_tmp method=douglas threshold=\"10\" look_ahead=\"7\" reduction=\"50\" slide=\"0.5\" angle_thresh=\"3\" degree_thresh=\"0\" closeness_thresh=\"0\" betweeness_thresh=\"0\" alpha=\"1\" beta=\"1\" iterations=\"1\" -l output=${vec_basename}_simplified10 --overwrite
     try_and_log v.out.ogr -s -e input=${vec_basename}_simplified20 type=line output=$tmp_folder/${vec_basename}_simplified20.shp format=ESRI_Shapefile output_layer=output --overwrite
@@ -93,10 +94,11 @@ raster_string=`echo $region_string | sed -e 's/ /;/g'`
 eval $raster_string
 buffer_src_coords=`echo "$res * $cut_buffer" | bc`
 
-west=`echo "${w} + ${buffer_src_coords}" | bc`
-south=`echo "${s} + ${buffer_src_coords}" | bc`
-east=`echo "${e} - ${buffer_src_coords}" | bc`
-north=`echo "${n} - ${buffer_src_coords}" | bc`
+
+west=`echo "${w} + ${buffer_src_coords} * ${buffer_mask_string:0:1}" | bc`
+east=`echo "${e} - ${buffer_src_coords} * ${buffer_mask_string:1:1} " | bc`
+south=`echo "${s} + ${buffer_src_coords} * ${buffer_mask_string:2:1} " | bc`
+north=`echo "${n} - ${buffer_src_coords} * ${buffer_mask_string:3:1} " | bc`
 
 # https://epsg.io/3857
 xmin=`python -c "print max($west ,-20026376.39)"`

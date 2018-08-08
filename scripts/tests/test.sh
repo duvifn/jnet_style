@@ -239,6 +239,12 @@ test_create_vrt_files_correct_tile_size() {
   assertEquals "File size should be with buffer * 1 on x" "${global_size_x}" $(( $step + $buffer ))
   assertEquals "File size should be with buffer * 2 on y" "${global_size_y}" $(( $step + $buffer * 2 ))
 
+   # Find a file that is at last column
+  last_col=`ls -l ./tmp | awk  '{ print $NF }' | awk  -F '_' '{ print $3 }' | awk -F 'x' '{ print $2 }' | sort -rn | head -n1`
+  file_name=`ls -l ./tmp | grep -i "a*ulx${last_col}_*" | head -n 1 | rev | cut -d" " -f1 | rev`
+  get_dataset_dimensions $file_name
+  assertTrue "[ ${global_size_x} -lte $(( $step + $buffer * 2 )) ]"
+
   unset global_size_x
   unset global_size_y
   rm -r -f ./tmp

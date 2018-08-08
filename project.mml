@@ -1113,7 +1113,7 @@
         "password": "$password",
         "project": "foss4g-2011",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-        "table": "( SELECT way, place AS type,\nCASE WHEN (tags -> 'name:$language_code'  IS NULL OR tags -> 'name:$language_code'  = '') THEN \n    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND  name NOT SIMILAR TO '%[U&\\0020-U&\\007E]%' ) THEN tags->'name:en' ELSE name END\nELSE tags -> 'name:$language_code'  END as name,\n\nCASE\n              WHEN (tags->'population' ~ '^[0-9]{1,8}$') THEN (tags->'population')::INTEGER ELSE 0\n            END as population\n  FROM planet_osm_point\n  WHERE place in ('country', 'state', 'city', 'town', 'village', 'hamlet', 'suburb', 'neighbourhood', 'locality')\n  ORDER BY population DESC NULLS LAST\n) AS data",
+        "table": "( SELECT way, place AS type,\nCASE WHEN (tags -> 'name:$language_code'  IS NULL OR tags -> 'name:$language_code'  = '') THEN \n    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' ) THEN tags->'name:en' ELSE name END\nELSE tags -> 'name:$language_code'  END as name,\n\nCASE\n              WHEN (tags->'population' ~ '^[0-9]{1,8}$') THEN (tags->'population')::INTEGER ELSE 0\n            END as population\n  FROM planet_osm_point\n  WHERE place in ('country', 'state', 'city', 'town', 'village', 'hamlet', 'suburb', 'neighbourhood', 'locality')\n  ORDER BY population DESC NULLS LAST\n) AS data",
         "type": "postgis",
         "user": "$user_name",
         "extent_cache": "auto",

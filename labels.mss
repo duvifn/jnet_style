@@ -70,20 +70,20 @@
   }
   [zoom=4] {
     text-size:11 + @text_adjust;
-    text-wrap-width: 50;
+    text-wrap-width: 30;
   }
   [zoom>4] {
     text-size:18;
   }
   [zoom=5] {
     text-size:11 + @text_adjust;
-    text-wrap-width: 50;
+    text-wrap-width: 30;
     text-line-spacing: 1;
   }
   [zoom=6] {
     text-size:12 + @text_adjust;
     text-character-spacing: 1;
-    text-wrap-width: 80;
+    text-wrap-width: 40;
     text-line-spacing: 2;
   }
   [zoom=7] {

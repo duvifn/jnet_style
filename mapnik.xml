@@ -11,7 +11,7 @@
   <Parameter name="scale">1</Parameter>
   <Parameter name="metatile">1</Parameter>
   <Parameter name="id"><![CDATA[general]]></Parameter>
-  <Parameter name="_updated">1533557017000</Parameter>
+  <Parameter name="_updated">1533720461000</Parameter>
   <Parameter name="attribution"><![CDATA[Data © OpenStreetMap (and) contributors, ODbL]]></Parameter>
   <Parameter name="name"><![CDATA[JNet]]></Parameter>
   <Parameter name="tilejson"><![CDATA[2.0.0]]></Parameter>
@@ -43921,25 +43921,25 @@ SELECT
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([admin_level] = '2') and ([maritime] = 'no')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-opacity="0.4" stroke="#ffffff" />
+    <LineSymbolizer stroke-width="1.8" stroke-opacity="0.4" stroke="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>100000000</MaxScaleDenominator>
     <MinScaleDenominator>50000000</MinScaleDenominator>
     <Filter>([admin_level] = '2') and ([maritime] = 'no')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-opacity="0.3" stroke="#ffffff" />
+    <LineSymbolizer stroke-width="1.8" stroke-opacity="0.3" stroke="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000000</MaxScaleDenominator>
     <MinScaleDenominator>100000000</MinScaleDenominator>
     <Filter>([admin_level] = '2') and ([maritime] = 'no')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-opacity="0.25" stroke="#ffffff" />
+    <LineSymbolizer stroke-width="1.8" stroke-opacity="0.25" stroke="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([admin_level] = '2') and ([maritime] = 'no')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#ffffff" />
+    <LineSymbolizer stroke-width="1.8" stroke="#ffffff" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
@@ -43953,7 +43953,7 @@ SELECT
     <StyleName>admin-maritime</StyleName>
     <Datasource>
        <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
-       <Parameter name="extent"><![CDATA[2799561.5,2511529.72,4757410.82,4572579.45]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
        <Parameter name="id"><![CDATA[admin]]></Parameter>
        <Parameter name="key_field"><![CDATA[]]></Parameter>
@@ -47702,13 +47702,13 @@ ELSE tags -> 'name:$language_code'  END as name
     <MaxScaleDenominator>12500000</MaxScaleDenominator>
     <MinScaleDenominator>6500000</MinScaleDenominator>
     <Filter>([type] = 'country')</Filter>
-    <TextSymbolizer size="12" character-spacing="1" wrap-width="80" line-spacing="2" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="#aaaaaa" halo-radius="0.6"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="12" character-spacing="1" wrap-width="40" line-spacing="2" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="#aaaaaa" halo-radius="0.6"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>25000000</MaxScaleDenominator>
     <MinScaleDenominator>12500000</MinScaleDenominator>
     <Filter>([type] = 'country')</Filter>
-    <TextSymbolizer size="11" wrap-width="50" line-spacing="1" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="#aaaaaa" halo-radius="0.6"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="11" wrap-width="30" line-spacing="1" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="#aaaaaa" halo-radius="0.6"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
   <Rule>
     <MaxScaleDenominator>3000000</MaxScaleDenominator>
@@ -47720,7 +47720,7 @@ ELSE tags -> 'name:$language_code'  END as name
     <MaxScaleDenominator>50000000</MaxScaleDenominator>
     <MinScaleDenominator>25000000</MinScaleDenominator>
     <Filter>([type] = 'country')</Filter>
-    <TextSymbolizer size="11" wrap-width="50" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="#aaaaaa" halo-radius="0.6"><![CDATA[[name]]]></TextSymbolizer>
+    <TextSymbolizer size="11" wrap-width="30" fontset-name="fontset-1" placement="point" fill="#ffffff" halo-fill="#aaaaaa" halo-radius="0.6"><![CDATA[[name]]]></TextSymbolizer>
   </Rule>
 </Style>
 <Layer name="place"
@@ -47742,7 +47742,7 @@ ELSE tags -> 'name:$language_code'  END as name
        <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
        <Parameter name="table"><![CDATA[( SELECT way, place AS type,
 CASE WHEN (tags -> 'name:$language_code'  IS NULL OR tags -> 'name:$language_code'  = '') THEN 
-    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' AND  name NOT SIMILAR TO '%[U&\0020-U&\007E]%' ) THEN tags->'name:en' ELSE name END
+    CASE WHEN ( tags->'name:en'  IS NOT NULL OR tags->'name:en'  != '' ) THEN tags->'name:en' ELSE name END
 ELSE tags -> 'name:$language_code'  END as name,
 
 CASE
@@ -48144,7 +48144,7 @@ ELSE tags -> 'name:$language_code'  END as name
        <Parameter name="key_field"><![CDATA[]]></Parameter>
        <Parameter name="geometry_field"><![CDATA[]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="extent"><![CDATA[-19897639.92,2097141.43,4722801.5,4487428.73]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="host"><![CDATA[$host]]></Parameter>
        <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
        <Parameter name="user"><![CDATA[$user_name]]></Parameter>

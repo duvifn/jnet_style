@@ -242,9 +242,17 @@ test_create_vrt_files_correct_tile_size() {
    # Find a file that is at last column
   last_col=`ls -l ./tmp | awk  '{ print $NF }' | awk  -F '_' '{ print $3 }' | awk -F 'x' '{ print $2 }' | sort -rn | head -n1`
   file_name=`ls -l ./tmp | grep -i "a*ulx${last_col}_*" | head -n 1 | rev | cut -d" " -f1 | rev`
-  get_dataset_dimensions $file_name
-  assertTrue "[ ${global_size_x} -lte $(( $step + $buffer * 2 )) ]"
+  base_name=`basename $file_name`
+  get_dataset_dimensions ./tmp/$base_name
+  assertTrue "[ ${global_size_x} -lt $(( $step + $buffer * 2 )) ]"
 
+   # Find a file that is at last row
+  last_row=`ls -l ./tmp | awk  '{ print $NF }' | awk  -F '_' '{ print $2 }' | awk -F 'y' '{ print $2 }' | sort -rn | head -n1`
+  file_name=`ls -l ./tmp | grep -i "a*uly${last_row}_*" | head -n 1 | rev | cut -d" " -f1 | rev`
+  base_name=`basename $file_name`
+  get_dataset_dimensions ./tmp/$base_name
+  assertTrue "[ ${global_size_y} -lt $(( $step + $buffer * 2 )) ]"
+  
   unset global_size_x
   unset global_size_y
   rm -r -f ./tmp

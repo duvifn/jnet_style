@@ -29,7 +29,8 @@ python create_vrt_files.py -i $input_file -o ${output_dir}/tmp -b $buffer
 echo Creating hillshade files...
 for vrt in $output_dir/tmp/*.vrt
 do
-    execute_async ./shade.sh $vrt ${vrt%%.vrt}.hillshade.tif $zFactor $buffer
+    base_name=`basename $vrt`
+    execute_async ./shade.sh $vrt ${vrt%%.vrt}.hillshade.tif $zFactor $buffer ${base_name:1:4}
 done
 wait
 

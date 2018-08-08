@@ -859,7 +859,7 @@
     {
       "Datasource": {
         "dbname": "gis",
-        "extent": "2799561.5,2511529.72,4757410.82,4572579.45",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
         "geometry_field": "way",
         "id": "admin",
         "key_field": "",
@@ -1208,7 +1208,7 @@
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
-        "extent": "-19897639.92,2097141.43,4722801.5,4487428.73",
+        "extent": "-20037508.34,-20037508.34,20037508.34,20037508.34",
         "host": "$host",
         "dbname": "gis",
         "user": "$user_name",

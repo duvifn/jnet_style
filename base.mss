@@ -280,7 +280,7 @@ Map { background-color: @water; }
     line-color:@admin_2;
     
     [zoom>=2][zoom<=11]{
-      line-width:3;
+      line-width:1.8;
     }
     
     [zoom>11]{

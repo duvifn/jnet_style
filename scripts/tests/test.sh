@@ -144,7 +144,7 @@ test_create_vrt_files_produces_vrt_file_that_is_geographiclly_correct() {
   rm -r -f ./tmp
 }
 
-test_create_vrt_files_buffer_string_mask() {
+test_create_vrt_files_buffer_string_mask_zero() {
   mkdir -p ./tmp
   python ../create_vrt_files.py -i ./data/N19W156.filled.3857.tif -o ./tmp > /dev/null 2>&1
   file_path=`ls ./tmp/*.vrt`
@@ -153,4 +153,94 @@ test_create_vrt_files_buffer_string_mask() {
   rm -r -f ./tmp
 }
 
+test_create_vrt_files_correct_buffer_string_mask() {
+  mkdir -p ./tmp
+  data_file=./data/N19W156.filled.3857.tif
+  
+  # Data file dimensions
+  x_size=349
+  x_size=370
+  
+  step=50
+  buffer=5
+
+  python ../create_vrt_files.py --step_x $step --step_y $step --buffer $buffer -i $data_file -o ./tmp > /dev/null 2>&1
+
+  # Find a file that is at first row
+  file_name=`ls -l ./tmp | grep -i a*_uly0 | head -n 1 | rev | cut -d" " -f1 | rev`
+  base_name=`basename $file_name`
+  #echo ${base_name:1:4}
+  #w_buffer, e_buffer, s_buffer, n_buffer
+  assertEquals "Should ignore north buffer" "${base_name:4:1}" "0"
+  assertEquals "Should add south buffer" "${base_name:3:1}" "1"
+
+  # Find a file that is NOT at first row
+  file_name=`ls -l ./tmp | grep -i a*_uly | grep -i -v a*_uly0 |  head -n 1 | rev | cut -d" " -f1 | rev`
+  base_name=`basename $file_name`
+  #echo ${base_name:1:4}
+  #w_buffer, e_buffer, s_buffer, n_buffer
+  assertEquals "Should add north buffer" "${base_name:4:1}" "1"
+  
+  # Find a file that is at first column
+  file_name=`ls -l ./tmp | grep -i "a*ulx0_*" | head -n 1 | rev | cut -d" " -f1 | rev`
+  base_name=`basename $file_name`
+  #echo ${base_name:1:4}
+  
+  #w_buffer, e_buffer, s_buffer, n_buffer
+  assertEquals "Should ignore west buffer" "${base_name:1:1}" "0"
+  assertEquals "Should add east buffer" "${base_name:2:1}" "1"
+  
+  # Find a file that is at last column
+  last_col=`ls -l ./tmp | awk  '{ print $NF }' | awk  -F '_' '{ print $3 }' | awk -F 'x' '{ print $2 }' | sort -rn | head -n1`
+  file_name=`ls -l ./tmp | grep -i "a*ulx${last_col}_*" | head -n 1 | rev | cut -d" " -f1 | rev`
+  base_name=`basename $file_name`
+  assertEquals "Should ignore east buffer" "${base_name:2:1}" "0"
+  assertEquals "Should add west buffer" "${base_name:1:1}" "1"
+
+  # Find a file that is at last row
+  last_row=`ls -l ./tmp | awk  '{ print $NF }' | awk  -F '_' '{ print $2 }' | awk -F 'y' '{ print $2 }' | sort -rn | head -n1`
+  file_name=`ls -l ./tmp | grep -i "a*uly${last_row}_*" | head -n 1 | rev | cut -d" " -f1 | rev`
+  base_name=`basename $file_name`
+  assertEquals "Should add north buffer" "${base_name:4:1}" "1"
+  assertEquals "Should ignore south buffer" "${base_name:3:1}" "0"
+  rm -r -f ./tmp
+}
+
+get_dataset_dimensions(){
+  dataset=$1
+  size_str=`gdalinfo $dataset | grep -i "Size is " | sed -e 's/Size is //g' | sed -e 's/ //g'`
+  global_size_x=`echo $size_str | cut -d"," -f1`
+  global_size_y=`echo $size_str | cut -d"," -f2`
+}
+test_create_vrt_files_correct_tile_size() {
+  mkdir -p ./tmp
+  data_file=./data/N19W156.filled.3857.tif
+  
+  # Data file dimensions
+  x_size=349
+  x_size=370
+  
+  step=50
+  buffer=5
+
+  python ../create_vrt_files.py --step_x $step --step_y $step --buffer $buffer -i $data_file -o ./tmp > /dev/null 2>&1
+  
+  # find file in the first row
+  #w_buffer, e_buffer, s_buffer, n_buffer
+  file_name=`ls -l ./tmp/a1110_* |  head -n 1 | rev | cut -d" " -f1 | rev`
+  get_dataset_dimensions $file_name
+  assertEquals "File size should be with buffer * 2 on x" "${global_size_x}" $(( $step + $buffer * 2 ))
+  assertEquals "File size should be with buffer * 1 on y" "${global_size_y}" $(( $step + $buffer ))
+
+  # find file in the first col
+  #w_buffer, e_buffer, s_buffer, n_buffer
+  file_name=`ls -l ./tmp/a0111_* |  head -n 1 | rev | cut -d" " -f1 | rev`
+  get_dataset_dimensions $file_name
+  assertEquals "File size should be with buffer * 1 on x" "${global_size_x}" $(( $step + $buffer ))
+  assertEquals "File size should be with buffer * 2 on y" "${global_size_y}" $(( $step + $buffer * 2 ))
+
+  unset global_size_x
+  unset global_size_y
+  rm -r -f ./tmp
+}
 . ./shunit2/shunit2

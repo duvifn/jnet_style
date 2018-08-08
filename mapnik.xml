@@ -11,7 +11,7 @@
   <Parameter name="scale">1</Parameter>
   <Parameter name="metatile">1</Parameter>
   <Parameter name="id"><![CDATA[general]]></Parameter>
-  <Parameter name="_updated">1533720461000</Parameter>
+  <Parameter name="_updated">1533720614000</Parameter>
   <Parameter name="attribution"><![CDATA[Data © OpenStreetMap (and) contributors, ODbL]]></Parameter>
   <Parameter name="name"><![CDATA[JNet]]></Parameter>
   <Parameter name="tilejson"><![CDATA[2.0.0]]></Parameter>
@@ -394,20 +394,20 @@ ELSE tags -> 'name:$language_code'  END as name
   <Rule>
     <MaxScaleDenominator>50000</MaxScaleDenominator>
     <Filter>([type] = 'wood')</Filter>
-    <PolygonSymbolizer fill="#e6f2c1" />
+    <PolygonSymbolizer fill="#c5edb5" />
     <PolygonPatternSymbolizer file="img/leaftype_unknown.svg" alignment="global" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <Filter>([type] = 'wood')</Filter>
-    <PolygonSymbolizer fill="#e6f2c1" />
+    <PolygonSymbolizer fill="#c5edb5" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>400000</MaxScaleDenominator>
     <MinScaleDenominator>200000</MinScaleDenominator>
     <Filter>([type] = 'wood')</Filter>
-    <PolygonSymbolizer fill="#e6f2c1" />
+    <PolygonSymbolizer fill="#c5edb5" />
   </Rule>
   <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>

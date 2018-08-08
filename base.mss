@@ -49,14 +49,14 @@ Map { background-color: @water; }
 #landuse[zoom=11] {
   [type='forest']        { polygon-fill: #c5edb5; } 
   [type='grass'],[type='meadow'] { polygon-fill: #E6F2C1; }
-  [type='wood']          { polygon-fill: #E6F2C1; } 
+  [type='wood']          { polygon-fill: #c5edb5; } 
 }
 
 #landuse[zoom>11] {
   
   [type='forest']        { polygon-fill: #c5edb5; } 
   [type='grass'],[type='meadow'] { polygon-fill: #E6F2C1; } 
-  [type='wood']          { polygon-fill: #E6F2C1; }
+  [type='wood']          { polygon-fill: #c5edb5; }
   [type='quarry'] {
     polygon-fill: #c5c3c3;
     polygon-pattern-file: url('img/quarry.svg');

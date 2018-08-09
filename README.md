@@ -54,6 +54,7 @@ In order to use the scripts, you should:
 - Install grass gis (version >= 7.2).
 - Install osm2pgsql
 - Install python 2.7
+- Install GNU parallel
 - Download DEM data (you can use [phyghtmap](http://katze.tfiu.de/projects/phyghtmap/) for this). For example:
   ```bash
   phyghtmap --area=-162.754757:16.294779:-150.279273:23.748636 --download-only --srtm=1 --earthexplorer-user=EARTHEXPLORER_USERNAME --earthexplorer-password=EARTHEXPLORER_PASSWORD --hgtdir ./hawaii_data

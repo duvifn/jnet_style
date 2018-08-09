@@ -60,7 +60,7 @@ test_try_and_log_exit_if_exit_on_error_set() {
 }
 
 test_gdal_get_region_string() {
-  raster_string=$( ../gdal_get_region_string.sh ./data/N19W156.filled.3857.tif )
+  raster_string=$( ../gdal_get_region_string.sh ./data/a0000N19W156_filled_3857.tif )
   assertEquals "$raster_string" "n=2273047.380 s=2155069.648 e=-17254574.326 w=-17365856.025 res=318.858736133093544"
 }
 
@@ -77,21 +77,21 @@ test_grass_contours_script_fail_invalid_number_of_arguments() {
 test_grass_contours_script_produces_2_shp_files() {
   mkdir -p ./tmp
   cd ../
-  ./grass_contours.sh ./tests/data/N19W156.filled.3857.tif ./tests/tmp/N19W156.shp 100 ./tests/tmp/N19W156.log 0000 > /dev/null 2>&1
+  ./grass_contours.sh ./tests/data/a0000N19W156_filled_3857.tif ./tests/tmp/shp 100 ./tests/tmp/logs > /dev/null 2>&1
   assertTrue "[ $? -eq 0 ]"
   cd - > /dev/null 2>&1
   
 
-  assertTrue "[ -f ./tmp/N19W156.shp ]" 
-  assertTrue "[ -f ./tmp/N19W156_simplified20.shp ]" 
+  assertTrue "[ -f ./tmp/shp/a0000N19W156_filled_3857.shp ]" 
+  assertTrue "[ -f ./tmp/shp/a0000N19W156_filled_3857_simplified20.shp ]" 
   rm -r -f ./tmp
 }
 
 test_grass_contours_script_produces_not_empty_shp_file() {
   mkdir -p ./tmp
   cd ../
-  ./grass_contours.sh ./tests/data/N19W156.filled.3857.tif ./tests/tmp/N19W156.shp 100 ./tests/tmp/N19W156.log 0000 > /dev/null 2>&1
-  feature_count=$( ./ogr_feature_count.sh ./tests/tmp/N19W156.shp )
+  ./grass_contours.sh ./tests/data/a0000N19W156_filled_3857.tif ./tests/tmp/shp 100 ./tests/tmp/logs > /dev/null 2>&1
+  feature_count=$( ./ogr_feature_count.sh ./tests/tmp/shp/a0000N19W156_filled_3857.shp )
 
   assertTrue "[ $feature_count -gt 0 ]"
   cd - > /dev/null 2>&1
@@ -101,13 +101,13 @@ test_grass_contours_script_produces_not_empty_shp_file() {
 test_grass_contours_script_produces_shp_file_that_is_geographiclly_correct() {
   mkdir -p ./tmp
   cd ../
-  ./grass_contours.sh ./tests/data/N19W156.filled.3857.tif ./tests/tmp/N19W156.shp 100 ./tests/tmp/N19W156.log 0000 > /dev/null 2>&1
+  ./grass_contours.sh ./tests/data/a0000N19W156_filled_3857.tif ./tests/tmp/shp 100 ./tests/tmp/logs > /dev/null 2>&1
   
-  raster_string=$( ./gdal_get_region_string.sh ./tests/data/N19W156.filled.3857.tif )
+  raster_string=$( ./gdal_get_region_string.sh ./tests/data/a0000N19W156_filled_3857.tif )
   raster_string=`echo $raster_string | sed -e 's/ /;/g'`
   eval $raster_string
 
-  ext=`ogrinfo -al -geom=NO ./tests/tmp/N19W156.shp | grep -i Extent: | sed -e 's/ //g'`
+  ext=`ogrinfo -al -geom=NO ./tests/tmp/shp/a0000N19W156_filled_3857.shp | grep -i Extent: | sed -e 's/ //g'`
   v_n=`echo $ext | cut -d"(" -f 3 | sed -e 's/)//g'| cut -d"," -f2`
   v_e=`echo $ext | cut -d"(" -f 3 | sed -e 's/)//g'| cut -d"," -f1`
   v_w=`echo $ext | cut -d"(" -f 2 | sed -e 's/)-//g' | cut -d"," -f1`
@@ -129,16 +129,16 @@ test_create_vrt_files_required_arguments() {
 
 test_create_vrt_files_produces_vrt_file() {
   mkdir -p ./tmp
-  python ../create_vrt_files.py -i ./data/N19W156.filled.3857.tif -o ./tmp > /dev/null 2>&1
+  python ../create_vrt_files.py -i ./data/a0000N19W156_filled_3857.tif -o ./tmp > /dev/null 2>&1
   assertTrue "[ `ls -l ./tmp/*.vrt | wc -l` -gt 0 ]"
   rm -r -f ./tmp
 }
 
 test_create_vrt_files_produces_vrt_file_that_is_geographiclly_correct() {
   mkdir -p ./tmp
-  python ../create_vrt_files.py -i ./data/N19W156.filled.3857.tif -o ./tmp > /dev/null 2>&1
+  python ../create_vrt_files.py -i ./data/a0000N19W156_filled_3857.tif -o ./tmp > /dev/null 2>&1
   file_path=`ls ./tmp/*.vrt`
-  raster_string_1=$( ../gdal_get_region_string.sh ./data/N19W156.filled.3857.tif )
+  raster_string_1=$( ../gdal_get_region_string.sh ./data/a0000N19W156_filled_3857.tif )
   raster_string_2=$( ../gdal_get_region_string.sh $file_path )
   assertEquals "$raster_string_1" "$raster_string_2"
   rm -r -f ./tmp
@@ -146,7 +146,7 @@ test_create_vrt_files_produces_vrt_file_that_is_geographiclly_correct() {
 
 test_create_vrt_files_buffer_string_mask_zero() {
   mkdir -p ./tmp
-  python ../create_vrt_files.py -i ./data/N19W156.filled.3857.tif -o ./tmp > /dev/null 2>&1
+  python ../create_vrt_files.py -i ./data/a0000N19W156_filled_3857.tif -o ./tmp > /dev/null 2>&1
   file_path=`ls ./tmp/*.vrt`
   base_name=`basename $file_path`
   assertEquals "${base_name:1:4}" "0000"
@@ -155,7 +155,7 @@ test_create_vrt_files_buffer_string_mask_zero() {
 
 test_create_vrt_files_correct_buffer_string_mask() {
   mkdir -p ./tmp
-  data_file=./data/N19W156.filled.3857.tif
+  data_file=./data/a0000N19W156_filled_3857.tif
   
   # Data file dimensions
   x_size=349
@@ -214,7 +214,7 @@ get_dataset_dimensions(){
 }
 test_create_vrt_files_correct_tile_size() {
   mkdir -p ./tmp
-  data_file=./data/N19W156.filled.3857.tif
+  data_file=./data/a0000N19W156_filled_3857.tif
   
   # Data file dimensions
   x_size=349

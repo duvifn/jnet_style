@@ -1,21 +1,26 @@
 #!/bin/bash
 
-# ./grass_contours.sh /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/output9/file_vrt/uly0_ulx0_stpx7300_stpy7300.vrt /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/output23/shp/uly0_ulx0_stpx7300_stpy7300.shp 100 /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/output23/log.txt 0000
+# ./grass_contours.sh /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/output9/file_vrt/uly0_ulx0_stpx7300_stpy7300.vrt /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/output23/shp/uly0_ulx0_stpx7300_stpy7300.shp 100 /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/output23/logs
 # https://grasswiki.osgeo.org/wiki/GRASS_and_Shell
 
 
-if [ "$#" -ne 5 ]; then
-    echo "Illegal number of parameters. There should be input, output, buffer, log path parameters and buffer indicator string"
+if [ "$#" -ne 4 ]; then
+    echo "Illegal number of parameters. There should be input, output dir, buffer, log dir parameters"
     exit 1
 fi
 
 
 input=$1
-output=$2
+output_dir=$2
 buffer=$3
-log_path=$4
-buffer_mask_string=$5
+log_dir=$4
 
+base_name=`basename $input`
+output=${output_dir}/${base_name%.*}.shp
+
+mkdir -p $log_dir
+log_path=${log_dir}/${base_name}.error.log
+buffer_mask_string=${base_name:1:4}
 # https://askubuntu.com/questions/811439/bash-set-x-logs-to-file
 #exec {FD}>>$log_path.full
 
@@ -30,13 +35,12 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 # define try_and_log function
 . $SCRIPTPATH/try_and_log.sh
 
-
-base_name_input=`basename $input`
 region_string=`$SCRIPTPATH/gdal_get_region_string.sh $input`
 
 output_dir=`dirname $output`
 
-vec_basename=`basename $output | cut -d"." -f1`
+out_basename=`basename $output`
+vec_basename="${out_basename%.*}"
 
 tmp_folder="${output_dir}/${vec_basename}/grassdata/"
 try_and_log_func_dec=`cat $SCRIPTPATH/try_and_log.sh`
@@ -48,11 +52,11 @@ log_path=${log_path}
 global_exit_on_error=yes
 $try_and_log_func_dec
 try_and_log g.proj -c epsg=3857
-try_and_log r.external input=$input band=1 output=$base_name_input.grass.tmp1 --overwrite -o
+try_and_log r.external input=$input band=1 output=$base_name.grass.tmp1 --overwrite -o
 try_and_log g.region -a $region_string
-try_and_log r.neighbors input=$base_name_input.grass.tmp1 method=average size=\"3\" output=$base_name_input.grass.tmp2 --overwrite
-try_and_log g.region raster=$base_name_input.grass.tmp2
-try_and_log r.contour input=$base_name_input.grass.tmp2 minlevel=\"-500\" maxlevel=\"10000\" step=\"10\" cut=\"7\" output=${vec_basename}_tmp --overwrite
+try_and_log r.neighbors input=$base_name.grass.tmp1 method=average size=\"3\" output=$base_name.grass.tmp2 --overwrite
+try_and_log g.region raster=$base_name.grass.tmp2
+try_and_log r.contour input=$base_name.grass.tmp2 minlevel=\"-500\" maxlevel=\"10000\" step=\"10\" cut=\"7\" output=${vec_basename}_tmp --overwrite
 line_str=\$( v.info -get map=${vec_basename}_tmp | grep \"lines=\" )
 eval \$line_str
 try_and_log v.out.ogr -s -e input=${vec_basename}_tmp type=line output=$tmp_folder/${vec_basename}.shp format=ESRI_Shapefile output_layer=output --overwrite

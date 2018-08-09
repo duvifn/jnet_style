@@ -67,7 +67,7 @@ Map { background-color: @water; }
     [type='wood'][zoom>13] {
     	polygon-pattern-file: url('img/leaftype_unknown.svg');
         polygon-pattern-alignment: global;
-        opacity: 0.7; // The entire layer has opacity to handle overlapping forests
+        opacity: 0.6; // The entire layer has opacity to handle overlapping forests
     }
   ::mil [type='military'] {
     polygon-pattern-file: url('img/danger_red_hatch.png');
@@ -150,7 +150,7 @@ Map { background-color: @water; }
    [zoom>=1][zoom<=4]{
     raster-comp-op: multiply;
     raster-scaling: bilinear;
-    raster-opacity:0.5;
+    raster-opacity:0.43;
   }
 }
 
@@ -158,7 +158,7 @@ Map { background-color: @water; }
    [zoom>=5][zoom<=6]{
     raster-comp-op: multiply;
     raster-scaling: bilinear;
-    raster-opacity:0.5;
+    raster-opacity:0.43;
   }
 }
 
@@ -166,7 +166,7 @@ Map { background-color: @water; }
    [zoom>=7][zoom<=8]{
     raster-comp-op: multiply;
     raster-scaling: bilinear;
-    raster-opacity:0.5;
+    raster-opacity:0.43;
   }
 }
 
@@ -174,7 +174,7 @@ Map { background-color: @water; }
   [zoom>=9][zoom<=12]{
     raster-comp-op: multiply;
     raster-scaling: bilinear;
-    raster-opacity:0.5;
+    raster-opacity:0.43;
    }
   [zoom>=13][zoom<=14]{
     raster-comp-op: grain-merge;
@@ -233,9 +233,10 @@ Map { background-color: @water; }
     [zoom=13]{ line-width:2.0; }
     [zoom=14]{ line-width: 2.0; }
   }
+  [type='wadi'] { line-width:0 ; }
 }
   
-#waterway_high[zoom>=14] {
+#waterway_high[zoom>14] {
   line-color: @water;
   line-width: 1.0;
   [int_intermittent='yes'] {
@@ -268,6 +269,7 @@ Map { background-color: @water; }
     [zoom=19]{ line-width: 1; }
     [zoom>19]{ line-width: 1.5; }
   }
+  [type='wadi'] { line-width:1 ; line-dasharray:10,4;}
 }
 
 /* ================================================================== */
@@ -292,7 +294,7 @@ Map { background-color: @water; }
   }
   /* Remove any maritime borders. Unfortunatly this is the only way to do this */
   ::maritime[maritime='yes'][zoom>1]{
-    line-color: #a7bed2;
+    line-color: #acc4d8;
     line-width:4;
     line-opacity: 1.0;
     [zoom >= 13] { line-color: #b1cce3 }

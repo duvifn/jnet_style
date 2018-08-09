@@ -160,12 +160,12 @@
       text-halo-radius:0.3;
     }
     [zoom=9] {
-      text-size:13;
+      text-size:11;
       text-wrap-width: 60;
       //text-dy: -10;
     }
     [zoom=10] {
-      text-size:13;
+      text-size:12;
       text-wrap-width: 70;
     }
     [zoom=11] {

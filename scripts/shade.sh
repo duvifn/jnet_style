@@ -1,18 +1,27 @@
 #!/bin/bash
 
-if [ "$#" -lt 5 ]; then
-    echo "Illegal number of parameters. The following parameters are required: input_file, output_file, z value, buffer size and buffer_mask_string."
+if [ "$#" -ne 4 ]; then
+    echo "Illegal number of parameters. The following parameters are required: input_file, output_dir, z value, buffer size "
     exit 1
 fi
 
 input_file=$1
-output_file=$2
+output_dir=$2
 z=$3
 buffer=$4
-buffer_mask_string=$5
 
-log_path=${output_file}.error.log
-. ./try_and_log.sh
+base_name=`basename $input_file`
+output_file=${output_dir}/${base_name%.*}.hillshade.tif
+
+log_dir=${output_dir}/logs
+mkdir -p $log_dir
+log_path=${log_dir}/${base_name}.error.log
+buffer_mask_string=${base_name:1:4}
+
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+# define try_and_log function
+. $SCRIPTPATH/try_and_log.sh
+
 
 try_and_log gdaldem hillshade -z $z -compute_edges $input_file ${output_file}.tmp.tif
 size_in_pixels_x=`gdalinfo ${output_file}.tmp.tif | grep -i "Size is" | cut -d" " -f3 | sed -e 's/,//g'`

@@ -8,7 +8,6 @@ if [ "$#" -lt 3 ]; then
 fi
 
 echo `date` Started...
-. ./execute_async.sh
 input_file=$1
 output_file=$2
 zFactor=$3
@@ -21,26 +20,24 @@ mkdir -p ${output_dir}/tmp
 
 buffer=3 #3 pixels overlap is good enough
 
-. ./try_and_log.sh
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+# define try_and_log function
+. $SCRIPTPATH/try_and_log.sh
 
 echo Creating VRT files...
-python create_vrt_files.py -i $input_file -o ${output_dir}/tmp -b $buffer
+python $SCRIPTPATH/create_vrt_files.py -i $input_file -o ${output_dir}/tmp -b $buffer
 
 echo Creating hillshade files...
-for vrt in $output_dir/tmp/*.vrt
-do
-    base_name=`basename $vrt`
-    execute_async ./shade.sh $vrt ${vrt%%.vrt}.hillshade.tif $zFactor $buffer ${base_name:1:4}
-done
-wait
+ls ${output_dir}/tmp/*.vrt | parallel -j${number_of_jobs} --eta "$SCRIPTPATH/shade.sh {} $output_dir/tmp $zFactor $buffer > /dev/null 2>&1"
+
 
 echo Creating unified hillshade file...
 find $output_dir/tmp -iname *.hillshade.tif -exec echo {} >> $output_dir/tmp/file_list.txt \;
 try_and_log gdalbuildvrt -srcnodata -32768 -vrtnodata -32768 -input_file_list $output_dir/tmp/file_list.txt $output_dir/tmp/unified_hillshade.vrt
-./translate.sh $output_dir/tmp/unified_hillshade.vrt $output_file "-a_nodata none -co COMPRESS=JPEG -co TILED=YES -co BIGTIFF=YES"
+$SCRIPTPATH/translate.sh $output_dir/tmp/unified_hillshade.vrt $output_file "-a_nodata none -co COMPRESS=JPEG -co TILED=YES -co BIGTIFF=YES"
 
-. ./report_errors.sh
-report_errors $output_dir/tmp
+. $SCRIPTPATH/report_errors.sh
+report_errors $output_dir/tmp/logs
 err1=$?
 report_errors $output_dir
 err2=$?

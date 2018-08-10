@@ -17,26 +17,19 @@ mkdir -p $log_dir
 log_path=${log_dir}/log.txt
 
 echo START `date` >> $log_path
-# https://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 # define try_and_log function
 . $SCRIPTPATH/try_and_log.sh
-. $SCRIPTPATH/execute_async.sh
 
 buffer=100
 vrt_output=$output_dir/file_vrt
 shp_output=$output_dir/shp
-try_and_log python ./create_vrt_files.py --input_file $input --output_dir $vrt_output --buffer $buffer
+try_and_log python ./create_vrt_files.py --input_file $input --output_dir $vrt_output --buffer $buffer > /dev/null 2>&1
 
-ls $vrt_output/*.vrt | parallel -j${number_of_jobs} --eta "./grass_contours.sh {} $shp_output $buffer $log_dir"
-# for vrt in $vrt_output/*.vrt
-# do
-#     base_name=`basename $vrt`
-#     execute_async ./grass_contours.sh $vrt $shp_output/${base_name%%.vrt}.shp $buffer $log_dir ${base_name:1:4}
-# done
-
-wait
+ls $vrt_output/*.vrt | parallel -j${number_of_jobs} --eta "./grass_contours.sh {} $shp_output $buffer $log_dir > /dev/null 2>&1"
 
 . $SCRIPTPATH/report_errors.sh
-report_errors `dirname ${log_path}`
+report_errors `dirname ${log_path}` >> $log_path
+
+echo END `date`
 echo END `date` >> $log_path

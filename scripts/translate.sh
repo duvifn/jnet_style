@@ -7,9 +7,10 @@ fi
 
 input_file=$1
 output_file=$2
-additional_parameters=" ${3:-""} "
+additional_parameters=" ${3:-''} "
 
 log_path=${output_file}.error.log
-. ./try_and_log.sh
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+. $SCRIPTPATH/try_and_log.sh
 
 try_and_log gdal_translate $additional_parameters -of GTiff $input_file $output_file

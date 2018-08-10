@@ -98,7 +98,7 @@ test_grass_contours_script_produces_not_empty_shp_file() {
   rm -r -f ./tmp
 }
 
-test_grass_contours_script_produces_shp_file_that_is_geographiclly_correct() {
+test_grass_contours_script_produces_shp_file_that_is_geographically_correct() {
   mkdir -p ./tmp
   cd ../
   ./grass_contours.sh ./tests/data/a0000N19W156_filled_3857.tif ./tests/tmp/shp 100 ./tests/tmp/logs > /dev/null 2>&1
@@ -134,7 +134,7 @@ test_create_vrt_files_produces_vrt_file() {
   rm -r -f ./tmp
 }
 
-test_create_vrt_files_produces_vrt_file_that_is_geographiclly_correct() {
+test_create_vrt_files_produces_vrt_file_that_is_geographically_correct() {
   mkdir -p ./tmp
   python ../create_vrt_files.py -i ./data/a0000N19W156_filled_3857.tif -o ./tmp > /dev/null 2>&1
   file_path=`ls ./tmp/*.vrt`
@@ -169,7 +169,7 @@ test_create_vrt_files_correct_buffer_string_mask() {
   # Find a file that is at first row
   file_name=`ls -l ./tmp | grep -i a*_uly0 | head -n 1 | rev | cut -d" " -f1 | rev`
   base_name=`basename $file_name`
-  #echo ${base_name:1:4}
+  
   #w_buffer, e_buffer, s_buffer, n_buffer
   assertEquals "Should ignore north buffer" "${base_name:4:1}" "0"
   assertEquals "Should add south buffer" "${base_name:3:1}" "1"
@@ -177,7 +177,7 @@ test_create_vrt_files_correct_buffer_string_mask() {
   # Find a file that is NOT at first row
   file_name=`ls -l ./tmp | grep -i a*_uly | grep -i -v a*_uly0 |  head -n 1 | rev | cut -d" " -f1 | rev`
   base_name=`basename $file_name`
-  #echo ${base_name:1:4}
+  
   #w_buffer, e_buffer, s_buffer, n_buffer
   assertEquals "Should add north buffer" "${base_name:4:1}" "1"
   
@@ -257,4 +257,115 @@ test_create_vrt_files_correct_tile_size() {
   unset global_size_y
   rm -r -f ./tmp
 }
+
+test_compute_contours_script_produces_shp_file_that_is_geographically_correct() {
+  mkdir -p ./tmp
+  cd ../
+  ./compute_contours.sh ./tests/data/a0000N19W156_filled_3857.tif ./tests/tmp/ 8 > /dev/null 2>&1
+  
+  raster_string=$( ./gdal_get_region_string.sh ./tests/data/a0000N19W156_filled_3857.tif )
+  raster_string=`echo $raster_string | sed -e 's/ /;/g'`
+  eval $raster_string
+
+  file_name=`ls -l ./tests/tmp/shp/*.shp |  head -n 1 | rev | cut -d" " -f1 | rev`
+  ext=`ogrinfo -al -geom=NO $file_name | grep -i Extent: | sed -e 's/ //g'`
+  v_n=`echo $ext | cut -d"(" -f 3 | sed -e 's/)//g'| cut -d"," -f2`
+  v_e=`echo $ext | cut -d"(" -f 3 | sed -e 's/)//g'| cut -d"," -f1`
+  v_w=`echo $ext | cut -d"(" -f 2 | sed -e 's/)-//g' | cut -d"," -f1`
+  v_s=`echo $ext | cut -d"(" -f 2 | sed -e 's/)-//g' | cut -d"," -f2`
+  
+  assertTrue "west is equal" "[ `echo "$v_w == $w" | bc -l` -eq 1 ]"
+  assertTrue "east is equal" "[ `echo "$v_e == $e" | bc -l` -eq 1 ]"
+  assertTrue "south is equal" "[ `echo "$v_s == $s" | bc -l` -eq 1 ]"
+  assertTrue "north is equal" "[ `echo "$v_n == $n" | bc -l` -eq 1 ]"
+
+  cd - > /dev/null 2>&1
+  rm -r -f ./tmp
+
+}
+
+test_compute_contours_script_produces_error_log_file() {
+  mkdir -p ./tmp/shp
+  # make it read only
+  chmod -R 0444 ./tmp/shp
+  cd ../
+  ./compute_contours.sh ./tests/data/a0000N19W156_filled_3857.tif ./tests/tmp/ 8 > /dev/null 2>&1
+  log_number_of_lines=`cat ./tests/tmp/logs/log.txt | grep -i "Error" | wc -l`
+  assertTrue "log file number of error_lines bigger than 0" "[ $log_number_of_lines -gt 0 ]"
+  cd - > /dev/null 2>&1
+  rm -r -f ./tmp
+}
+
+test_shade_script_produces_output_that_is_geographically_correct() {
+  mkdir -p ./tmp
+  ../shade.sh ./data/a0000N19W156_filled_3857.tif ./tmp 2 3 > /dev/null 2>&1
+  file_path=`ls ./tmp/*.hillshade.tif`
+  raster_string_1=$( ../gdal_get_region_string.sh ./data/a0000N19W156_filled_3857.tif )
+  raster_string_2=$( ../gdal_get_region_string.sh $file_path )
+  assertEquals "$raster_string_1" "$raster_string_2"
+  rm -r -f ./tmp
+}
+
+test_shade_script_produces_output_that_its_size_is_correct_when_buffer_applied() {
+  mkdir -p ./tmp
+  cp ./data/a0000N19W156_filled_3857.tif ./tmp/a1111N19W156_filled_3857.tif
+  buffer=4
+  ../shade.sh ./tmp/a1111N19W156_filled_3857.tif ./tmp 2 $buffer > /dev/null 2>&1
+  file_path=`ls ./tmp/*.hillshade.tif`
+  
+  get_dataset_dimensions ./tmp/a1111N19W156_filled_3857.tif
+  src_size_in_pixels_x=${global_size_x}
+  src_size_in_pixels_y=${global_size_y}
+
+  unset global_size_x
+  unset global_size_y
+  get_dataset_dimensions $file_path
+  target_size_in_pixels_x=${global_size_x}
+  target_size_in_pixels_y=${global_size_y}
+
+  unset global_size_x
+  unset global_size_y
+
+  assertEquals "target file was cropped according to supllied buffer size x" $(( $src_size_in_pixels_x - $target_size_in_pixels_x )) $(( $buffer * 2 ))
+  assertEquals "target file was cropped according to supllied buffer size y" $(( $src_size_in_pixels_y - $target_size_in_pixels_y )) $(( $buffer * 2 ))
+  rm -r -f ./tmp
+}
+
+test_shade_script_produces_output_that_its_size_is_correct_when_buffer_at_south_and_east_is_applied() {
+  mkdir -p ./tmp
+
+  #w_buffer, e_buffer, s_buffer, n_buffer
+  input_file=./tmp/a0110N19W156_filled_3857.tif
+  cp ./data/a0000N19W156_filled_3857.tif $input_file
+  buffer=4
+  ../shade.sh $input_file ./tmp 2 $buffer > /dev/null 2>&1
+  file_path=`ls ./tmp/*.hillshade.tif`
+  
+  get_dataset_dimensions $input_file
+  src_size_in_pixels_x=${global_size_x}
+  src_size_in_pixels_y=${global_size_y}
+
+  unset global_size_x
+  unset global_size_y
+  get_dataset_dimensions $file_path
+  target_size_in_pixels_x=${global_size_x}
+  target_size_in_pixels_y=${global_size_y}
+
+  unset global_size_x
+  unset global_size_y
+  assertTrue "target file was cropped according to supllied buffer size x" "[ $(( $src_size_in_pixels_x - $target_size_in_pixels_x )) -eq $(( $buffer )) ]"
+  assertTrue "target file was cropped according to supllied buffer size y" "[ $(( $src_size_in_pixels_y - $target_size_in_pixels_y )) -eq $(( $buffer )) ]"
+  rm -r -f ./tmp
+}
+
+test_shade_all_script_produces_output_that_is_geographically_correct() {
+  mkdir -p ./tmp
+  output_file=./tmp/output.shade.tif
+  ../shade_all.sh ./data/a0000N19W156_filled_3857.tif $output_file 2 3 > /dev/null 2>&1
+  raster_string_1=$( ../gdal_get_region_string.sh ./data/a0000N19W156_filled_3857.tif )
+  raster_string_2=$( ../gdal_get_region_string.sh $output_file )
+  assertEquals "$raster_string_1" "$raster_string_2"
+  rm -r -f ./tmp
+}
+
 . ./shunit2/shunit2

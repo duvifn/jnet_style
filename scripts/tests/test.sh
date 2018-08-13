@@ -212,6 +212,7 @@ get_dataset_dimensions(){
   global_size_x=`echo $size_str | cut -d"," -f1`
   global_size_y=`echo $size_str | cut -d"," -f2`
 }
+
 test_create_vrt_files_correct_tile_size() {
   mkdir -p ./tmp
   data_file=./data/a0000N19W156_filled_3857.tif
@@ -358,6 +359,22 @@ test_shade_script_produces_output_that_its_size_is_correct_when_buffers_at_south
   rm -r -f ./tmp
 }
 
+test_shade_script_produces_error_log_file() {
+  mkdir -p ./tmp
+  output_dir=./tmp
+  input_file=./data/a0000N19W156_filled_3857.tif
+  base_name=`basename $input_file`
+  touch ${output_dir}/${base_name%.*}.hillshade.tif
+  # read only
+  chmod 0444 ${output_dir}/${base_name%.*}.hillshade.tif
+  
+  ../shade.sh $input_file $output_dir 2 3 > /dev/null 2>&1
+  . ../report_errors.sh
+  log_number_of_lines=`report_errors ./tmp/logs  | grep -i "Error" | wc -l`
+  assertTrue "log file number of error_lines bigger than 0" "[ $log_number_of_lines -gt 0 ]"
+  rm -r -f ./tmp
+}
+
 test_shade_all_script_produces_output_that_is_geographically_correct() {
   mkdir -p ./tmp
   output_file=./tmp/output.shade.tif
@@ -365,6 +382,18 @@ test_shade_all_script_produces_output_that_is_geographically_correct() {
   raster_string_1=$( ../gdal_get_region_string.sh ./data/a0000N19W156_filled_3857.tif )
   raster_string_2=$( ../gdal_get_region_string.sh $output_file )
   assertEquals "$raster_string_1" "$raster_string_2"
+  rm -r -f ./tmp
+}
+
+test_shade_all_script_produces_error_log_file() {
+  mkdir -p ./tmp
+  # make it read only
+  output_file=./tmp/output.shade.tif
+  touch $output_file
+  chmod 0444 $output_file
+  ../shade_all.sh ./data/a0000N19W156_filled_3857.tif $output_file 2 3 > /dev/null 2>&1
+  log_number_of_lines=`cat ${output_file}.error.log | grep -i "Error" | wc -l`
+  assertTrue "log file number of error_lines bigger than 0" "[ $log_number_of_lines -gt 0 ]"
   rm -r -f ./tmp
 }
 

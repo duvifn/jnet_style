@@ -7,13 +7,14 @@ if [ "$#" -lt 3 ]; then
     exit 1
 fi
 
-echo `date` Started...
+
 input_file=$1
 output_file=$2
 zFactor=$3
 number_of_jobs=${4:-6}
 
-log_path=${output_file}.error.log
+log_path=${output_file}.log
+echo `date` "Started..." >> $log_path
 
 output_dir=`dirname $output_file`
 mkdir -p ${output_dir}/tmp
@@ -51,4 +52,4 @@ else
     echo "Tmp folder was not deleted: " ${output_dir}/tmp
 fi
 # gdaladdo -ro --config TILED_OVERVIEW yes --config COMPRESS_OVERVIEW JPEG --config BIGTIFF_OVERVIEW YES --config INTERLEAVE_OVERVIEW PIXEL $output_dir/unified_hillshade.tif 2 4 8 16
-echo `date` Done.
+echo `date` "Done."  >> $log_path

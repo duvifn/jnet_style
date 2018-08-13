@@ -306,7 +306,7 @@ test_shade_script_produces_output_that_is_geographically_correct() {
   rm -r -f ./tmp
 }
 
-test_shade_script_produces_output_that_its_size_is_correct_when_buffer_applied() {
+test_shade_script_produces_output_that_its_size_is_correct_when_buffer_is_applied() {
   mkdir -p ./tmp
   cp ./data/a0000N19W156_filled_3857.tif ./tmp/a1111N19W156_filled_3857.tif
   buffer=4
@@ -331,7 +331,7 @@ test_shade_script_produces_output_that_its_size_is_correct_when_buffer_applied()
   rm -r -f ./tmp
 }
 
-test_shade_script_produces_output_that_its_size_is_correct_when_buffer_at_south_and_east_is_applied() {
+test_shade_script_produces_output_that_its_size_is_correct_when_buffers_at_south_and_east_are_applied() {
   mkdir -p ./tmp
 
   #w_buffer, e_buffer, s_buffer, n_buffer

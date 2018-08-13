@@ -37,9 +37,9 @@ try_and_log gdalbuildvrt -srcnodata -32768 -vrtnodata -32768 -input_file_list $o
 $SCRIPTPATH/translate.sh $output_dir/tmp/unified_hillshade.vrt $output_file "-a_nodata none -co COMPRESS=JPEG -co TILED=YES -co BIGTIFF=YES"
 
 . $SCRIPTPATH/report_errors.sh
-report_errors $output_dir/tmp/logs
+report_errors $output_dir/tmp/logs  >> $log_path
 err1=$?
-report_errors $output_dir
+report_errors $output_dir >> $log_path
 err2=$?
 
 if [ "$err1" -eq "0" ] && [ "$err2" -eq "0" ]
@@ -47,7 +47,8 @@ then
     # no errors
     rm -r -f ${output_dir}/tmp
 else
-    echo "The tmp folder was not deleted: " ${output_dir}/tmp
+    echo "Errors were reported. See $log_path. "
+    echo "Tmp folder was not deleted: " ${output_dir}/tmp
 fi
 # gdaladdo -ro --config TILED_OVERVIEW yes --config COMPRESS_OVERVIEW JPEG --config BIGTIFF_OVERVIEW YES --config INTERLEAVE_OVERVIEW PIXEL $output_dir/unified_hillshade.tif 2 4 8 16
 echo `date` Done.

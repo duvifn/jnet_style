@@ -45,9 +45,6 @@ If your map covers a large area, you can use the scripts in the `scripts` folder
 
 For example, processing hillshade for 1/4 of the world (30M per pixel) took only few hours with these scripts, instead of months with the original gdal commands.
 
-**Note:** 
-  The scripts create children processes in the background so stopping one of the scripts (`Ctrl+C`) won't terminate the processes.
-
 ### Preprocessing
 In order to use the scripts, you should:
 - Install gdal/ogr utilities (version >= 2.0).

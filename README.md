@@ -56,24 +56,26 @@ In order to use the scripts, you should:
 - Install python 2.7
 - Install GNU parallel
 - Download DEM data (you can use [phyghtmap](http://katze.tfiu.de/projects/phyghtmap/) for this). For example:
+  
   ```bash
   phyghtmap --area=-162.754757:16.294779:-150.279273:23.748636 --download-only --srtm=1 --earthexplorer-user=EARTHEXPLORER_USERNAME --earthexplorer-password=EARTHEXPLORER_PASSWORD --hgtdir ./hawaii_data
   ```
   (Sign up for [earthexplorer](https://earthexplorer.usgs.gov/) before).
 - Fill no data
+  
   ```bash
   cd ./hawaii_data/SRTM1v3.0
   
-  # Note that the following command uses shell expansion which can be a problem with a large number of of files (depends on your shell limits)- if this is the case use find with `-exec` flag.
-  # In addition, with a large number of files, consider parallel processing (using scripts/execute_async.sh).
   for tiffile in *.tif; do gdal_fillnodata.py $tiffile ${tiffile%%.tif}.filled.tif && rm $tiffile; done;
   ```
 - Make vrt
+  
   ```bash
   find . -iname '*.filled.tif' -exec echo {} >> ./file_list.txt \;
   gdalbuildvrt -srcnodata -32767 -vrtnodata -32767 -input_file_list ./file_list.txt ./unified_raster.vrt
   ```
 - Warp the data (virtualy)
+  
   ```bash
   gdalwarp -t_srs EPSG:3857 -of VRT -r cubicspline -tr 30 30 ./unified_raster.vrt ./unified_raster_30_3857.vrt
   gdalwarp -t_srs EPSG:3857 -of VRT -r cubicspline -tr 90 90 ./unified_raster.vrt ./unified_raster_90_3857.vrt
@@ -82,8 +84,18 @@ In order to use the scripts, you should:
   gdalwarp -t_srs EPSG:3857 -of VRT -r bilinear -tr 5000 5000 ./unified_raster.vrt ./unified_raster_5000_3857.vrt
   ```
 
+### Tests
+To ensure that everything is installed properly, you can run the tests:
+
+```bash
+cd scripts/tests
+./test.sh
+
+```
+
 ### Hillshades
 The following commands create hillshade rasters
+
 ```bash
 cd scripts
 ./shade_all.sh /full/path/to/hawaii_data/SRTM1v3.0/unified_raster_30_3857.vrt /full/path/to/hawaii_data/hillshades/hillshade_30.tif 2 <Number of concurrent jobs>

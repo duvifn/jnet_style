@@ -55,6 +55,13 @@ In order to use the scripts, you should:
 - Install osm2pgsql
 - Install python 2.7
 - Install GNU parallel
+- To ensure that everything is installed properly, you can run the tests:
+
+```bash
+cd scripts/tests
+./test.sh
+```
+
 - Download DEM data (you can use [phyghtmap](http://katze.tfiu.de/projects/phyghtmap/) for this). For example:
   
   ```bash
@@ -83,15 +90,6 @@ In order to use the scripts, you should:
   gdalwarp -t_srs EPSG:3857 -of VRT -r bilinear -tr 1000 1000 ./unified_raster.vrt ./unified_raster_1000_3857.vrt
   gdalwarp -t_srs EPSG:3857 -of VRT -r bilinear -tr 5000 5000 ./unified_raster.vrt ./unified_raster_5000_3857.vrt
   ```
-
-### Tests
-To ensure that everything is installed properly, you can run the tests:
-
-```bash
-cd scripts/tests
-./test.sh
-
-```
 
 ### Hillshades
 The following commands create hillshade rasters

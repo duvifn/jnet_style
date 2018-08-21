@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 # build with 'docker build -t compute_contours .'
-# run with 'docker run -u 1000 --security-opt seccomp:unconfined --rm -it -v /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/unpacked/filled_nodata/test:/input -v /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw:/output -w /src compute_contours "cd tests && ./test.sh"
+# run with 'docker run -u 1000 --security-opt seccomp:unconfined --rm -it -v /path/to/input:/input -v /path/to/output:/output -w /src compute_contours <script.sh>
 # Be aware that if the vrt is relative, you have to ensure that the entire relative path is defined as a volume on the container
 
 # grass should run as the owner user (root is not enough!)

@@ -7,11 +7,6 @@ import errno
 import argparse
 import sys
 
-# input_file = '/media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/unpacked/filled_nodata/test/output.vrt'
-# step_x = 7200
-# step_y = 7200
-# buffer = 100
-# output_dir = '/media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/unpacked/filled_nodata/test/output'
 
 parser = argparse.ArgumentParser(description='Takes an input file and produces a bunch of output files')
 parser.add_argument('-i' ,'--input_file', metavar='INPUT_FILE', type=str,
@@ -35,7 +30,7 @@ output_dir = args.output_dir
 def mkdir_p(path):
     try:
         os.makedirs(path)
-    except OSError as exc:  # Python >2.5
+    except OSError as exc: 
         if exc.errno == errno.EEXIST and os.path.isdir(path):
             pass
         else:
@@ -80,8 +75,6 @@ def process_tile(input_file, ulx, uly, cur_step_x, cur_step_y, buffer, rows, col
         u_ly = uly - buffer
         n_buffer = 1
 
-    # u_lx = max(ulx - buffer, 0)
-    # u_ly =  max(uly - buffer, 0)
     x_multiplyer = 1 if u_lx == 0 else 2
     y_multiplyer = 1 if u_ly == 0 else 2
     step = cur_step_x + buffer * x_multiplyer
@@ -99,8 +92,6 @@ def process_tile(input_file, ulx, uly, cur_step_x, cur_step_y, buffer, rows, col
     else:
         s_y = step
         s_buffer = 1
-    # s_x = min(step, cols - u_lx)
-    # s_y = min(step, rows - u_ly)
     
     # Create a name that indicates if a buffer was added or not, for each side
     # Some file types (vector for example) must start with a letter, since otherwise it's not SQL compliant

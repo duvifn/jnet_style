@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#./shade_all.sh /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/unpacked/filled_nodata/test/output_mercator_cubicspline.vrt /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/test_shading2/hillshade_30.tif 2 6
-
 if [ "$#" -lt 3 ]; then
     echo "Illegal number of parameters. The following parameters are required: input_file, output_file, zFactor. Optional parameter: number of jobs"
     exit 1

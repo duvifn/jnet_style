@@ -10,14 +10,6 @@ host=$2
 user=$3
 log_path=$4
 
-# https://askubuntu.com/questions/811439/bash-set-x-logs-to-file
-exec   > >(tee -ia $log_path.full)
-exec  2> >(tee -ia $log_path.full >& 2)
-exec 19> $log_path.full
-
-export BASH_XTRACEFD="19"
-set -x
-
 echo START `date` >> $log_path
 # https://stackoverflow.com/questions/4774054/reliable-way-for-a-bash-script-to-get-the-full-path-to-itself
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"

@@ -21,15 +21,6 @@ output=${output_dir}/${base_name%.*}.shp
 mkdir -p $log_dir
 log_path=${log_dir}/${base_name}.error.log
 buffer_mask_string=${base_name:1:4}
-# https://askubuntu.com/questions/811439/bash-set-x-logs-to-file
-#exec {FD}>>$log_path.full
-
-# exec   > >(tee -ia $log_path.full)
-# exec  2> >(tee -ia $log_path.full >& 2)
-# exec {FD}> $log_path.full
-# set -x
-export BASH_XTRACEFD=$FD
-
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 # define try_and_log function

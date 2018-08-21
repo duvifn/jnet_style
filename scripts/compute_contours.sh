@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#./compute_contours.sh /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/unpacked/filled_nodata/test/output_mercator.vrt /media/duvi/Extreme/TopoOSM/OpenTopoMap/raw/output34 8
-
 if [ "$#" -ne 3 ]; then
     echo "Illegal number of parameters. The following parameters are required: input file, output dir, and number of jobs"
     exit 1

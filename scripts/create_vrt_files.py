@@ -36,19 +36,6 @@ def mkdir_p(path):
         else:
             raise
 
-regex_max_id = r'.*max_id \(Integer\)[^\d]*(\d+)'
-def get_max_way_node_ids(pbf_path):
-    script_path = path.realpath(__file__)
-    dir_path = path.dirname(script_path)
-
-    info_nodes = subprocess.check_output(["ogrinfo", pbf_path, "-dialect", "sqlite","-sql", "select max(cast(osm_id as int)) AS max_id from points", "-oo", "CONFIG_FILE=%s/osmconf.ini" % dir_path])
-    info_ways = subprocess.check_output(["ogrinfo", pbf_path, "-dialect", "sqlite","-sql", "select max(cast(osm_id as int)) AS max_id from lines", "-oo", "CONFIG_FILE=%s/osmconf.ini" % dir_path])
-
-    node_max_id = re.search(regex_max_id, info_nodes).group(1)
-    way_max_id = re.search(regex_max_id, info_ways).group(1)
-    
-    return (int(way_max_id), int(node_max_id))
-
 
 regex_rows_cols = r'Size is (\d+)[, ]+(\d+)'
 def get_cols_rows(input_file):

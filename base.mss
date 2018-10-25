@@ -159,7 +159,7 @@ Map { background-color: @water; }
 #hillshade_30::z17[zoom=17] {
   image-filters: agg-stack-blur(24,24);
 }
-#hillshade_30::z18[zoom=18] {
+#hillshade_30::z18[zoom>=18] {
   image-filters: agg-stack-blur(24,24);
 }
 
@@ -201,7 +201,7 @@ Map { background-color: @water; }
 }
 
 #hillshade_30 {
-  [zoom>=15][zoom<=18]{
+  [zoom>=15][zoom<=19]{
     raster-comp-op: grain-merge;
     raster-scaling: bilinear;
     raster-opacity:0.58;

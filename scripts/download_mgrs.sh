@@ -1,3 +1,4 @@
+# see http://earth-info.nga.mil/GandG/coordsys/grids/mgrs_1km_polygon_dloads.html
 num_of_jobs=6
 output_dir=./
 

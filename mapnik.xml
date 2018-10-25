@@ -11,7 +11,7 @@
   <Parameter name="scale">1</Parameter>
   <Parameter name="metatile">1</Parameter>
   <Parameter name="id"><![CDATA[general]]></Parameter>
-  <Parameter name="_updated">1533812409000</Parameter>
+  <Parameter name="_updated">1540463604000</Parameter>
   <Parameter name="attribution"><![CDATA[Data © OpenStreetMap (and) contributors, ODbL]]></Parameter>
   <Parameter name="name"><![CDATA[JNet]]></Parameter>
   <Parameter name="tilejson"><![CDATA[2.0.0]]></Parameter>
@@ -1452,7 +1452,7 @@ ELSE tags -> 'name:$language_code'  END as name
 <Style name="hillshade_30" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <MinScaleDenominator>1500</MinScaleDenominator>
+    <MinScaleDenominator>750</MinScaleDenominator>
     <RasterSymbolizer comp-op="grain-merge" scaling="bilinear" opacity="0.58" />
   </Rule>
 </Style>
@@ -43710,96 +43710,6 @@ ELSE tags -> 'name:$language_code'  END as name
     </Datasource>
   </Layer>
 
-<Style name="buildings" filter-mode="first">
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'hedge')</Filter>
-    <PolygonSymbolizer fill="#d0d0d0" />
-    <LineSymbolizer stroke="#b7b7b7" stroke-width="0.4" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'hedge')</Filter>
-    <PolygonSymbolizer fill="#d0d0d0" />
-    <LineSymbolizer stroke="#c3c3c3" stroke-width="0.2" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([type] = 'hedge')</Filter>
-    <BuildingSymbolizer fill="#c3d9ad" height="1.25" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] = 'hedge')</Filter>
-    <PolygonSymbolizer fill="#d0d0d0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] != 'hedge')</Filter>
-    <PolygonSymbolizer fill="#d0d0d0" />
-    <LineSymbolizer stroke="#b7b7b7" stroke-width="0.4" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] != 'hedge')</Filter>
-    <PolygonSymbolizer fill="#d0d0d0" />
-    <LineSymbolizer stroke="#c3c3c3" stroke-width="0.2" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <Filter>([type] != 'hedge')</Filter>
-    <BuildingSymbolizer fill="#d0d0d0" height="1.25" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <Filter>([type] != 'hedge')</Filter>
-    <PolygonSymbolizer fill="#d0d0d0" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <PolygonSymbolizer fill="#d0d0d0" />
-    <LineSymbolizer stroke="#b7b7b7" stroke-width="0.4" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <PolygonSymbolizer fill="#d0d0d0" />
-    <LineSymbolizer stroke="#c3c3c3" stroke-width="0.2" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>200000</MaxScaleDenominator>
-    <MinScaleDenominator>50000</MinScaleDenominator>
-    <PolygonSymbolizer fill="#d0d0d0" />
-  </Rule>
-</Style>
-<Layer name="buildings"
-  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
-    <StyleName>buildings</StyleName>
-    <Datasource>
-       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
-       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
-       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
-       <Parameter name="key_field"><![CDATA[]]></Parameter>
-       <Parameter name="password"><![CDATA[$password]]></Parameter>
-       <Parameter name="table"><![CDATA[( SELECT way, "building" AS type
-  FROM planet_osm_polygon
-  WHERE building NOT IN ('', '0','false', 'no')
-  ORDER BY ST_YMin(ST_Envelope(way)) DESC
-) AS data]]></Parameter>
-       <Parameter name="type"><![CDATA[postgis]]></Parameter>
-       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
-       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
-       <Parameter name="host"><![CDATA[$host]]></Parameter>
-    </Datasource>
-  </Layer>
-
 <Style name="airports-points" filter-mode="first">
   <Rule>
     <MaxScaleDenominator>750000</MaxScaleDenominator>
@@ -47235,6 +47145,163 @@ oneway
        <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
        <Parameter name="host"><![CDATA[$host]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Style name="buildings" filter-mode="first">
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] != 'hedge') and ([height] = 0)</Filter>
+    <PolygonSymbolizer fill="#d0d0d0" />
+    <BuildingSymbolizer height="0" fill="[color]" />
+    <LineSymbolizer stroke="#b7b7b7" stroke-width="0.4" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <Filter>([type] != 'hedge') and ([height] = 0)</Filter>
+    <BuildingSymbolizer height="0" fill="[color]" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] != 'hedge') and ([height] = 0)</Filter>
+    <PolygonSymbolizer fill="#d0d0d0" />
+    <BuildingSymbolizer fill="[color]" />
+    <LineSymbolizer stroke="#b7b7b7" stroke-width="0.4" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] != 'hedge') and ([height] = 0)</Filter>
+    <PolygonSymbolizer fill="#d0d0d0" />
+    <LineSymbolizer stroke="#c3c3c3" stroke-width="0.2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] != 'hedge') and ([height] = 0)</Filter>
+    <PolygonSymbolizer fill="#d0d0d0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <Filter>([type] != 'hedge')</Filter>
+    <BuildingSymbolizer height="[height]" fill="[color]" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] != 'hedge')</Filter>
+    <PolygonSymbolizer fill="#d0d0d0" />
+    <BuildingSymbolizer fill="[color]" height="1.25" />
+    <LineSymbolizer stroke="#b7b7b7" stroke-width="0.4" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] != 'hedge')</Filter>
+    <PolygonSymbolizer fill="#d0d0d0" />
+    <BuildingSymbolizer fill="[color]" />
+    <LineSymbolizer stroke="#b7b7b7" stroke-width="0.4" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] != 'hedge')</Filter>
+    <PolygonSymbolizer fill="#d0d0d0" />
+    <LineSymbolizer stroke="#c3c3c3" stroke-width="0.2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] != 'hedge')</Filter>
+    <PolygonSymbolizer fill="#d0d0d0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'hedge')</Filter>
+    <PolygonSymbolizer fill="#d0d0d0" />
+    <BuildingSymbolizer fill="[color]" height="1.25" />
+    <LineSymbolizer stroke="#b7b7b7" stroke-width="0.4" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'hedge')</Filter>
+    <PolygonSymbolizer fill="#d0d0d0" />
+    <BuildingSymbolizer fill="[color]" />
+    <LineSymbolizer stroke="#b7b7b7" stroke-width="0.4" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'hedge')</Filter>
+    <PolygonSymbolizer fill="#d0d0d0" />
+    <LineSymbolizer stroke="#c3c3c3" stroke-width="0.2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <Filter>([type] = 'hedge')</Filter>
+    <BuildingSymbolizer fill="#c3d9ad" height="1.25" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <Filter>([type] = 'hedge')</Filter>
+    <PolygonSymbolizer fill="#d0d0d0" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <PolygonSymbolizer fill="#d0d0d0" />
+    <BuildingSymbolizer fill="[color]" />
+    <LineSymbolizer stroke="#b7b7b7" stroke-width="0.4" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <PolygonSymbolizer fill="#d0d0d0" />
+    <LineSymbolizer stroke="#c3c3c3" stroke-width="0.2" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>200000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <PolygonSymbolizer fill="#d0d0d0" />
+  </Rule>
+</Style>
+<Layer name="buildings"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>buildings</StyleName>
+    <Datasource>
+       <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
+       <Parameter name="table"><![CDATA[(SELECT way, type, height, category, CONCAT('#', repeat(
+	LPAD(
+		to_hex(
+			255 - LEAST(CAST((4 * POWER(category, 2.3) ) AS INTEGER), 190)), 
+		2, '0'), 3))
+	as color
+FROM 
+(SELECT way,  type, height,
+CASE WHEN ( height > 0 ) THEN log(2.0, height ) ELSE 1.0  END as category
+  FROM (
+     SELECT way, "building" AS type,
+      CASE WHEN ( tags->'height' IS NOT NULL AND tags->'height' ~ '^\s*[0-9]+(\.[0-9]+)?\s*$' ) THEN (tags->'height')::numeric ELSE 0.0 END AS height  
+  FROM planet_osm_polygon
+  WHERE building NOT IN ('', '0','false', 'no')
+  ORDER BY ST_YMin(ST_Envelope(way)) DESC
+) s ) m ) AS data]]></Parameter>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
+       <Parameter name="id"><![CDATA[buildings]]></Parameter>
+       <Parameter name="project"><![CDATA[general]]></Parameter>
+       <Parameter name="srs"><![CDATA[+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over]]></Parameter>
     </Datasource>
   </Layer>
 

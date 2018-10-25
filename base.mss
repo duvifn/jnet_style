@@ -6,6 +6,46 @@
  *
  */
 
+/* ---- BUILDINGS ---- */
+#buildings[zoom>=12][zoom<=17] {
+  polygon-fill:@building;
+  [zoom>=14] {
+    line-color:darken(@building,5%);
+    line-width:0.2;
+  }
+  [zoom>=16] {
+    building-fill: [color];
+    line-color:darken(@building,10%);
+    line-width:0.4;
+  }
+}
+// At the highest zoom levels, render buildings in fancy pseudo-3D.
+// Ordering polygons by their Y-position is necessary for this effect
+// so we use a separate layer that does this for us.
+#buildings[zoom>=17][type != 'hedge'] {
+  building-fill: [color];
+  building-height: 1.25;
+  [zoom>=18] {building-height: [height];}
+  [height=0.0]{
+    building-height: 0;
+  }
+}
+
+#buildings[zoom>=17][type = 'hedge'] {
+  building-fill:@wooded;
+  building-height:1.25;
+}
+/*#buildings::label[zoom >= 18]{
+    text-name:[height];
+    text-face-name:@sans;
+    text-placement: interior;
+    text-fill:#000;
+    text-halo-fill: @place_halo;
+    text-halo-radius: 1;
+    text-size: 8;
+    //polygon-opacity: 0;
+}*/
+
 /* ================================================================== */
 /* LANDUSE & LANDCOVER
 /* ================================================================== */
@@ -97,31 +137,8 @@ Map { background-color: @water; }
   [zoom>11][zoom<=14] { polygon-pattern-file:url(img/marsh-16.png); }
   [zoom>14] { polygon-pattern-file:url(img/marsh-32.png);}
   }
-
 /* ---- BUILDINGS ---- */
-#buildings[zoom>=12][zoom<=16] {
-  polygon-fill:@building;
-  [zoom>=14] {
-    line-color:darken(@building,5%);
-    line-width:0.2;
-  }
-  [zoom>=16] {
-    line-color:darken(@building,10%);
-    line-width:0.4;
-  }
-}
-// At the highest zoom levels, render buildings in fancy pseudo-3D.
-// Ordering polygons by their Y-position is necessary for this effect
-// so we use a separate layer that does this for us.
-#buildings[zoom>=17][type != 'hedge'] {
-  building-fill:@building;
-  building-height:1.25;
-}
 
-#buildings[zoom>=17][type = 'hedge'] {
-  building-fill:@wooded;
-  building-height:1.25;
-}
 
 #hillshade_90::z13[zoom=13] {
   image-filters: agg-stack-blur(1,1);

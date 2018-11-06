@@ -1,4 +1,5 @@
 # see http://earth-info.nga.mil/GandG/coordsys/grids/mgrs_1km_polygon_dloads.html
+# and https://en.wikipedia.org/wiki/Military_Grid_Reference_System
 num_of_jobs=6
 output_dir=/media/duvi/Extreme/mgrs_grid
 
@@ -26,7 +27,8 @@ download() {
     fi
 }
 
-for letter in {C..X}
+
+for letter in {W..X}
 do
     for number in {1..60}
     do

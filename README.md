@@ -4,16 +4,17 @@
 A simple topographic, [OSM-Bright](https://github.com/mapbox/osm-bright) based CartoCSS style
 
 ## Why another CartoCSS style?
-Just because I didn't find a topographic CartoCSS style.
+Because I didn't find a topographic CartoCSS style that fits my needs.
 
 ## Install
 The style uses the same shapefiles (`simplified_land_polygons.shp` and `land_polygons.shp` only) and tables layout as [opestreetmap-carto](https://github.com/gravitystorm/openstreetmap-carto) style, so refer to the [INSTALL guide](https://github.com/gravitystorm/openstreetmap-carto/blob/master/INSTALL.md) in order to get the shapefiles and populate the DB.
 
-In addition, the style uses hillshades files and contours DB (contains contour data, in webmercator projection).
+In addition, the style uses hillshades files, contours DBs (contain contour data, in webmercator projection) and grid DB.
 
-To create them, use [OpenTopoMap guide](https://github.com/der-stefan/OpenTopoMap/blob/master/mapnik/HOWTO_DEM.md) or see [below](#large-scale-contours-and-hillshade-datasets).
+To create hillshade and contours, use [OpenTopoMap guide](https://github.com/der-stefan/OpenTopoMap/blob/master/mapnik/HOWTO_DEM.md) or see [below](#large-scale-contours-and-hillshade-datasets).
 
-Be aware that the style uses also `contours_20` DB, which is a simplified version (with an error of 20M) of `contours` DB, for the lower levels. You can populate the simplified version by the grass gis `v.generalize` command, or by using the phyghtmap `simplifyContoursEpsilon` flag.
+Be aware that this style uses also `contours_20` DB, which is a simplified version (with an error of 20M) of `contours` DB, for the lower levels. You can populate the simplified version by the grass gis `v.generalize` command, or by using the phyghtmap `simplifyContoursEpsilon` flag.
+
 
 
 Build `mapnik.xml` using `build.py` script.
@@ -34,6 +35,23 @@ The parameters are:
 - `--simplified_land_polygons` (required): A path to **simplified** land shapefile (see [openstreetmap-carto shapefiles](https://github.com/gravitystorm/openstreetmap-carto/blob/master/INSTALL.md#manual-download)).
 - `--land_polygons` (required): A path to land shapefile (see [openstreetmap-carto shapefiles](https://github.com/gravitystorm/openstreetmap-carto/blob/master/INSTALL.md#manual-download)).
 - `--language` (optional): The prefered language code in which the place labels should be rendered. Default: `en`.
+
+## Grid Data
+It's pretty easy to produce 1 KM grid, but the projection to use depends on the area the map covers. For a world wide 1 KM grid you can use [MGRS](http://earth-info.nga.mil/GandG/coordsys/grids/mgrs_1km_polygon_dloads.html). See `download_mgrs.sh` and `load_grid_to_db.sh` scripts.
+Create a grid db:
+
+```bash
+sudo -u postgres createdb grid -O $USER
+
+sudo -u postgres psql grid -c 'CREATE EXTENSION postgis;'
+
+# Load an empty pbf, just for creating the tables, indexes, etc. You can find the PBF file in scripts/contours_empty.pbf
+osm2pgsql --slim -d grid -U $USER -W --cache 5000 --style grid.style contours_empty.pbf
+
+# Load downloaded zip files to the db
+./load_grid_to_db.sh <input zip files directory> <DB host> <User name> <log file path>
+
+```
 
 ## Serving Tiles
 There are a lot of options to serve mapnik rendered tiles. For example, see [this guide](https://switch2osm.org/manually-building-a-tile-server-18-04-lts/).

@@ -46,7 +46,7 @@ sudo -u postgres createdb grid -O $USER
 sudo -u postgres psql grid -c 'CREATE EXTENSION postgis;'
 
 # Load an empty pbf, just for creating the tables, indexes, etc. You can find the PBF file in scripts/contours_empty.pbf
-osm2pgsql --slim -d grid -U $USER -W --cache 5000 --style grid.style contours_empty.pbf
+osm2pgsql -d grid -U $USER -W --cache 5000 --style grid.style contours_empty.pbf
 
 # Load downloaded zip files to the db
 ./load_grid_to_db.sh <input zip files directory> <DB host> <User name> <log file path>
@@ -160,8 +160,8 @@ sudo -u postgres psql contours -c 'CREATE EXTENSION postgis;'
 sudo -u postgres psql contours_20 -c 'CREATE EXTENSION postgis;'
 
 # Load empty pbf, just for creating the tables, indexes, etc. You can find the PBF file in scripts/contours_empty.pbf
-osm2pgsql --slim -d contours -U $USER -W --cache 5000 --style contours.style contours_empty.pbf
-osm2pgsql --slim -d contours_20 -U $USER -W --cache 5000 --style contours.style contours_empty.pbf
+osm2pgsql -d contours -U $USER -W --cache 5000 --style contours.style contours_empty.pbf
+osm2pgsql -d contours_20 -U $USER -W --cache 5000 --style contours.style contours_empty.pbf
 
 # Load shapefiles to the db. The <contours folder> is the output folder you gave in the above ./compute_contours.sh command
 ./load_shapefiles_to_db.sh <contours folder> <postgres host> <postgres user> /path/to/logs/folder/log.txt

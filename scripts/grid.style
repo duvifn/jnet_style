@@ -1,8 +1,2 @@
 # OsmType  Tag          DataType     Flags
-node,way   easting         text         linear
-node,way   northing         text         linear
-node,way   kmSQ_ID         text         linear
-node,way   GZD         text         linear
-node,way   mgrs         text         linear
-node,way   mgrs_10km         text         linear
-way        way_area     real                # This is calculated during import
+way,node   mgrs         text         linear

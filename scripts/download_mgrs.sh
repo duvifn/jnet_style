@@ -28,7 +28,7 @@ download() {
 }
 
 
-for letter in {W..X}
+for letter in {C..X}
 do
     for number in {1..60}
     do
@@ -45,3 +45,4 @@ do
         ( download $output_dir/tmp $url $output_dir ) &
     done
 done
+wait

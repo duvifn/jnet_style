@@ -5,7 +5,22 @@
  * - Administrative Boundaries
  *
  */
+/* 1 KM GRID*/
 
+/*#one-km-grid {
+	[zoom>=12][zoom<=13]{
+  	  line-color: #a5a5a5;
+      line-width: 0.3;
+ 	}
+  [zoom=14]{
+  	  line-color: #888;
+      line-width: 0.5;
+ 	}
+  [zoom>=15]{
+  	  line-color: #666;
+      line-width: 0.8;
+ 	}
+}*/
 /* ---- BUILDINGS ---- */
 #buildings[zoom>=12][zoom<=17] {
   polygon-fill:@building;
@@ -35,16 +50,7 @@
   building-fill:@wooded;
   building-height:1.25;
 }
-/*#buildings::label[zoom >= 18]{
-    text-name:[height];
-    text-face-name:@sans;
-    text-placement: interior;
-    text-fill:#000;
-    text-halo-fill: @place_halo;
-    text-halo-radius: 1;
-    text-size: 8;
-    //polygon-opacity: 0;
-}*/
+
 
 /* ================================================================== */
 /* LANDUSE & LANDCOVER

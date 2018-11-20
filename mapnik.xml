@@ -11,7 +11,7 @@
   <Parameter name="scale">1</Parameter>
   <Parameter name="metatile">1</Parameter>
   <Parameter name="id"><![CDATA[general]]></Parameter>
-  <Parameter name="_updated">1540463604000</Parameter>
+  <Parameter name="_updated">1542716200000</Parameter>
   <Parameter name="attribution"><![CDATA[Data © OpenStreetMap (and) contributors, ODbL]]></Parameter>
   <Parameter name="name"><![CDATA[JNet]]></Parameter>
   <Parameter name="tilejson"><![CDATA[2.0.0]]></Parameter>
@@ -47287,7 +47287,7 @@ oneway
 	as color
 FROM 
 (SELECT way,  type, height,
-CASE WHEN ( height > 0 ) THEN log(2.0, height ) ELSE 1.0  END as category
+CASE WHEN ( height > 1.0 ) THEN log(2.0, height ) ELSE 1.0  END as category
   FROM (
      SELECT way, "building" AS type,
       CASE WHEN ( tags->'height' IS NOT NULL AND tags->'height' ~ '^\s*[0-9]+(\.[0-9]+)?\s*$' ) THEN (tags->'height')::numeric ELSE 0.0 END AS height  
@@ -48183,6 +48183,24 @@ ELSE tags -> 'name:$language_code'  END as name
        <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
        <Parameter name="host"><![CDATA[$host]]></Parameter>
        <Parameter name="dbname"><![CDATA[$db_name]]></Parameter>
+       <Parameter name="user"><![CDATA[$user_name]]></Parameter>
+       <Parameter name="password"><![CDATA[$password]]></Parameter>
+    </Datasource>
+  </Layer>
+
+<Layer name="one-km-grid"
+  status="off"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    
+    <Datasource>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+       <Parameter name="table"><![CDATA[(select way from planet_osm_polygon) as _subquery]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[]]></Parameter>
+       <Parameter name="extent_cache"><![CDATA[auto]]></Parameter>
+       <Parameter name="extent"><![CDATA[-20037508.34,-20037508.34,20037508.34,20037508.34]]></Parameter>
+       <Parameter name="dbname"><![CDATA[grid]]></Parameter>
+       <Parameter name="host"><![CDATA[$host]]></Parameter>
        <Parameter name="user"><![CDATA[$user_name]]></Parameter>
        <Parameter name="password"><![CDATA[$password]]></Parameter>
     </Datasource>

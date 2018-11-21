@@ -7,7 +7,7 @@
  */
 /* 1 KM GRID*/
 
-/*#one-km-grid {
+#one-km-grid {
 	[zoom>=12][zoom<=13]{
   	  line-color: #a5a5a5;
       line-width: 0.3;
@@ -20,7 +20,7 @@
   	  line-color: #666;
       line-width: 0.8;
  	}
-}*/
+}
 /* ---- BUILDINGS ---- */
 #buildings[zoom>=12][zoom<=17] {
   polygon-fill:@building;
@@ -40,7 +40,7 @@
 #buildings[zoom>=17][type != 'hedge'] {
   building-fill: [color];
   building-height: 1.25;
-  [zoom>=18] {building-height: [height];}
+  [zoom>=19] {building-height: [height];}
   [height=0.0]{
     building-height: 0;
   }

@@ -29,8 +29,7 @@ do
     shp=${output_folder}/${base_name%.zip}.shp
 
     # convert 
-    #try_and_log ogr2ogr -explodecollections -update -append -fieldmap 1,2,3,4,-1,5,6,-1,-1 -t_srs EPSG:3857 -f PostgreSQL "PG:dbname=grid host=$host user=$user password=$password" $shp -nln planet_osm_polygon
-    try_and_log ogr2ogr -explodecollections -update -append -fieldmap -1,-1,-1,-1,-1,1,-1,-1,-1 -t_srs EPSG:3857 -f PostgreSQL "PG:dbname=grid host=$host user=$user password=$password" $shp -nln planet_osm_polygon
+    try_and_log ogr2ogr -explodecollections -update -append -fieldmap "`python get_field_map.py $shp`" -t_srs EPSG:3857 -f PostgreSQL "PG:dbname=grid host=$host user=$user password=$password" $shp -nln planet_osm_polygon
     try_and_log rm -r -f $output_folder
 done
 echo END `date` >> $log_path

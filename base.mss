@@ -8,18 +8,18 @@
 /* 1 KM GRID*/
 
 #one-km-grid {
-	[zoom>=12][zoom<=13]{
+	[zoom>=12]{
   	  line-color: #a5a5a5;
       line-width: 0.3;
  	}
-  [zoom=14]{
+  [zoom>=14]{
   	  line-color: #888;
-      line-width: 0.5;
+      line-width: 0.4;
  	}
-  [zoom>=15]{
+  /*[zoom>=15]{
   	  line-color: #666;
       line-width: 0.8;
- 	}
+ 	}*/
 }
 /* ---- BUILDINGS ---- */
 #buildings[zoom>=15][zoom<=17] {

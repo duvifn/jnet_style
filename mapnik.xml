@@ -11,7 +11,7 @@
   <Parameter name="scale">1</Parameter>
   <Parameter name="metatile">1</Parameter>
   <Parameter name="id"><![CDATA[general]]></Parameter>
-  <Parameter name="_updated">1542806896000</Parameter>
+  <Parameter name="_updated">1542900630000</Parameter>
   <Parameter name="attribution"><![CDATA[Data © OpenStreetMap (and) contributors, ODbL]]></Parameter>
   <Parameter name="name"><![CDATA[JNet]]></Parameter>
   <Parameter name="tilejson"><![CDATA[2.0.0]]></Parameter>
@@ -1039,76 +1039,6 @@ ELSE tags -> 'name:$language_code'  END as name
   </Rule>
   <Rule>
     <MaxScaleDenominator>750</MaxScaleDenominator>
-    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke-dasharray="10, 4" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500</MaxScaleDenominator>
-    <MinScaleDenominator>750</MinScaleDenominator>
-    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="1" stroke-dasharray="10, 4" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <MinScaleDenominator>1500</MinScaleDenominator>
-    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="0.7" stroke-dasharray="10, 4" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="0.5" stroke-dasharray="10, 4" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="0.3" stroke-dasharray="10, 4" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-dasharray="10, 4" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750</MaxScaleDenominator>
-    <Filter>([type] = 'ditch')</Filter>
-    <LineSymbolizer stroke-width="1.5" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500</MaxScaleDenominator>
-    <MinScaleDenominator>750</MinScaleDenominator>
-    <Filter>([type] = 'ditch')</Filter>
-    <LineSymbolizer stroke-width="1" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <MinScaleDenominator>1500</MinScaleDenominator>
-    <Filter>([type] = 'ditch')</Filter>
-    <LineSymbolizer stroke-width="0.7" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'ditch')</Filter>
-    <LineSymbolizer stroke-width="0.5" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'ditch')</Filter>
-    <LineSymbolizer stroke-width="0.3" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'ditch')</Filter>
-    <LineSymbolizer stroke-width="3" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750</MaxScaleDenominator>
     <Filter>([type] = 'drain') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="1.5" stroke-dasharray="10, 4" stroke="#c4dff6" />
   </Rule>
@@ -1179,6 +1109,146 @@ ELSE tags -> 'name:$language_code'  END as name
   </Rule>
   <Rule>
     <MaxScaleDenominator>750</MaxScaleDenominator>
+    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke-dasharray="10, 4" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <MinScaleDenominator>750</MinScaleDenominator>
+    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="1" stroke-dasharray="10, 4" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <MinScaleDenominator>1500</MinScaleDenominator>
+    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="0.7" stroke-dasharray="10, 4" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="0.5" stroke-dasharray="10, 4" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="0.3" stroke-dasharray="10, 4" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'ditch') and ([int_intermittent] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-dasharray="10, 4" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750</MaxScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="1.5" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <MinScaleDenominator>750</MinScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="1" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <MinScaleDenominator>1500</MinScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="0.7" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="0.5" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="0.3" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'ditch')</Filter>
+    <LineSymbolizer stroke-width="3" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750</MaxScaleDenominator>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <MinScaleDenominator>750</MinScaleDenominator>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <MinScaleDenominator>1500</MinScaleDenominator>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750</MaxScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>1500</MaxScaleDenominator>
+    <MinScaleDenominator>750</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>2500</MaxScaleDenominator>
+    <MinScaleDenominator>1500</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>5000</MaxScaleDenominator>
+    <MinScaleDenominator>2500</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>12500</MaxScaleDenominator>
+    <MinScaleDenominator>5000</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>12500</MinScaleDenominator>
+    <Filter>([type] = 'river')</Filter>
+    <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#c4dff6" />
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>750</MaxScaleDenominator>
     <Filter>([type] = 'canal') and ([int_intermittent] = 'yes')</Filter>
     <LineSymbolizer stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#c4dff6" />
   </Rule>
@@ -1245,76 +1315,6 @@ ELSE tags -> 'name:$language_code'  END as name
     <MaxScaleDenominator>25000</MaxScaleDenominator>
     <MinScaleDenominator>12500</MinScaleDenominator>
     <Filter>([type] = 'canal')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750</MaxScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500</MaxScaleDenominator>
-    <MinScaleDenominator>750</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <MinScaleDenominator>1500</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'river') and ([int_intermittent] = 'yes')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 4" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>750</MaxScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
-    <LineSymbolizer stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>1500</MaxScaleDenominator>
-    <MinScaleDenominator>750</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
-    <LineSymbolizer stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>2500</MaxScaleDenominator>
-    <MinScaleDenominator>1500</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
-    <LineSymbolizer stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>5000</MaxScaleDenominator>
-    <MinScaleDenominator>2500</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
-    <LineSymbolizer stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>12500</MaxScaleDenominator>
-    <MinScaleDenominator>5000</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
-    <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#c4dff6" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <MinScaleDenominator>12500</MinScaleDenominator>
-    <Filter>([type] = 'river')</Filter>
     <LineSymbolizer stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke="#c4dff6" />
   </Rule>
   <Rule>
@@ -48173,18 +48173,13 @@ ELSE tags -> 'name:$language_code'  END as name
 
 <Style name="one-km-grid" filter-mode="first">
   <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <LineSymbolizer stroke="#888888" stroke-width="0.4" />
+  </Rule>
+  <Rule>
     <MaxScaleDenominator>200000</MaxScaleDenominator>
     <MinScaleDenominator>50000</MinScaleDenominator>
     <LineSymbolizer stroke="#a5a5a5" stroke-width="0.3" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>25000</MaxScaleDenominator>
-    <LineSymbolizer stroke="#666666" stroke-width="0.8" />
-  </Rule>
-  <Rule>
-    <MaxScaleDenominator>50000</MaxScaleDenominator>
-    <MinScaleDenominator>25000</MinScaleDenominator>
-    <LineSymbolizer stroke="#888888" stroke-width="0.5" />
   </Rule>
 </Style>
 <Layer name="one-km-grid"

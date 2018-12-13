@@ -20,8 +20,8 @@ echo Postgres password:
 read password
 
 counter=1
-number=`find $input_dir -not -iname '*_simplified20_*' -iname '*.shp' | wc -l`
-for shp in `find $input_dir -not -iname '*_simplified20_*' -iname '*.shp'`;
+number=`find $input_dir -not -iname '*_simplified20*' -iname '*.shp' | wc -l`
+for shp in `find $input_dir -not -iname '*_simplified20*' -iname '*.shp'`;
 do 
     # ogr version >= 2.0
     echo loading $shp
@@ -30,8 +30,8 @@ do
 done
 
 counter=1
-number=`find $input_dir -iname '*_simplified20_*.shp' | wc -l`
-for shp in `find $input_dir -iname '*_simplified20_*.shp'`;
+number=`find $input_dir -iname '*_simplified20*.shp' | wc -l`
+for shp in `find $input_dir -iname '*_simplified20*.shp'`;
 do 
     echo loading $shp
     # ogr version >= 2.0

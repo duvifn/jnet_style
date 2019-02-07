@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:18.10
 # build with 'docker build -t compute_contours .'
 # run with 'docker run -u 1000 --security-opt seccomp:unconfined --rm -it -v /path/to/input:/input -v /path/to/output:/output -w /src compute_contours <script.sh>
 # Be aware that if the vrt is relative, you have to ensure that the entire relative path is defined as a volume on the container
@@ -14,6 +14,7 @@ WORKDIR /src
 
 RUN apt-get update
 RUN apt-get install -y python
+RUN apt-get install -y unzip
 RUN apt-get install -y gdal-bin python-gdal
 RUN apt-get install -y bc
 RUN apt-get install -y grass grass-doc

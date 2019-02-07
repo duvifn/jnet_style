@@ -2,7 +2,6 @@ from osgeo import ogr
 import sys
 
 file_name = sys.argv[1]
-print file_name
 ds = ogr.Open(file_name)
 lyr = ds.GetLayer()
 

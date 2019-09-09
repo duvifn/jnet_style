@@ -132,7 +132,7 @@ Map { font-directory: url(./fonts); }
 /* BOUNDARY COLORS
 /* ================================================================== */
 
-@admin_2:           rgb(255,255,255);
+@admin_2:           #777;//rgb(255,255,255);
 
 /* ================================================================== */
 /* LABEL COLORS
@@ -156,7 +156,7 @@ Map { font-directory: url(./fonts); }
 
 @poi_text:          #888;
 
-@road_text:         #777;
+@road_text:         #000;
 @road_halo:         #fff;
 
 @other_text:        #888;

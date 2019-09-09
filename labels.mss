@@ -13,7 +13,7 @@
     text-name:[ele];
     text-face-name:@sans;
     text-placement:line;
-    text-fill:#a2a2a2;
+    text-fill:@road_text;
     text-halo-fill: @place_halo;
     text-halo-radius: 1;
     text-min-path-length: 200.0;
@@ -27,6 +27,7 @@
 #contours[fifty = true][ele != 0][zoom>=14][zoom<=17]{
   text-name:[ele] ;
   text-face-name:@sans;
+  text-fill:@road_text;
   text-placement:line;
   [zoom=14] {text-fill: #aaa; } 
   [zoom > 14] {text-fill: #a2a2a2; }
@@ -45,7 +46,7 @@
   text-name:"[ele].replace('([0-9]+)\.(.+)','$1')";
   text-face-name:@sans;
   text-placement:line;
-  text-fill:#a2a2a2;
+  text-fill:@road_text;
   text-halo-fill: @place_halo;
   text-halo-radius: 1;
   [zoom >= 16] {text-size: 10; }
@@ -131,19 +132,6 @@
 /* ---- Cities ------------------------------------------------------ */
 
 #place::city[type='city'][zoom>=8][zoom<=15] {
-  
-  /*::inner {
-    [zoom>=10] {
-      marker-type: ellipse;
-      marker-fill: black;
-      marker-width: 5;
-      marker-height: 5;
-      marker-placement: point;
-      marker-line-width: 0;
-      marker-line-opacity: 0.65;
-      marker-allow-overlap: true;
-    }
-  }*/
   ::labels {
     text-name:'[name]';
     text-face-name:@sans;
@@ -151,10 +139,6 @@
     text-fill:@city_text;
     text-halo-fill:@city_halo;
     text-halo-radius:0.5;
-    /*text-placement-type: simple;
-    text-placements: "N,W,E,NW,NE,SE,8";
-    text-dx: -7;
-    text-dy: -10;*/
     
     [zoom<=8] {
       text-size: 9;
@@ -477,16 +461,6 @@
        line-pattern-file: url('img/cliff2.svg');
     }
   }
-/*#landuse_gen1[zoom>=14][type='park'],
-#landuse_residental[zoom>=14][type='park'] {
-	text-name: "[name]";
-    text-face-name:@sans;
-    text-size: 12;
-    text-wrap-width: 30;
-    text-line-spacing: -1.5;
-    text-placement: interior;
-    text-fill: darken(@park, 20%);
- }*/
 
 @landcover-font-size: 10;
 @landcover-wrap-width-size: 30; // 3 em

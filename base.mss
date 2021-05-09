@@ -24,7 +24,7 @@
     line-color:darken(@building,5%);
     line-width:0.2;
   }
-  [zoom>=16] {
+  [zoom>=15] {
     building-fill: [color];
     line-color:darken(@building,10%);
     line-width:0.4;

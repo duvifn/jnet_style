@@ -10,7 +10,7 @@
     <Parameter name="scale">1</Parameter>
     <Parameter name="metatile">1</Parameter>
     <Parameter name="id"><![CDATA[general]]></Parameter>
-    <Parameter name="_updated">1619630995000</Parameter>
+    <Parameter name="_updated">1620567988000</Parameter>
     <Parameter name="attribution"><![CDATA[Data © OpenStreetMap (and) contributors, ODbL]]></Parameter>
     <Parameter name="name"><![CDATA[JNet]]></Parameter>
     <Parameter name="tilejson"><![CDATA[2.0.0]]></Parameter>
@@ -47078,19 +47078,12 @@ oneway
       <BuildingSymbolizer fill="[color]" height="0" />
     </Rule>
     <Rule>
-      <MaxScaleDenominator>12500</MaxScaleDenominator>
+      <MaxScaleDenominator>25000</MaxScaleDenominator>
       <MinScaleDenominator>5000</MinScaleDenominator>
       <Filter><![CDATA[([type] != 'hedge') and ([height] = 0)]]></Filter>
       <PolygonSymbolizer fill="#d0d0d0" />
       <BuildingSymbolizer fill="[color]" />
       <LineSymbolizer stroke="#b7b7b7" stroke-width="0.4" />
-    </Rule>
-    <Rule>
-      <MaxScaleDenominator>25000</MaxScaleDenominator>
-      <MinScaleDenominator>12500</MinScaleDenominator>
-      <Filter><![CDATA[([type] != 'hedge') and ([height] = 0)]]></Filter>
-      <PolygonSymbolizer fill="#d0d0d0" />
-      <LineSymbolizer stroke="#c3c3c3" stroke-width="0.2" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>1500</MaxScaleDenominator>
@@ -47106,19 +47099,12 @@ oneway
       <LineSymbolizer stroke="#b7b7b7" stroke-width="0.4" />
     </Rule>
     <Rule>
-      <MaxScaleDenominator>12500</MaxScaleDenominator>
+      <MaxScaleDenominator>25000</MaxScaleDenominator>
       <MinScaleDenominator>5000</MinScaleDenominator>
       <Filter><![CDATA[([type] != 'hedge')]]></Filter>
       <PolygonSymbolizer fill="#d0d0d0" />
       <BuildingSymbolizer fill="[color]" />
       <LineSymbolizer stroke="#b7b7b7" stroke-width="0.4" />
-    </Rule>
-    <Rule>
-      <MaxScaleDenominator>25000</MaxScaleDenominator>
-      <MinScaleDenominator>12500</MinScaleDenominator>
-      <Filter><![CDATA[([type] != 'hedge')]]></Filter>
-      <PolygonSymbolizer fill="#d0d0d0" />
-      <LineSymbolizer stroke="#c3c3c3" stroke-width="0.2" />
     </Rule>
     <Rule>
       <MaxScaleDenominator>2500</MaxScaleDenominator>
@@ -47135,7 +47121,7 @@ oneway
       <LineSymbolizer stroke="#b7b7b7" stroke-width="0.4" />
     </Rule>
     <Rule>
-      <MaxScaleDenominator>12500</MaxScaleDenominator>
+      <MaxScaleDenominator>25000</MaxScaleDenominator>
       <MinScaleDenominator>5000</MinScaleDenominator>
       <Filter><![CDATA[([type] = 'hedge')]]></Filter>
       <PolygonSymbolizer fill="#d0d0d0" />
@@ -47143,29 +47129,16 @@ oneway
       <LineSymbolizer stroke="#b7b7b7" stroke-width="0.4" />
     </Rule>
     <Rule>
-      <MaxScaleDenominator>25000</MaxScaleDenominator>
-      <MinScaleDenominator>12500</MinScaleDenominator>
-      <Filter><![CDATA[([type] = 'hedge')]]></Filter>
-      <PolygonSymbolizer fill="#d0d0d0" />
-      <LineSymbolizer stroke="#c3c3c3" stroke-width="0.2" />
-    </Rule>
-    <Rule>
       <MaxScaleDenominator>2500</MaxScaleDenominator>
       <Filter><![CDATA[([type] = 'hedge')]]></Filter>
       <BuildingSymbolizer fill="#c3d9ad" height="1.25" />
     </Rule>
     <Rule>
-      <MaxScaleDenominator>12500</MaxScaleDenominator>
+      <MaxScaleDenominator>25000</MaxScaleDenominator>
       <MinScaleDenominator>2500</MinScaleDenominator>
       <PolygonSymbolizer fill="#d0d0d0" />
       <BuildingSymbolizer fill="[color]" />
       <LineSymbolizer stroke="#b7b7b7" stroke-width="0.4" />
-    </Rule>
-    <Rule>
-      <MaxScaleDenominator>25000</MaxScaleDenominator>
-      <MinScaleDenominator>12500</MinScaleDenominator>
-      <PolygonSymbolizer fill="#d0d0d0" />
-      <LineSymbolizer stroke="#c3c3c3" stroke-width="0.2" />
     </Rule>
   </Style>
   <Layer name="buildings" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
